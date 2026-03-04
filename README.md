@@ -1,25 +1,25 @@
-# TÍTULO DO PROJETO
+# SILVER
 
-`CURSO`
+`PUC - Análise e Desenvolvimento de Sistemas`
 
-`DISCIPLINA`
+`Eixo 4 - Sistemas Distribuídos`
 
-`SEMESTRE`
+`4º SEMESTRE`
 
-Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo desenvolvido.
+Silver é uma aplicação distribuída de alto desempenho projetada para auxiliar pessoas a organizarem melhor suas finanças. O sistema foca em acessibilidade e eficiência, permitindo a gestão inteligente de ativos e despesas em um ambiente distribuído.
 
 ## Integrantes
 
-* Nome completo do aluno 1
-* Nome completo do aluno 2
-* Nome completo do aluno 3
-* Nome completo do aluno 4
-* Nome completo do aluno 5
-* Nome completo do aluno 6
+* Adrian Sodré da Silva
+* Aécio Ribeiro Dantas Neto
+* Nathan David Reis
+* Victor da Silva Folgado
+* Vinícius Soares Pires e Luz
+* Yago Lopes Miranda
 
 ## Orientador
 
-* Nome completo do professor 1
+* Carolina Stephanie Jerônimo de Almeida
 
 ## Instruções de utilização
 

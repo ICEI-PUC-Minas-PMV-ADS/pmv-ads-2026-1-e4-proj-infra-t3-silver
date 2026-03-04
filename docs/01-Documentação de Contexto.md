@@ -1,46 +1,33 @@
 # Introdução
 
-Texto descritivo com a visão geral do projeto abordado. Inclui o contexto, o problema, os objetivos, a justificativa e o público-alvo do projeto.
+O cenário financeiro doméstico contemporâneo exige agilidade e precisão na gestão de recursos. Com a proliferação de meios de pagamento e a descentralização das contas, manter um controle financeiro rigoroso tornou-se um desafio para muitas famílias brasileiras. O projeto **Silver** surge como uma plataforma distribuída de alta performance, projetada para unificar o controle de orçamento doméstico em uma arquitetura moderna e acessível, integrando interfaces Web, Mobile e ferramentas de mensageria instantânea.
 
 ## Problema
-Nesse momento você deve apresentar o problema que a sua aplicação deve  resolver. No entanto, não é a hora de comentar sobre a aplicação.
 
-Descreva também o contexto em que essa aplicação será usada, se  houver: empresa, tecnologias, etc. Novamente, descreva apenas o que de  fato existir, pois ainda não é a hora de apresentar requisitos  detalhados ou projetos.
+O principal obstáculo para uma saúde financeira sustentável não é apenas a falta de conhecimento, mas a **fricção no registro das informações**. Processos manuais lentos ou aplicativos complexos desencorajam o usuário a manter o hábito do registro diário. Além disso, existe a dificuldade de manter a consistência dos dados entre diferentes dispositivos usados no dia a dia (celular durante as compras, computador no fechamento do mês). 
 
-Nesse momento, o grupo pode optar por fazer uso  de ferramentas como Design Thinking, que permite um olhar de ponta a ponta para o problema.
-
-> **Links Úteis**:
-> - [Objetivos, Problema de pesquisa e Justificativa](https://medium.com/@versioparole/objetivos-problema-de-pesquisa-e-justificativa-c98c8233b9c3)
-> - [Matriz Certezas, Suposições e Dúvidas](https://medium.com/educa%C3%A7%C3%A3o-fora-da-caixa/matriz-certezas-suposi%C3%A7%C3%B5es-e-d%C3%BAvidas-fa2263633655)
-> - [Brainstorming](https://www.euax.com.br/2018/09/brainstorming/)
+O **Silver** resolve esse problema ao oferecer múltiplos pontos de entrada, especialmente via WhatsApp, reduzindo a barreira de entrada para o registro de transações e garantindo a sincronização em tempo real em uma arquitetura distribuída.
 
 ## Objetivos
 
-Aqui você deve descrever os objetivos do trabalho indicando que o objetivo geral é desenvolver um software para solucionar o problema apresentado acima. 
+### Objetivo Geral
+Desenvolver uma plataforma distribuída composta por uma API robusta em Laravel, um Dashboard Web para análises complexas e integração com chatbot WhatsApp para automação do controle financeiro pessoal.
 
-Apresente também alguns (pelo menos 2) objetivos específicos dependendo de onde você vai querer concentrar a sua prática investigativa, ou como você vai aprofundar no seu trabalho.
- 
-> **Links Úteis**:
-> - [Objetivo geral e objetivo específico: como fazer e quais verbos utilizar](https://blog.mettzer.com/diferenca-entre-objetivo-geral-e-objetivo-especifico/)
+### Objetivos Específicos
+- Implementar um backend escalável em Laravel para processamento de transações e gestão de metas.
+- Desenvolver um Dashboard Web completo para visualização de relatórios e planejamento orçamentário.
+- Integrar um serviço de mensageria via WhatsApp para inserção rápida de receitas e despesas.
+- Garantir a integridade e sincronização dos dados entre as diferentes interfaces da plataforma.
+- Prover um sistema de metas e orçamentos que ajude o usuário no planejamento financeiro de curto e longo prazo.
 
 ## Justificativa
 
-Descreva a importância ou a motivação para trabalhar com esta aplicação que você escolheu. Indique as razões pelas quais você escolheu seus objetivos específicos ou as razões para aprofundar em certos aspectos do software.
-
-O grupo de trabalho pode fazer uso de questionários, entrevistas e dados estatísticos, que podem ser apresentados, com o objetivo de esclarecer detalhes do problema que será abordado pelo grupo.
-
-> **Links Úteis**:
-> - [Como montar a justificativa](https://guiadamonografia.com.br/como-montar-justificativa-do-tcc/)
+Diferente de soluções legadas que focam em uma única plataforma, o **Silver** justifica-se pela sua natureza distribuída. A escolha do **Laravel** no backend permite uma gestão de dados segura e eficiente, enquanto a interface Web entrega o poder analítico necessário para o planejamento doméstico. A grande inovação reside na integração com o **WhatsApp**, transformando uma ferramenta de comunicação cotidiana em um terminal financeiro potente, eliminando o esquecimento e a preguiça no registro de gastos. O projeto foca na experiência do usuário e na produtividade, democratizando o acesso a ferramentas de gestão financeira profissional.
 
 ## Público-Alvo
 
-Descreva quem serão as pessoas que usarão a sua aplicação indicando os diferentes perfis. O objetivo aqui não é definir quem serão os clientes ou quais serão os papéis dos usuários na aplicação. A ideia é, dentro do possível, conhecer um pouco mais sobre o perfil dos usuários: conhecimentos prévios, relação com a tecnologia, relações
-hierárquicas, etc.
-
-Adicione informações sobre o público-alvo por meio de uma descrição textual, diagramas de personas e mapa de stakeholders.
-
-> **Links Úteis**:
-> - [Público-alvo](https://blog.hotmart.com/pt-br/publico-alvo/)
-> - [Como definir o público alvo](https://exame.com/pme/5-dicas-essenciais-para-definir-o-publico-alvo-do-seu-negocio/)
-> - [Público-alvo: o que é, tipos, como definir seu público e exemplos](https://klickpages.com.br/blog/publico-alvo-o-que-e/)
-> - [Qual a diferença entre público-alvo e persona?](https://rockcontent.com/blog/diferenca-publico-alvo-e-persona/)
+O projeto é direcionado a:
+- **Famílias modernas**: Que precisam compartilhar e centralizar o controle de gastos domésticos.
+- **Profissionais autônomos**: Que necessitam separar finanças pessoais de contas profissionais de forma rápida.
+- **Usuários mobile-first**: Que utilizam o WhatsApp como principal ferramenta de interação digital e buscam praticidade extrema.
+- **Entusiastas de planejamento**: Que utilizam dashboards web para análise de dados e projeções financeiras.
