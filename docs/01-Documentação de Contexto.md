@@ -10,9 +10,17 @@ Dessa forma, os usuários podem acessar suas informações financeiras em difere
 
 ## Problema
 
-O principal obstáculo para uma saúde financeira sustentável não é apenas a falta de conhecimento, mas a **fricção no registro das informações**. Processos manuais lentos ou aplicativos complexos desencorajam o usuário a manter o hábito do registro diário. Além disso, existe a dificuldade de manter a consistência dos dados entre diferentes dispositivos usados no dia a dia (celular durante as compras, computador no fechamento do mês). 
+Muitas pessoas enfrentam dificuldades para manter um controle financeiro consistente no dia a dia. Apesar de reconhecerem a importância de acompanhar receitas e despesas, a rotina acelerada e a falta de ferramentas práticas acabam dificultando a manutenção desse hábito. Como consequência, gastos deixam de ser registrados, o que compromete a visão real da situação financeira e dificulta o planejamento de curto e longo prazo.
 
-O **Silver** resolve esse problema ao oferecer múltiplos pontos de entrada, especialmente via WhatsApp, reduzindo a barreira de entrada para o registro de transações e garantindo a sincronização em tempo real em uma arquitetura distribuída.
+Um dos principais problemas está na **fricção existente no processo de registro das informações financeiras**. Diversos aplicativos disponíveis exigem múltiplas etapas para registrar uma simples transação, como selecionar categorias, preencher vários campos ou navegar por diferentes telas. Esse processo torna o registro lento e pouco prático, especialmente em situações cotidianas, como durante compras ou pagamentos rápidos.
+
+Além disso, outro desafio relevante é a **falta de consistência no uso das ferramentas ao longo do tempo**. Muitos usuários iniciam o uso de aplicativos de controle financeiro, porém acabam abandonando essas soluções após algumas semanas devido à complexidade das interfaces ou à dificuldade de registrar informações de forma rápida.
+
+Outro fator importante é a **diversidade de dispositivos utilizados no cotidiano**. Usuários frequentemente utilizam o celular para registrar despesas no momento da compra e o computador para visualizar relatórios ou planejar o orçamento mensal. Quando as ferramentas não oferecem uma sincronização eficiente entre diferentes plataformas, podem ocorrer atrasos na atualização dos dados ou dificuldades de acesso às informações mais recentes.
+
+Diante desse cenário, torna-se necessário desenvolver soluções que **reduzam a complexidade do registro financeiro e se adaptem ao comportamento digital dos usuários**, permitindo que o controle de gastos seja integrado de forma natural ao cotidiano. Ferramentas que ofereçam múltiplas formas de interação e acesso facilitado tendem a aumentar a adesão dos usuários e a continuidade do uso.
+
+Nesse contexto, o **Silver** busca enfrentar esse problema ao oferecer uma plataforma que simplifica o registro de transações financeiras e disponibiliza diferentes pontos de acesso ao sistema. A proposta inclui a integração com aplicações Web, Mobile e ferramentas de mensageria instantânea, permitindo que os usuários registrem e consultem suas informações financeiras de maneira prática.
 
 ## Objetivos
 
