@@ -58,6 +58,27 @@ As tabelas a seguir apresentam os requisitos funcionais e não funcionais que de
 | **RNF05** | O tempo de processamento padrão da API não deve exceder 3 segundos. | Alta |
 | **RNF06** | O banco de dados relacional deve garantir integridade e atomicidade das transações. | Alta |
 
+## Matriz de Rastreabilidade
+
+A matriz de rastreabilidade de requisitos é utilizada para garantir que cada requisito do sistema esteja vinculado a um objetivo de negócio (história de usuário) e a um componente de projeto (caso de uso/módulo).
+
+| Requisito | História de Usuário | Caso de Uso / Módulo |
+| :--- | :--- | :--- |
+| **RF01** | Maria / João - Registrar transação | UC01 - Registrar Transação (WhatsApp/Web) |
+| **RF02** | João / Carlos - Visualizar Dashboard | UC02 - Visualizar Painel Financeiro |
+| **RF03** | Carlos - Sincronização de Dispositivos | Módulo de Sincronização de Dados |
+| **RF04** | Maria - Categorizar Contas | UC03 - Gerenciar Categorias |
+| **RF05** | João - Saldo Consolidado | Módulo de Cálculo Financeiro |
+| **RF06** | Carlos - Metas de Economia | UC04 - Gerenciar Metas |
+| **RF07** | Geral - Autenticação | UC05 - Autenticar Usuário |
+| **RF08** | Adrian - Exportar Relatórios | UC06 - Gerar Relatórios |
+| **RF09** | Nathan - Alertas WhatsApp | Módulo de Notificações |
+| **RF10** | Victor - Anexar Comprovantes | UC07 - Upload de Documentos |
+| **RF11** | Vinícius - Orçamentos Mensais | UC08 - Gerenciar Orçamentos |
+| **RF12** | Yago - Histórico Filtrável | UC09 - Consultar Histórico |
+
+![Matriz de Rastreabilidade](img/02-matriz-rastreabilidade.png)
+
 ## Restrições
 
 O projeto está restrito pelas condições apresentadas na tabela a seguir:
@@ -82,6 +103,80 @@ O diagrama de casos de uso ilustra a fronteira do sistema e o detalhamento das p
 
 ![Diagrama de Caso de Uso](img/silvercas.png)
 
+## Descrição dos Casos de Uso
+
+A seguir, são detalhados os fluxos principais e exceções dos casos de uso que compõem o sistema Silver.
+
+### UC01 - Registrar Transação (WhatsApp/Web)
+- **Ator**: Usuário.
+- **Descrição**: Permite o registro de uma nova entrada (receita) ou saída (despesa).
+- **Fluxo Básico**: 
+    1. O usuário envia o valor e descrição via WhatsApp ou preenche o formulário na Web.
+    2. O sistema valida os dados e a categoria.
+    3. O sistema confirma o registro e atualiza o saldo.
+- **Exceção**: Valor inválido ou falta de conexão com o banco de dados.
+
+### UC02 - Visualizar Painel Financeiro
+- **Ator**: Usuário.
+- **Descrição**: Exibe o saldo consolidado e gráficos de desempenho financeiro.
+- **Fluxo Básico**:
+    1. O usuário acessa o Dashboard Web ou a tela principal do App.
+    2. O sistema recupera as transações do mês vigente.
+    3. O sistema renderiza os gráficos e o saldo atual.
+
+### UC03 - Gerenciar Categorias
+- **Ator**: Usuário.
+- **Descrição**: Permite personalizar as categorias de gastos (ex: Alimentação, Lazer).
+- **Fluxo Básico**:
+    1. O usuário acessa a área de configurações de categorias.
+    2. O usuário cria, edita ou exclui uma categoria (nome, cor, ícone).
+    3. O sistema salva as alterações.
+
+### UC04 - Gerenciar Metas
+- **Ator**: Usuário.
+- **Descrição**: Define objetivos financeiros de economia.
+- **Fluxo Básico**:
+    1. O usuário define um valor alvo e uma data limite.
+    2. O sistema monitora as economias vinculadas à meta.
+    3. O sistema exibe a porcentagem de conclusão.
+
+### UC05 - Autenticar Usuário
+- **Ator**: Usuário.
+- **Descrição**: Garante o acesso seguro à plataforma.
+- **Fluxo Básico**:
+    1. O usuário informa e-mail e senha.
+    2. O sistema valida as credenciais via API Laravel.
+    3. O sistema gera um token de acesso (JWT/Sanctum).
+
+### UC06 - Gerar Relatórios
+- **Ator**: Usuário.
+- **Descrição**: Exporta dados financeiros para consulta offline.
+- **Fluxo Básico**:
+    1. O usuário seleciona o período e o formato (PDF/CSV).
+    2. O sistema processa os dados e gera o arquivo.
+    3. O download é iniciado automaticamente.
+
+### UC07 - Upload de Documentos
+- **Ator**: Usuário.
+- **Descrição**: Permite anexar fotos de recibos às transações.
+- **Fluxo Básico**:
+    1. O usuário seleciona uma transação existente.
+    2. O usuário faz o upload da imagem do comprovante.
+    3. O sistema vincula o arquivo à transação no storage.
+
+### UC08 - Gerenciar Orçamentos
+- **Ator**: Usuário.
+- **Descrição**: Define limites de gastos por categoria para o mês.
+- **Fluxo Básico**:
+    1. O usuário define um teto de gastos para uma categoria específica.
+    2. O sistema alerta quando o gasto se aproxima do limite.
+
+### UC09 - Consultar Histórico
+- **Ator**: Usuário.
+- **Descrição**: Permite a busca e filtragem de transações passadas.
+- **Fluxo Básico**:
+    1. O usuário utiliza filtros (data, categoria, valor).
+    2. O sistema exibe a lista de transações correspondentes.
 
 # Gerenciamento de Projeto
 
