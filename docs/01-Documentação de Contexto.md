@@ -1,6 +1,12 @@
 # Introdução
 
-O cenário financeiro doméstico contemporâneo exige agilidade e precisão na gestão de recursos. Com a proliferação de meios de pagamento e a descentralização das contas, manter um controle financeiro rigoroso tornou-se um desafio para muitas famílias brasileiras. O projeto **Silver** surge como uma plataforma distribuída de alta performance, projetada para unificar o controle de orçamento doméstico em uma arquitetura moderna e acessível, integrando interfaces Web, Mobile e ferramentas de mensageria instantânea.
+O cenário financeiro doméstico contemporâneo exige agilidade e precisão na gestão de recursos. Com a proliferação de meios de pagamento e a descentralização das contas, manter um controle financeiro rigoroso tornou-se um desafio para muitas famílias brasileiras.
+
+Diante dessa realidade, surge o projeto Silver, uma plataforma digital projetada para auxiliar no gerenciamento do orçamento doméstico de forma integrada e intuitiva. A proposta da plataforma é oferecer uma solução tecnológica capaz de centralizar informações financeiras em um único ambiente, permitindo ao usuário registrar, visualizar e analisar suas movimentações financeiras de maneira prática e organizada.
+
+Nesse contexto, o Silver é concebido como uma plataforma distribuída de alta performance, projetada para unificar o controle do orçamento doméstico por meio de uma arquitetura moderna e acessível. Para atender às demandas atuais de acessibilidade e mobilidade, o sistema foi idealizado com uma arquitetura distribuída que possibilita a integração entre diferentes interfaces, como aplicações Web, Mobile e ferramentas de mensageria instantânea.
+
+Dessa forma, os usuários podem acessar suas informações financeiras em diferentes dispositivos e contextos de uso, ampliando a flexibilidade, a usabilidade e a praticidade na gestão do orçamento doméstico.
 
 ## Problema
 
