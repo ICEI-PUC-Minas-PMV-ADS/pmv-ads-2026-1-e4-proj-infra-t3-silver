@@ -80,9 +80,8 @@ O **Silver** utiliza uma arquitetura distribuída composta pelos seguintes compo
 
 O diagrama de casos de uso ilustra a fronteira do sistema e o detalhamento das principais interações dos usuários com os serviços distribuídos oferecidos pelo Silver.
 
-![Diagrama de Caso de Uso](img/usecase.svg)
+![Diagrama de Caso de Uso](img/silvercas.png)
 
-*(Nota: O arquivo `usecase.svg` será gerado e inserido na pasta de imagens do projeto durante a fase de prototipação).*
 
 # Gerenciamento de Projeto
 
