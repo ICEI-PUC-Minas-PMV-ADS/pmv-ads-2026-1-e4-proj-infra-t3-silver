@@ -187,7 +187,7 @@ O desenvolvimento foi estruturado em um cronograma macro de 16 semanas, dividido
 - **Semanas 9-12 (Mês 3)**: Desenvolvimento da integração com WhatsApp (Bridge) e rotas de API.
 - **Semanas 13-16 (Mês 4)**: Desenvolvimento do App Mobile, testes de sincronização, correções e entrega final.
 
-![docs/img/Imagem 08-03-2026 às 09.21.png](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2026-1-e4-proj-infra-t3-silver/tree/main/docs/img#:~:text=Imagem-,08%2D03%2D2026,-às%2009.21.png)
+![docs/img/Imagem 08-03-2026 às 09.21.png](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2026-1-e4-proj-infra-t3-silver/blob/c71054814b0316cc10633c9244d9b5c945c7adbe/docs/img/Imagem%2008-03-2026%20a%CC%80s%2009.21.png)
 
 ## Gerenciamento de Custos
 
