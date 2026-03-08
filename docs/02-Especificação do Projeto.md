@@ -6,7 +6,7 @@ Este capítulo detalha as especificações do projeto **Silver** a partir da per
 
 ## Personas
 
-Para compreender as necessidades e dores dos usuários, foram desenvolvidas três personas baseadas no público-alvo identificado.
+Para compreender as necessidades, dores e objetivos dos usuários, foram desenvolvidas três personas baseadas no público alvo identificado. Elas representam perfis distintos que se beneficiarão da solução proposta.
 
 | Foto | Perfil | Detalhes | Motivações e Comportamento |
 | :--- | :--- | :--- | :--- |
