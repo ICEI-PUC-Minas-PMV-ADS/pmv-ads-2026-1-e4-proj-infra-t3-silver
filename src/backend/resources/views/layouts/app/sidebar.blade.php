@@ -3,6 +3,7 @@
     <head>
         @include('partials.head')
     </head>
+
     <body class="min-h-screen bg-white dark:bg-zinc-800">
         <flux:sidebar sticky collapsible="mobile" class="border-e border-zinc-200 bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900">
             <flux:sidebar.header>
@@ -12,8 +13,22 @@
 
             <flux:sidebar.nav>
                 <flux:sidebar.group :heading="__('Plataforma')" class="grid">
-                    <flux:sidebar.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>
+                    <flux:sidebar.item
+                        icon="home"
+                        :href="route('dashboard')"
+                        :current="request()->routeIs('dashboard')"
+                        wire:navigate
+                    >
                         {{ __('Painel') }}
+                    </flux:sidebar.item>
+
+                    <flux:sidebar.item
+                        icon="flag"
+                        :href="route('goals.index')"
+                        :current="request()->routeIs('goals.*')"
+                        wire:navigate
+                    >
+                        {{ __('Metas') }}
                     </flux:sidebar.item>
                 </flux:sidebar.group>
             </flux:sidebar.nav>
@@ -74,6 +89,7 @@
 
                     <form method="POST" action="{{ route('logout') }}" class="w-full">
                         @csrf
+
                         <flux:menu.item
                             as="button"
                             type="submit"
