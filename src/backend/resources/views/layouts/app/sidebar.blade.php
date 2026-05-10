@@ -15,6 +15,9 @@
                     <flux:sidebar.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>
                         {{ __('Painel') }}
                     </flux:sidebar.item>
+                    <flux:sidebar.item icon="wallet" :href="route('budgets.index')" :current="request()->routeIs('budgets.index')" wire:navigate>
+                        {{ __('Orçamentos') }}
+                    </flux:sidebar.item>
                 </flux:sidebar.group>
             </flux:sidebar.nav>
 
