@@ -18,6 +18,9 @@
                     <flux:sidebar.item icon="wallet" :href="route('budgets.index')" :current="request()->routeIs('budgets.index')" wire:navigate>
                         {{ __('Orçamentos') }}
                     </flux:sidebar.item>
+                    <flux:sidebar.item icon="wallet" :href="route('transactions.rec-desp')":current="request()->routeIs('transactions.rec-desp')"wire:navigate>
+                        {{ __('Transações') }}
+                    </flux:sidebar.item>
                 </flux:sidebar.group>
             </flux:sidebar.nav>
 
