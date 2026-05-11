@@ -1,4 +1,4 @@
-<x-layouts.app :title="__('Metas')">
+<x-layouts::app :title="__('Metas')">
     <div class="flex h-full w-full flex-1 flex-col gap-6 rounded-xl">
 
         <div class="flex items-center justify-between">
@@ -98,4 +98,4 @@
             </table>
         </div>
     </div>
-</x-layouts.app>
+</x-layouts::app>
