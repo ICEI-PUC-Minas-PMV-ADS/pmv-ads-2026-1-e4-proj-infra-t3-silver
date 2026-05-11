@@ -24,10 +24,16 @@ new #[Title('Painel')] class extends Component {
         $user = Auth::user();
         if (!$user->familyId) return 0;
 
-        return Transaction::where('familyId', $user->familyId)
+        $transactions = Transaction::where('familyId', $user->familyId)
             ->where('type', 'expense')
-            ->where('date', '>=', Carbon::now()->startOfMonth())
-            ->sum('amount');
+            ->get();
+
+        $startOfMonth = Carbon::now()->startOfMonth();
+
+        return $transactions->filter(function($t) use ($startOfMonth) {
+            $date = is_string($t->date) ? Carbon::parse($t->date) : $t->date;
+            return $date && $date->gte($startOfMonth);
+        })->sum('amount');
     }
 
     #[Computed]
@@ -36,10 +42,16 @@ new #[Title('Painel')] class extends Component {
         $user = Auth::user();
         if (!$user->familyId) return 0;
 
-        return Transaction::where('familyId', $user->familyId)
+        $transactions = Transaction::where('familyId', $user->familyId)
             ->where('type', 'income')
-            ->where('date', '>=', Carbon::now()->startOfMonth())
-            ->sum('amount');
+            ->get();
+
+        $startOfMonth = Carbon::now()->startOfMonth();
+
+        return $transactions->filter(function($t) use ($startOfMonth) {
+            $date = is_string($t->date) ? Carbon::parse($t->date) : $t->date;
+            return $date && $date->gte($startOfMonth);
+        })->sum('amount');
     }
 
     #[Computed]
