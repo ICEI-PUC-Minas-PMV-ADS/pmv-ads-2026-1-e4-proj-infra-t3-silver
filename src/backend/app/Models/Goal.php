@@ -14,7 +14,7 @@ class Goal extends Model
     protected $collection = 'goals';
 
     protected $fillable = [
-        'user_id',
+        'userId',
         'title',
         'description',
         'target_amount',
@@ -29,11 +29,8 @@ class Goal extends Model
         'deadline' => 'datetime',
     ];
 
-    /**
-     * Relacionamento com usuário
-     */
     public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'user_id', '_id');
+        return $this->belongsTo(User::class, 'userId', '_id');
     }
 }
