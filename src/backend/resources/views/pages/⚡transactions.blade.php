@@ -4,11 +4,12 @@
   use Illuminate\Support\Facades\Auth;
   use Livewire\Attributes\Title;
   use Livewire\Attributes\Computed;
+  use Livewire\Attributes\Layout;
   use Livewire\Attributes\On;
   use Livewire\Component;
   use Carbon\Carbon;
 
-  new #[Title('Transações')] class extends Component
+  new #[Title('Transações')] #[Layout('layouts::app')] class extends Component
   {
       /* --------------------------------------------------------------
          Dados “computados” – usados no markup
@@ -96,7 +97,7 @@
       #[On('refresh-list')] public function refresh() { unset($this->recent); }
   };
   ?>
-  <x-layouts::app :title="__('Transações')">
+  <div>
   
       <div class="p-6 space-y-8">
 
@@ -227,4 +228,4 @@
               </div>
           </form>
       </flux:modal>
-  </x-layouts::app>
+  </div>
