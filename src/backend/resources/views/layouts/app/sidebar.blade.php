@@ -21,6 +21,9 @@
                     >
                         {{ __('Painel') }}
                     </flux:sidebar.item>
+                    <flux:sidebar.item icon="building-library" :href="route('accounts.index')" :current="request()->routeIs('accounts.index')" wire:navigate>
+                        {{ __('Contas') }}
+                    </flux:sidebar.item>
                     <flux:sidebar.item icon="wallet" :href="route('budgets.index')" :current="request()->routeIs('budgets.index')" wire:navigate>
                         {{ __('Orçamentos') }}
                     </flux:sidebar.item>
