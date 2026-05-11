@@ -23,6 +23,7 @@
       {
           return Transaction::where('familyId', $this->familyId)
               ->where('type', 'income')
+              ->get()
               ->sum('amount');
       }
 
@@ -31,13 +32,14 @@
       {
           return Transaction::where('familyId', $this->familyId)
               ->where('type', 'expense')
+              ->get()
               ->sum('amount');
       }
 
-      /** Saldo = receita – despesa */
+      /** Saldo Atual consolidado (Soma das Contas) */
       #[Computed] public function balance()
       {
-          return $this->totalIncome - $this->totalExpense;
+          return Account::where('familyId', $this->familyId)->sum('balance');
       }
 
       /** Últimas 20 transações (usado na tabela) */
