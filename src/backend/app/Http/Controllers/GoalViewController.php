@@ -12,7 +12,7 @@ class GoalViewController extends Controller
 {
     public function index(): View
     {
-        $goals = Goal::where('user_id', Auth::id())
+        $goals = Goal::where('userId', Auth::id())
             ->orderBy('created_at', 'desc')
             ->get();
 
@@ -36,7 +36,7 @@ class GoalViewController extends Controller
         ]);
 
         Goal::create([
-            'user_id' => Auth::id(),
+            'userId' => Auth::id(),
             'title' => $validated['title'],
             'description' => $validated['description'] ?? null,
             'target_amount' => (float) $validated['target_amount'],
@@ -109,7 +109,7 @@ class GoalViewController extends Controller
     private function findUserGoal(string $id): Goal
     {
         return Goal::where('_id', $id)
-            ->where('user_id', Auth::id())
+            ->where('userId', Auth::id())
             ->firstOrFail();
     }
 }

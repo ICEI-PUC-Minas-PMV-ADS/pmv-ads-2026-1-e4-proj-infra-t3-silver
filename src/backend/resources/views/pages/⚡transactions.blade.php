@@ -198,5 +198,33 @@
       </div>
 
       {{-- ====================  MODAL “NOVA TRANSAÇÃO”  ==================== --}}
-      <livewire:pages::transactions.create-modal />
+      <flux:modal name="new-transaction" class="md:w-96">
+          <form wire:submit="store" class="space-y-6">
+              <div>
+                  <flux:heading size="lg">{{ __('Nova Transação') }}</flux:heading>
+                  <flux:subheading>{{ __('Adicione uma nova receita ou despesa.') }}</flux:subheading>
+              </div>
+              
+              <flux:select wire:model="type" label="{{ __('Tipo') }}">
+                  <flux:select.option value="income">{{ __('Receita') }}</flux:select.option>
+                  <flux:select.option value="expense">{{ __('Despesa') }}</flux:select.option>
+              </flux:select>
+              
+              <flux:input wire:model="amount" type="number" step="0.01" label="{{ __('Valor') }}" />
+              
+              <flux:input wire:model="description" label="{{ __('Descrição') }}" placeholder="Ex: Conta de Luz" />
+              
+              <flux:input wire:model="date" type="date" label="{{ __('Data') }}" />
+              
+              <flux:input wire:model="accountId" label="{{ __('ID da Conta') }}" placeholder="Cole o ID da conta aqui" />
+              <flux:input wire:model="categoryId" label="{{ __('ID da Categoria') }}" placeholder="Cole o ID da categoria aqui" />
+              
+              <div class="flex justify-end gap-2">
+                  <flux:modal.close>
+                      <flux:button variant="ghost">{{ __('Cancelar') }}</flux:button>
+                  </flux:modal.close>
+                  <flux:button type="submit" variant="primary">{{ __('Salvar') }}</flux:button>
+              </div>
+          </form>
+      </flux:modal>
   </x-layouts::app>

@@ -75,6 +75,6 @@ class User extends Authenticatable
      */
     public function goals(): HasMany
     {
-        return $this->hasMany(Goal::class, 'user_id', '_id');
+        return $this->hasMany(Goal::class, 'userId', '_id');
     }
 }
