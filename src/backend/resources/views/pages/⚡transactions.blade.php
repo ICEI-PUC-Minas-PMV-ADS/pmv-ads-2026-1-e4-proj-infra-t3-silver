@@ -1,6 +1,8 @@
 <?php
   /*  resources/views/pages/transactions.blade.php  */
   use App\Models\Transaction;
+  use App\Models\Account;
+  use App\Models\Category;
   use Illuminate\Support\Facades\Auth;
   use Livewire\Attributes\Title;
   use Livewire\Attributes\Computed;
@@ -45,6 +47,16 @@
               ->latest('date')
               ->take(20)
               ->get();
+      }
+
+      #[Computed] public function accountsList()
+      {
+          return Account::where('familyId', $this->familyId)->get();
+      }
+
+      #[Computed] public function categoriesList()
+      {
+          return Category::where('familyId', $this->familyId)->get();
       }
 
       /* --------------------------------------------------------------
@@ -217,8 +229,19 @@
               
               <flux:input wire:model="date" type="date" label="{{ __('Data') }}" />
               
-              <flux:input wire:model="accountId" label="{{ __('ID da Conta') }}" placeholder="Cole o ID da conta aqui" />
-              <flux:input wire:model="categoryId" label="{{ __('ID da Categoria') }}" placeholder="Cole o ID da categoria aqui" />
+              <flux:select wire:model="accountId" label="{{ __('Conta') }}">
+                  <flux:select.option value="">{{ __('Selecione uma conta...') }}</flux:select.option>
+                  @foreach($this->accountsList as $acc)
+                      <flux:select.option value="{{ $acc->_id ?? $acc->id }}">{{ $acc->name }} (R$ {{ number_format($acc->balance, 2, ',', '.') }})</flux:select.option>
+                  @endforeach
+              </flux:select>
+
+              <flux:select wire:model="categoryId" label="{{ __('Categoria') }}">
+                  <flux:select.option value="">{{ __('Selecione uma categoria...') }}</flux:select.option>
+                  @foreach($this->categoriesList as $cat)
+                      <flux:select.option value="{{ $cat->_id ?? $cat->id }}">{{ $cat->name }}</flux:select.option>
+                  @endforeach
+              </flux:select>
               
               <div class="flex justify-end gap-2">
                   <flux:modal.close>
