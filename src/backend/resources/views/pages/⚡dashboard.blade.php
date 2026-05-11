@@ -15,15 +15,7 @@ new #[Title('Painel')] class extends Component {
         $user = Auth::user();
         if (!$user->familyId) return 0;
 
-        $incomes = Transaction::where('familyId', $user->familyId)
-            ->where('type', 'income')
-            ->sum('amount');
-            
-        $expenses = Transaction::where('familyId', $user->familyId)
-            ->where('type', 'expense')
-            ->sum('amount');
-
-        return $incomes - $expenses;
+        return \App\Models\Account::where('familyId', $user->familyId)->sum('balance');
     }
 
     #[Computed]
@@ -34,6 +26,18 @@ new #[Title('Painel')] class extends Component {
 
         return Transaction::where('familyId', $user->familyId)
             ->where('type', 'expense')
+            ->where('date', '>=', Carbon::now()->startOfMonth())
+            ->sum('amount');
+    }
+
+    #[Computed]
+    public function totalIncomesMonth()
+    {
+        $user = Auth::user();
+        if (!$user->familyId) return 0;
+
+        return Transaction::where('familyId', $user->familyId)
+            ->where('type', 'income')
             ->where('date', '>=', Carbon::now()->startOfMonth())
             ->sum('amount');
     }
@@ -82,18 +86,17 @@ new #[Title('Painel')] class extends Component {
                 </div>
             </div>
 
-            <!-- Atalho Rapido -->
-            <div class="relative overflow-hidden rounded-xl border border-neutral-200 p-6 dark:border-neutral-700 bg-neutral-900 text-white shadow-sm">
-                <flux:heading size="sm" class="text-neutral-400 uppercase tracking-wider">{{ __('Acoes Rapidas') }}</flux:heading>
-                <div class="mt-4 grid grid-cols-2 gap-2">
-                    <flux:button variant="primary" class="w-full bg-brand hover:bg-brand-deep border-none">
-                        <flux:icon.plus class="mr-2 size-4" />
-                        {{ __('Receita') }}
-                    </flux:button>
-                    <flux:button variant="danger" class="w-full">
-                        <flux:icon.minus class="mr-2 size-4" />
-                        {{ __('Despesa') }}
-                    </flux:button>
+            <!-- Receitas do Mês -->
+            <div class="relative overflow-hidden rounded-xl border border-neutral-200 p-6 dark:border-neutral-700 bg-white dark:bg-neutral-800 shadow-sm">
+                <flux:heading size="sm" class="text-neutral-500 uppercase tracking-wider">{{ __('Receitas no Mes') }}</flux:heading>
+                <div class="mt-2 flex items-baseline gap-2">
+                    <span class="text-3xl font-bold text-green-600 dark:text-green-400">
+                        +R$ {{ number_format($this->totalIncomesMonth, 2, ',', '.') }}
+                    </span>
+                </div>
+                <div class="mt-4 flex items-center text-sm text-neutral-500">
+                    <flux:icon.calendar class="mr-1 size-4" />
+                    <span>{{ Carbon::now()->translatedFormat('F Y') }}</span>
                 </div>
             </div>
         </div>

@@ -81,12 +81,25 @@
               'date'        => 'nullable|date',
           ]);
 
+          $data['amount'] = (float) $data['amount'];
+
           Transaction::create(array_merge($data, [
               'familyId' => $this->familyId,
               'userId'   => Auth::id(),
               'date'     => $data['date'] ?? now(),
               'source'   => 'web',
           ]));
+
+          // Atualiza saldo da conta
+          $account = Account::where('familyId', $this->familyId)->find($data['accountId']);
+          if ($account) {
+              if ($data['type'] === 'income') {
+                  $account->balance += $data['amount'];
+              } else {
+                  $account->balance -= $data['amount'];
+              }
+              $account->save();
+          }
 
           $this->reset(['accountId','categoryId','type','amount','description','date']);
           $this->dispatch('refresh-list');
@@ -96,9 +109,21 @@
       /** Remove a transação */
       public function destroy($id)
       {
-          Transaction::where('familyId', $this->familyId)
-              ->findOrFail($id)
-              ->delete();
+          $transaction = Transaction::where('familyId', $this->familyId)
+              ->findOrFail($id);
+
+          // Estorna saldo da conta
+          $account = Account::where('familyId', $this->familyId)->find($transaction->accountId);
+          if ($account) {
+              if ($transaction->type === 'income') {
+                  $account->balance -= $transaction->amount;
+              } else {
+                  $account->balance += $transaction->amount;
+              }
+              $account->save();
+          }
+
+          $transaction->delete();
 
           $this->dispatch('refresh-list');
       }
@@ -106,7 +131,9 @@
       /* --------------------------------------------------------------
          Ouvir eventos do modal (para fechar/resetar)
          -------------------------------------------------------------- */
-      #[On('refresh-list')] public function refresh() { unset($this->recent); }
+      #[On('refresh-list')] public function refresh() { 
+          unset($this->recent, $this->totalIncome, $this->totalExpense, $this->balance, $this->accountsList); 
+      }
   };
   ?>
   <div>
