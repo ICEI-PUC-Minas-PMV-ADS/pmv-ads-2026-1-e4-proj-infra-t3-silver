@@ -70,4 +70,27 @@ HERD_BIN="$HOME/Library/Application Support/Herd/bin"
 
 ## Mobile (`src/mobile`)
 
-As instruções detalhadas do app mobile serão consolidadas neste README conforme evolução do módulo.
+App mobile em React Native com Expo SDK 55, TypeScript, Expo Router, AsyncStorage e Axios.
+
+### Instalação e execução local
+
+```bash
+cd src/mobile
+npm install
+npm run start
+```
+
+Para validar no navegador:
+
+```bash
+cd src/mobile
+npm run web
+```
+
+Para testar contra a API Laravel local em celular físico, configure `EXPO_PUBLIC_API_URL` com o IP da máquina:
+
+```bash
+EXPO_PUBLIC_API_URL=http://192.168.0.10:8000/api npm run start
+```
+
+Instruções completas: [`src/mobile/README.md`](mobile/README.md).
