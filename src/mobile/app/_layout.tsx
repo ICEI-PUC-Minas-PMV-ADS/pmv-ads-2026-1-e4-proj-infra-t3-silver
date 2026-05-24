@@ -14,7 +14,9 @@ export default function RootLayout() {
     >
       <Stack.Screen name="index" options={{ headerShown: false }} />
       <Stack.Screen name="login" options={{ title: 'Login' }} />
+      <Stack.Screen name="register" options={{ title: 'Cadastro' }} />
       <Stack.Screen name="dashboard" options={{ title: 'Dashboard' }} />
+      <Stack.Screen name="profile" options={{ title: 'Perfil' }} />
       <Stack.Screen name="transactions" options={{ title: 'Transacoes' }} />
       <Stack.Screen name="transaction-new" options={{ title: 'Nova transacao' }} />
       <Stack.Screen name="accounts" options={{ title: 'Contas' }} />

@@ -25,6 +25,7 @@ export default function DashboardScreen() {
       <View style={styles.actions}>
         <AppButton label="Transacoes" onPress={() => router.push('/transactions')} />
         <AppButton label="Nova transacao" onPress={() => router.push('/transaction-new')} variant="secondary" />
+        <AppButton label="Perfil" onPress={() => router.push('/profile')} variant="secondary" />
         <AppButton label="Contas" onPress={() => router.push('/accounts')} variant="secondary" />
         <AppButton label="Categorias" onPress={() => router.push('/categories')} variant="secondary" />
         <AppButton label="Orcamentos" onPress={() => router.push('/budgets')} variant="secondary" />

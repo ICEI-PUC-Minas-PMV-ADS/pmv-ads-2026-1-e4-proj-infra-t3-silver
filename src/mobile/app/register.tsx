@@ -4,23 +4,23 @@ import { StyleSheet, Text, TextInput, View } from 'react-native';
 
 import { AppButton } from '../src/components/AppButton';
 import { Screen } from '../src/components/Screen';
-import { mockUser } from '../src/mocks/financial-data';
-import { login } from '../src/services/api';
+import { register } from '../src/services/api';
 import { colors, radius, spacing, typography } from '../src/theme/theme';
 import { getApiErrorMessage } from '../src/utils/api-error';
 
-export default function LoginScreen() {
-  const [email, setEmail] = useState(mockUser.email);
-  const [password, setPassword] = useState('12345678');
+export default function RegisterScreen() {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
-  async function handleLogin() {
+  async function handleRegister() {
     setError('');
     setIsLoading(true);
 
     try {
-      await login(email.trim(), password);
+      await register(name.trim(), email.trim(), password);
       router.replace('/dashboard');
     } catch (requestError) {
       setError(getApiErrorMessage(requestError));
@@ -30,8 +30,11 @@ export default function LoginScreen() {
   }
 
   return (
-    <Screen title="Silver" subtitle="Entre com sua conta para acessar o controle financeiro da familia.">
+    <Screen title="Criar conta" subtitle="Cria o usuario e a familia inicial no backend Laravel.">
       <View style={styles.form}>
+        <Text style={styles.label}>Nome</Text>
+        <TextInput onChangeText={setName} placeholder="Seu nome" style={styles.input} value={name} />
+
         <Text style={styles.label}>E-mail</Text>
         <TextInput
           autoCapitalize="none"
@@ -43,13 +46,18 @@ export default function LoginScreen() {
         />
 
         <Text style={styles.label}>Senha</Text>
-        <TextInput onChangeText={setPassword} placeholder="********" secureTextEntry style={styles.input} value={password} />
+        <TextInput
+          onChangeText={setPassword}
+          placeholder="Minimo de 8 caracteres"
+          secureTextEntry
+          style={styles.input}
+          value={password}
+        />
 
         {error ? <Text style={styles.error}>{error}</Text> : null}
 
-        <AppButton disabled={isLoading} label={isLoading ? 'Entrando...' : 'Entrar'} onPress={handleLogin} />
-        <AppButton label="Criar conta" onPress={() => router.push('/register')} variant="secondary" />
-        <Text style={styles.note}>Usa POST /api/login e salva o Bearer Token para as rotas protegidas.</Text>
+        <AppButton disabled={isLoading} label={isLoading ? 'Criando...' : 'Criar conta'} onPress={handleRegister} />
+        <AppButton label="Voltar para login" onPress={() => router.back()} variant="secondary" />
       </View>
     </Screen>
   );
@@ -77,12 +85,6 @@ const styles = StyleSheet.create({
     fontSize: typography.body,
     minHeight: 48,
     paddingHorizontal: spacing.md,
-  },
-  note: {
-    color: colors.muted,
-    fontSize: typography.small,
-    lineHeight: 20,
-    marginTop: spacing.sm,
   },
   error: {
     color: colors.danger,

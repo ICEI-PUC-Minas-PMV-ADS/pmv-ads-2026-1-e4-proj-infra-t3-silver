@@ -5,9 +5,18 @@ export type TransactionType = 'income' | 'expense';
 export type CategoryKind = TransactionType | 'both';
 
 export interface User {
-  id: number;
+  id?: number | string;
+  _id?: string;
   name: string;
   email: string;
+  familyId?: string;
+  whatsappNumber?: string;
+}
+
+export interface AuthResponse {
+  user: User;
+  token: string;
+  token_type: 'Bearer';
 }
 
 export interface Account {

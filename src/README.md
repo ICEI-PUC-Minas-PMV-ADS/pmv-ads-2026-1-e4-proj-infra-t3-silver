@@ -72,25 +72,55 @@ HERD_BIN="$HOME/Library/Application Support/Herd/bin"
 
 App mobile em React Native com Expo SDK 55, TypeScript, Expo Router, AsyncStorage e Axios.
 
-### Instalação e execução local
+### Instalação
 
 ```bash
 cd src/mobile
+nvm use
 npm install
-npm run start
+cp .env.example .env
 ```
 
-Para validar no navegador:
+### Testar no navegador
 
 ```bash
 cd src/mobile
-npm run web
+EXPO_PUBLIC_API_URL=http://127.0.0.1:8000/api npm run web
 ```
 
-Para testar contra a API Laravel local em celular físico, configure `EXPO_PUBLIC_API_URL` com o IP da máquina:
+### Testar no Android Studio
+
+Abra um emulador no Android Studio e confirme:
+
+```bash
+adb devices
+```
+
+Depois rode:
+
+```bash
+cd src/mobile
+EXPO_PUBLIC_API_URL=http://10.0.2.2:8000/api npm run android
+```
+
+### Testar em celular físico com Expo Go
+
+Use o IP da máquina na rede local:
 
 ```bash
 EXPO_PUBLIC_API_URL=http://192.168.0.10:8000/api npm run start
+```
+
+Se o QR Code ou o Expo Go der problema, use web ou Android Emulator para validar a entrega.
+
+### Backend local para o mobile
+
+Em outro terminal, suba a API:
+
+```bash
+cd src/backend
+docker compose up -d
+php artisan serve --host=0.0.0.0 --port=8000
 ```
 
 Instruções completas: [`src/mobile/README.md`](mobile/README.md).

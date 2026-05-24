@@ -3,6 +3,7 @@ import axios from 'axios';
 
 import {
   Account,
+  AuthResponse,
   Budget,
   Category,
   CreateTransactionPayload,
@@ -35,15 +36,26 @@ export async function saveAuthToken(token: string): Promise<void> {
   await AsyncStorage.setItem(TOKEN_KEY, token);
 }
 
+export async function getAuthToken(): Promise<string | null> {
+  return AsyncStorage.getItem(TOKEN_KEY);
+}
+
 export async function clearAuthToken(): Promise<void> {
   await AsyncStorage.removeItem(TOKEN_KEY);
 }
 
-export async function login(email: string, password: string): Promise<string> {
-  const response = await api.post<{ token: string }>('/login', { email, password });
+export async function login(email: string, password: string): Promise<AuthResponse> {
+  const response = await api.post<AuthResponse>('/login', { email, password });
   await saveAuthToken(response.data.token);
 
-  return response.data.token;
+  return response.data;
+}
+
+export async function register(name: string, email: string, password: string): Promise<AuthResponse> {
+  const response = await api.post<AuthResponse>('/register', { name, email, password });
+  await saveAuthToken(response.data.token);
+
+  return response.data;
 }
 
 export async function getMe(): Promise<User> {
