@@ -68,6 +68,8 @@ tmp/
 temp/
 .cache/
 /aecio_docs
+/Codex.md
+/CLAUDE.md
 /src/backend/.agents/
 /src/backend/.codex/
 /src/backend/.cursor/

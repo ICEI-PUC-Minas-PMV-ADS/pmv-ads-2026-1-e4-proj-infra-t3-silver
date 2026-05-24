@@ -5,7 +5,7 @@ import { StyleSheet, Text, TextInput, View } from 'react-native';
 import { AppButton } from '../src/components/AppButton';
 import { Screen } from '../src/components/Screen';
 import { mockUser } from '../src/mocks/financial-data';
-import { login } from '../src/services/api';
+import { API_BASE_URL, login } from '../src/services/api';
 import { colors, radius, spacing, typography } from '../src/theme/theme';
 import { getApiErrorMessage } from '../src/utils/api-error';
 
@@ -49,7 +49,7 @@ export default function LoginScreen() {
 
         <AppButton disabled={isLoading} label={isLoading ? 'Entrando...' : 'Entrar'} onPress={handleLogin} />
         <AppButton label="Criar conta" onPress={() => router.push('/register')} variant="secondary" />
-        <Text style={styles.note}>Usa POST /api/login e salva o Bearer Token para as rotas protegidas.</Text>
+        <Text style={styles.note}>API: {API_BASE_URL}</Text>
       </View>
     </Screen>
   );

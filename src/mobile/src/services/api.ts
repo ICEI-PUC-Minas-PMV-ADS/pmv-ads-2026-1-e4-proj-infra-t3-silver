@@ -13,9 +13,10 @@ import {
 } from '../types/financial';
 
 const TOKEN_KEY = '@silver:auth_token';
+export const API_BASE_URL = process.env.EXPO_PUBLIC_API_URL ?? 'http://127.0.0.1:8000/api';
 
 export const api = axios.create({
-  baseURL: process.env.EXPO_PUBLIC_API_URL ?? 'http://127.0.0.1:8000/api',
+  baseURL: API_BASE_URL,
   headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json',

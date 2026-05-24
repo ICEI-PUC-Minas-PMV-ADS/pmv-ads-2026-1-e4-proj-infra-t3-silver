@@ -5,7 +5,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { AppButton } from '../src/components/AppButton';
 import { InfoCard } from '../src/components/InfoCard';
 import { Screen } from '../src/components/Screen';
-import { clearAuthToken, getMe } from '../src/services/api';
+import { API_BASE_URL, clearAuthToken, getMe } from '../src/services/api';
 import { colors, spacing, typography } from '../src/theme/theme';
 import { User } from '../src/types/financial';
 import { getApiErrorMessage } from '../src/utils/api-error';
@@ -55,6 +55,7 @@ export default function ProfileScreen() {
 
       <AppButton label="Atualizar perfil" onPress={loadProfile} variant="secondary" />
       <AppButton label="Sair" onPress={handleLogout} />
+      <Text style={styles.apiUrl}>API: {API_BASE_URL}</Text>
     </Screen>
   );
 }
@@ -77,5 +78,10 @@ const styles = StyleSheet.create({
   },
   profile: {
     gap: spacing.xs,
+  },
+  apiUrl: {
+    color: colors.muted,
+    fontSize: typography.small,
+    lineHeight: 20,
   },
 });

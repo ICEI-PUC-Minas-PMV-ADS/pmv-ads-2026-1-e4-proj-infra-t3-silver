@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+import { API_BASE_URL } from '../services/api';
+
 export function getApiErrorMessage(error: unknown): string {
   if (axios.isAxiosError(error)) {
     const data = error.response?.data as { message?: string; errors?: Record<string, string[]> } | undefined;
@@ -14,6 +16,10 @@ export function getApiErrorMessage(error: unknown): string {
 
     if (data?.message) {
       return data.message;
+    }
+
+    if (error.message === 'Network Error') {
+      return `Erro de rede ao acessar ${API_BASE_URL}. Confira se o backend esta ativo e se a URL esta correta para web, emulador ou celular.`;
     }
 
     if (error.message) {

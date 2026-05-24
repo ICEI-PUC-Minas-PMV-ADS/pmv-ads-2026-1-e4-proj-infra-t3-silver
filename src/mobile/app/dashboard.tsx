@@ -1,4 +1,5 @@
 import { router } from 'expo-router';
+import { useEffect, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 
 import { AppButton } from '../src/components/AppButton';
@@ -6,16 +7,25 @@ import { InfoCard } from '../src/components/InfoCard';
 import { ListItem } from '../src/components/ListItem';
 import { Screen } from '../src/components/Screen';
 import { mockAccounts, mockTransactions, mockUser } from '../src/mocks/financial-data';
+import { getMe } from '../src/services/api';
 import { spacing } from '../src/theme/theme';
+import { User } from '../src/types/financial';
 import { formatCurrency, formatDate } from '../src/utils/formatters';
 
 export default function DashboardScreen() {
+  const [user, setUser] = useState<User>(mockUser);
   const totalBalance = mockAccounts.reduce((total, account) => total + account.balance, 0);
   const monthlyIncome = mockTransactions.filter((item) => item.type === 'income').reduce((total, item) => total + item.amount, 0);
   const monthlyExpenses = mockTransactions.filter((item) => item.type === 'expense').reduce((total, item) => total + item.amount, 0);
 
+  useEffect(() => {
+    getMe()
+      .then(setUser)
+      .catch(() => setUser(mockUser));
+  }, []);
+
   return (
-    <Screen title={`Ola, ${mockUser.name}`} subtitle="Resumo financeiro mockado para a primeira entrega mobile.">
+    <Screen title={`Ola, ${user.name}`} subtitle="Resumo financeiro mockado para a primeira entrega mobile.">
       <View style={styles.grid}>
         <InfoCard title="Saldo consolidado" value={formatCurrency(totalBalance)} tone={totalBalance >= 0 ? 'success' : 'danger'} />
         <InfoCard title="Entradas do mes" value={formatCurrency(monthlyIncome)} tone="success" />

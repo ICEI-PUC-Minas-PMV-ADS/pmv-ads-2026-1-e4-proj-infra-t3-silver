@@ -207,43 +207,6 @@ Endpoints planejados no servico inicial:
 - `GET /api/budgets`
 - `GET /api/goals`
 
-## Rodar com Expo manualmente
-
-```bash
-cd src/mobile
-npm run start
-```
-
-Depois, leia o QR Code com o Expo Go ou use as opcoes do terminal para abrir em emulador.
-
-## Testar na web manualmente
-
-```bash
-cd src/mobile
-npm run web
-```
-
-Se o navegador nao abrir automaticamente, acesse a URL exibida no terminal, normalmente `http://localhost:8081`.
-
-## Testar em celular fisico manualmente
-
-1. Deixe computador e celular na mesma rede.
-2. Rode `npm run start`.
-3. Leia o QR Code no Expo Go.
-4. Se for testar API local, troque `EXPO_PUBLIC_API_URL` pelo IP do computador.
-
-## Testar em emulador manualmente
-
-```bash
-npm run android
-```
-
-ou, em macOS com Xcode:
-
-```bash
-npm run ios
-```
-
 ## Validacoes usadas na entrega
 
 ```bash
