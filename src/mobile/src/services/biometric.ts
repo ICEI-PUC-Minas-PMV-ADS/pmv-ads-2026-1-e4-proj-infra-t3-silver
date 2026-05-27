@@ -1,7 +1,7 @@
 import * as LocalAuthentication from 'expo-local-authentication';
 import * as SecureStore from 'expo-secure-store';
 
-const CREDENTIALS_KEY = '@silver:biometric_credentials';
+const CREDENTIALS_KEY = 'silver_biometric_credentials';
 
 type StoredCredentials = { email: string; password: string };
 
@@ -12,8 +12,12 @@ export async function isBiometricAvailable(): Promise<boolean> {
 }
 
 export async function hasBiometricCredentials(): Promise<boolean> {
-  const stored = await SecureStore.getItemAsync(CREDENTIALS_KEY);
-  return stored !== null;
+  try {
+    const stored = await SecureStore.getItemAsync(CREDENTIALS_KEY);
+    return stored !== null;
+  } catch {
+    return false;
+  }
 }
 
 export async function authenticateWithBiometric(): Promise<boolean> {
@@ -31,11 +35,19 @@ export async function saveBiometricCredentials(email: string, password: string):
 }
 
 export async function getBiometricCredentials(): Promise<StoredCredentials | null> {
-  const stored = await SecureStore.getItemAsync(CREDENTIALS_KEY);
-  if (!stored) return null;
-  return JSON.parse(stored) as StoredCredentials;
+  try {
+    const stored = await SecureStore.getItemAsync(CREDENTIALS_KEY);
+    if (!stored) return null;
+    return JSON.parse(stored) as StoredCredentials;
+  } catch {
+    return null;
+  }
 }
 
 export async function clearBiometricCredentials(): Promise<void> {
-  await SecureStore.deleteItemAsync(CREDENTIALS_KEY);
+  try {
+    await SecureStore.deleteItemAsync(CREDENTIALS_KEY);
+  } catch {
+    // ignora se a chave não existir
+  }
 }

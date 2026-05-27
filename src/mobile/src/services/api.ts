@@ -74,8 +74,32 @@ export async function getTransactions(): Promise<Transaction[]> {
   return response.data;
 }
 
-export async function createTransaction(payload: CreateTransactionPayload): Promise<Transaction> {
-  const response = await api.post<Transaction>('/transactions', payload);
+export async function createTransaction(
+  payload: CreateTransactionPayload,
+  receiptUri?: string
+): Promise<Transaction> {
+  if (receiptUri) {
+    const filename = receiptUri.split('/').pop() ?? 'receipt.jpg';
+    const ext = filename.split('.').pop()?.toLowerCase() ?? 'jpg';
+    const mimeType = ext === 'png' ? 'image/png' : 'image/jpeg';
+
+    const form = new FormData();
+    form.append('accountId', payload.accountId);
+    form.append('categoryId', payload.categoryId);
+    form.append('type', payload.type);
+    form.append('amount', String(payload.amount));
+    form.append('description', payload.description);
+    form.append('date', payload.date);
+    form.append('source', 'mobile');
+    form.append('attachment', { uri: receiptUri, name: filename, type: mimeType } as unknown as Blob);
+
+    const response = await api.post<Transaction>('/transactions', form, {
+      headers: { 'Content-Type': 'multipart/form-data' },
+    });
+    return response.data;
+  }
+
+  const response = await api.post<Transaction>('/transactions', { ...payload, source: 'mobile' });
   return response.data;
 }
 

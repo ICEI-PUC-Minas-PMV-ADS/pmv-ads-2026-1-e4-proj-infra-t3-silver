@@ -41,6 +41,7 @@ export interface Transaction {
   date: string;
   accountId: number;
   categoryId: number;
+  attachmentUrl?: string;
 }
 
 export interface Budget {
@@ -64,6 +65,6 @@ export interface CreateTransactionPayload {
   amount: number;
   type: TransactionType;
   date: string;
-  account_id: number;
-  category_id: number;
+  accountId: string;
+  categoryId: string;
 }
