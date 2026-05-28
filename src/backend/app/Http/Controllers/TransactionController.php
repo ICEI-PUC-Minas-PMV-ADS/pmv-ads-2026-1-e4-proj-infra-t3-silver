@@ -76,6 +76,17 @@ class TransactionController extends Controller
     }
 
     /**
+     * Show a specific transaction.
+     */
+    public function show($id)
+    {
+        $user = Auth::user();
+        $transaction = Transaction::where('familyId', $user->familyId)->findOrFail($id);
+
+        return response()->json($transaction);
+    }
+
+    /**
      * Remove the specified transaction.
      */
     public function destroy($id)

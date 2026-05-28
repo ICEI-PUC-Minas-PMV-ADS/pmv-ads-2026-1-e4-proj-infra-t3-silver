@@ -16,6 +16,13 @@ import {
 const TOKEN_KEY = '@silver:auth_token';
 export const API_BASE_URL = process.env.EXPO_PUBLIC_API_URL ?? 'http://127.0.0.1:8000/api';
 
+// Substitui o host do attachmentUrl pelo mesmo host da API,
+// corrigindo URLs gravadas com localhost ou 127.0.0.1 no banco.
+export function resolveAttachmentUrl(attachmentUrl: string): string {
+  const apiOrigin = API_BASE_URL.replace(/\/api\/?$/, '');
+  return attachmentUrl.replace(/^https?:\/\/[^/]+/, apiOrigin);
+}
+
 export const api = axios.create({
   baseURL: API_BASE_URL,
   headers: {
@@ -85,7 +92,14 @@ export async function deleteAccount(id: string): Promise<void> {
 }
 
 export async function getTransactions(): Promise<Transaction[]> {
-  const response = await api.get<Transaction[]>('/transactions');
+  const response = await api.get<{ data: Transaction[] } | Transaction[]>('/transactions');
+  const result = response.data;
+  if (Array.isArray(result)) return result;
+  return (result as { data: Transaction[] }).data ?? [];
+}
+
+export async function getTransaction(id: string): Promise<Transaction> {
+  const response = await api.get<Transaction>(`/transactions/${id}`);
   return response.data;
 }
 

@@ -10,9 +10,11 @@ import { createTransaction, getAccounts } from '../src/services/api';
 import { colors, radius, spacing, typography } from '../src/theme/theme';
 import { Account, TransactionType } from '../src/types/financial';
 import { getApiErrorMessage } from '../src/utils/api-error';
+import { formatCurrency } from '../src/utils/formatters';
 
 export default function TransactionNewScreen() {
   const [accounts, setAccounts] = useState<Account[]>([]);
+  const [selectedAccount, setSelectedAccount] = useState<Account | null>(null);
   const [description, setDescription] = useState('');
   const [amount, setAmount] = useState('');
   const [type, setType] = useState<TransactionType>('expense');
@@ -22,7 +24,6 @@ export default function TransactionNewScreen() {
   const [isLoadingAccounts, setIsLoadingAccounts] = useState(true);
 
   const today = new Date().toISOString().split('T')[0];
-  const defaultAccount = accounts[0] ?? null;
   const defaultCategory =
     type === 'income'
       ? mockCategories.find((c) => c.kind === 'income' || c.kind === 'both')!
@@ -30,13 +31,16 @@ export default function TransactionNewScreen() {
 
   useEffect(() => {
     getAccounts()
-      .then(setAccounts)
+      .then((data) => {
+        setAccounts(data);
+        if (data.length > 0) setSelectedAccount(data[0]);
+      })
       .catch(() => setError('Não foi possível carregar as contas.'))
       .finally(() => setIsLoadingAccounts(false));
   }, []);
 
   async function handleSave() {
-    if (!defaultAccount) {
+    if (!selectedAccount) {
       setError('Nenhuma conta encontrada. Crie uma conta antes de lançar transações.');
       return;
     }
@@ -60,7 +64,7 @@ export default function TransactionNewScreen() {
           amount: parsedAmount,
           type,
           date: today,
-          accountId: String(defaultAccount.id),
+          accountId: String(selectedAccount._id ?? selectedAccount.id),
           categoryId: String(defaultCategory.id),
         },
         receiptUri ?? undefined
@@ -72,6 +76,42 @@ export default function TransactionNewScreen() {
     } finally {
       setIsLoading(false);
     }
+  }
+
+  function renderAccountSelector() {
+    if (isLoadingAccounts) return <ActivityIndicator color={colors.primary} />;
+
+    if (accounts.length === 0) {
+      return <Text style={styles.preview}>Nenhuma conta cadastrada</Text>;
+    }
+
+    if (accounts.length === 1) {
+      return <Text style={styles.preview}>{accounts[0].name}</Text>;
+    }
+
+    return (
+      <View style={styles.accountList}>
+        {accounts.map((account) => {
+          const id = String(account._id ?? account.id);
+          const selectedId = String(selectedAccount?._id ?? selectedAccount?.id);
+          const isSelected = id === selectedId;
+          return (
+            <Pressable
+              key={id}
+              onPress={() => setSelectedAccount(account)}
+              style={[styles.accountOption, isSelected && styles.accountOptionActive]}
+            >
+              <Text style={[styles.accountOptionName, isSelected && styles.accountOptionTextActive]}>
+                {account.name}
+              </Text>
+              <Text style={[styles.accountOptionBalance, isSelected && styles.accountOptionTextActive]}>
+                {formatCurrency(account.balance)}
+              </Text>
+            </Pressable>
+          );
+        })}
+      </View>
+    );
   }
 
   return (
@@ -111,11 +151,7 @@ export default function TransactionNewScreen() {
         />
 
         <Text style={styles.label}>Conta</Text>
-        {isLoadingAccounts ? (
-          <ActivityIndicator color={colors.primary} />
-        ) : (
-          <Text style={styles.preview}>{defaultAccount?.name ?? 'Nenhuma conta cadastrada'}</Text>
-        )}
+        {renderAccountSelector()}
 
         <Text style={styles.label}>Categoria</Text>
         <Text style={styles.preview}>{defaultCategory.name}</Text>
@@ -187,6 +223,36 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   typeTextActive: {
+    color: colors.surface,
+  },
+  accountList: {
+    gap: spacing.xs,
+  },
+  accountOption: {
+    alignItems: 'center',
+    borderColor: colors.border,
+    borderRadius: radius.md,
+    borderWidth: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    minHeight: 44,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
+  },
+  accountOptionActive: {
+    backgroundColor: colors.primary,
+    borderColor: colors.primary,
+  },
+  accountOptionName: {
+    color: colors.text,
+    fontSize: typography.small,
+    fontWeight: '600',
+  },
+  accountOptionBalance: {
+    color: colors.muted,
+    fontSize: typography.small,
+  },
+  accountOptionTextActive: {
     color: colors.surface,
   },
   error: {

@@ -34,20 +34,22 @@ export interface CreateAccountPayload {
 }
 
 export interface Category {
-  id: number;
+  _id?: string;
+  id: string | number;
   name: string;
   kind: CategoryKind;
   color: string;
 }
 
 export interface Transaction {
-  id: number;
+  _id?: string;
+  id: string | number;
   description: string;
   amount: number;
   type: TransactionType;
   date: string;
-  accountId: number;
-  categoryId: number;
+  accountId: string;
+  categoryId: string;
   attachmentUrl?: string;
 }
 

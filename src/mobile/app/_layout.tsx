@@ -19,6 +19,8 @@ export default function RootLayout() {
       <Stack.Screen name="profile" options={{ title: 'Perfil' }} />
       <Stack.Screen name="transactions" options={{ title: 'Transacoes' }} />
       <Stack.Screen name="transaction-new" options={{ title: 'Nova transacao' }} />
+      <Stack.Screen name="transaction-detail" options={{ title: 'Detalhes' }} />
+      <Stack.Screen name="account-new" options={{ title: 'Nova conta' }} />
       <Stack.Screen name="accounts" options={{ title: 'Contas' }} />
       <Stack.Screen name="categories" options={{ title: 'Categorias' }} />
       <Stack.Screen name="budgets" options={{ title: 'Orcamentos' }} />

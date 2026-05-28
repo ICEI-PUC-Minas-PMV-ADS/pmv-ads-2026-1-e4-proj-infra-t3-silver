@@ -31,6 +31,7 @@ Route::middleware('auth:sanctum')->group(function () {
     // Transações (Transactions)
     Route::get('/transactions', [TransactionController::class, 'index']);
     Route::post('/transactions', [TransactionController::class, 'store']);
+    Route::get('/transactions/{id}', [TransactionController::class, 'show']);
     Route::delete('/transactions/{id}', [TransactionController::class, 'destroy']);
 
     // Família (Family)
