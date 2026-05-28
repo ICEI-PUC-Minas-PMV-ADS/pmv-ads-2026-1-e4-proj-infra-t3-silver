@@ -2,28 +2,28 @@ import { Account, Budget, Category, Goal, Transaction, User } from '../types/fin
 
 export const mockUser: User = {
   id: 1,
-  name: 'Familia Silva',
+  name: 'Família Silva',
   email: 'familia.silva@example.com',
 };
 
 export const mockAccounts: Account[] = [
   { id: 1, name: 'Conta corrente', type: 'checking', balance: 3240.85 },
   { id: 2, name: 'Reserva', type: 'savings', balance: 8200 },
-  { id: 3, name: 'Cartao principal', type: 'credit', balance: -1260.4 },
+  { id: 3, name: 'Cartão principal', type: 'credit', balance: -1260.4 },
 ];
 
 export const mockCategories: Category[] = [
   { id: 1, name: 'Moradia', kind: 'expense', color: '#2563EB' },
   { id: 2, name: 'Mercado', kind: 'expense', color: '#059669' },
   { id: 3, name: 'Transporte', kind: 'expense', color: '#D97706' },
-  { id: 4, name: 'Salario', kind: 'income', color: '#16A34A' },
+  { id: 4, name: 'Salário', kind: 'income', color: '#16A34A' },
   { id: 5, name: 'Lazer', kind: 'expense', color: '#7C3AED' },
 ];
 
 export const mockTransactions: Transaction[] = [
   {
     id: 1,
-    description: 'Salario mensal',
+    description: 'Salário mensal',
     amount: 6200,
     type: 'income',
     date: '2026-05-05',
@@ -50,7 +50,7 @@ export const mockTransactions: Transaction[] = [
   },
   {
     id: 4,
-    description: 'Combustivel',
+    description: 'Combustível',
     amount: 210,
     type: 'expense',
     date: '2026-05-12',
@@ -77,14 +77,14 @@ export const mockBudgets: Budget[] = [
 export const mockGoals: Goal[] = [
   {
     id: 1,
-    name: 'Reserva de emergencia',
+    name: 'Reserva de emergência',
     targetAmount: 15000,
     currentAmount: 8200,
     deadline: '2026-12-31',
   },
   {
     id: 2,
-    name: 'Viagem em familia',
+    name: 'Viagem em família',
     targetAmount: 6000,
     currentAmount: 1800,
     deadline: '2026-10-15',

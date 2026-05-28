@@ -31,7 +31,7 @@ export default function RegisterScreen() {
   }
 
   return (
-    <Screen title="Criar conta" subtitle="Cria o usuario e a familia inicial no backend Laravel.">
+    <Screen title="Criar conta" subtitle="Cria o usuário e a família inicial no backend Laravel.">
       <View style={[styles.form, { backgroundColor: colors.surface, borderColor: colors.border }]}>
         <Text style={[styles.label, { color: colors.text }]}>Nome</Text>
         <TextInput

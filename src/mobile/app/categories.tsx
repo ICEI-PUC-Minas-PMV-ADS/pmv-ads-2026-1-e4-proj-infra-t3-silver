@@ -4,7 +4,7 @@ import { mockCategories } from '../src/mocks/financial-data';
 
 export default function CategoriesScreen() {
   return (
-    <Screen title="Categorias" subtitle="Categorias compartilhadas para despesas e receitas. Integracao futura: GET /api/categorias.">
+    <Screen title="Categorias" subtitle="Categorias compartilhadas para despesas e receitas. Integração futura: GET /api/categorias.">
       {mockCategories.map((category) => (
         <ListItem key={category.id} accentColor={category.color} description={category.kind} title={category.name} />
       ))}

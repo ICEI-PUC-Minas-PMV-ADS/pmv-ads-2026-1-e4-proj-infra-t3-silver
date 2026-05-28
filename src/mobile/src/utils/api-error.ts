@@ -19,7 +19,7 @@ export function getApiErrorMessage(error: unknown): string {
     }
 
     if (error.message === 'Network Error') {
-      return `Erro de rede ao acessar ${API_BASE_URL}. Confira se o backend esta ativo e se a URL esta correta para web, emulador ou celular.`;
+      return `Erro de rede ao acessar ${API_BASE_URL}. Confira se o backend está ativo e se a URL está correta para web, emulador ou celular.`;
     }
 
     if (error.message) {
@@ -27,5 +27,5 @@ export function getApiErrorMessage(error: unknown): string {
     }
   }
 
-  return 'Nao foi possivel concluir a operacao. Tente novamente.';
+  return 'Não foi possível concluir a operação. Tente novamente.';
 }

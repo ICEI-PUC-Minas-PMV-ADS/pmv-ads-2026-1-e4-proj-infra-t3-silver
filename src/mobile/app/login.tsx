@@ -83,7 +83,7 @@ export default function LoginScreen() {
   }
 
   return (
-    <Screen title="Silver" subtitle="Entre com sua conta para acessar o controle financeiro da familia.">
+    <Screen title="Silver" subtitle="Entre com sua conta para acessar o controle financeiro da família.">
       <View style={[styles.form, { backgroundColor: colors.surface, borderColor: colors.border }]}>
         <Text style={[styles.label, { color: colors.text }]}>E-mail</Text>
         <TextInput

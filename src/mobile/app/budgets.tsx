@@ -5,7 +5,7 @@ import { formatCurrency, formatPercent } from '../src/utils/formatters';
 
 export default function BudgetsScreen() {
   return (
-    <Screen title="Orcamentos" subtitle="Limites mensais mockados. Integracao futura: GET /api/budgets.">
+    <Screen title="Orçamentos" subtitle="Limites mensais mockados. Integração futura: GET /api/budgets.">
       {mockBudgets.map((budget) => {
         const category = mockCategories.find((item) => item.id === budget.categoryId);
         const used = budget.spent / budget.limit;

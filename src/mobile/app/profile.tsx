@@ -48,14 +48,14 @@ export default function ProfileScreen() {
 
   return (
     <Screen title="Perfil">
-      <InfoCard title="Usuario autenticado">
+      <InfoCard title="Usuário autenticado">
         {isLoading ? <Text style={[styles.muted, { color: colors.muted }]}>Carregando perfil...</Text> : null}
         {error ? <Text style={[styles.error, { color: colors.danger }]}>{error}</Text> : null}
         {user ? (
           <View style={styles.profile}>
             <Text style={[styles.name, { color: colors.text }]}>{user.name}</Text>
             <Text style={[styles.muted, { color: colors.muted }]}>{user.email}</Text>
-            <Text style={[styles.muted, { color: colors.muted }]}>Familia: {user.familyId ?? 'Nao informado'}</Text>
+            <Text style={[styles.muted, { color: colors.muted }]}>Família: {user.familyId ?? 'Não informado'}</Text>
           </View>
         ) : null}
       </InfoCard>

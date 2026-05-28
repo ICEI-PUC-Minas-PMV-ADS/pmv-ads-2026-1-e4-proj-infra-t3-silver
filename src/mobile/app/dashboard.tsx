@@ -25,25 +25,25 @@ export default function DashboardScreen() {
   }, []);
 
   return (
-    <Screen title={`Ola, ${user.name}`} subtitle="Resumo financeiro mockado para a primeira entrega mobile.">
+    <Screen title={`Olá, ${user.name}`} subtitle="Resumo financeiro mockado para a primeira entrega mobile.">
       <View style={styles.grid}>
         <InfoCard title="Saldo consolidado" value={formatCurrency(totalBalance)} tone={totalBalance >= 0 ? 'success' : 'danger'} />
-        <InfoCard title="Entradas do mes" value={formatCurrency(monthlyIncome)} tone="success" />
-        <InfoCard title="Saidas do mes" value={formatCurrency(monthlyExpenses)} tone="danger" />
+        <InfoCard title="Entradas do mês" value={formatCurrency(monthlyIncome)} tone="success" />
+        <InfoCard title="Saídas do mês" value={formatCurrency(monthlyExpenses)} tone="danger" />
       </View>
 
       <View style={styles.actions}>
-        <AppButton label="Transacoes" onPress={() => router.push('/transactions')} />
-        <AppButton label="Nova transacao" onPress={() => router.push('/transaction-new')} variant="secondary" />
+        <AppButton label="Transações" onPress={() => router.push('/transactions')} />
+        <AppButton label="Nova transação" onPress={() => router.push('/transaction-new')} variant="secondary" />
         <AppButton label="Perfil" onPress={() => router.push('/profile')} variant="secondary" />
         <AppButton label="Contas" onPress={() => router.push('/accounts')} variant="secondary" />
         <AppButton label="Categorias" onPress={() => router.push('/categories')} variant="secondary" />
-        <AppButton label="Orcamentos" onPress={() => router.push('/budgets')} variant="secondary" />
+        <AppButton label="Orçamentos" onPress={() => router.push('/budgets')} variant="secondary" />
         <AppButton label="Metas" onPress={() => router.push('/goals')} variant="secondary" />
-        <AppButton label="Historico" onPress={() => router.push('/history')} variant="secondary" />
+        <AppButton label="Histórico" onPress={() => router.push('/history')} variant="secondary" />
       </View>
 
-      <InfoCard title="Ultimas movimentacoes">
+      <InfoCard title="Últimas movimentações">
         {mockTransactions.slice(0, 3).map((transaction) => (
           <ListItem
             key={transaction.id}
