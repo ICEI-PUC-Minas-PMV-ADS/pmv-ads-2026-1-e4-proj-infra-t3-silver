@@ -86,11 +86,14 @@ Para garantir consistência nos cálculos de saldo consolidado e orçamentos pla
 - **Idioma:** Português (Brasil).
 - **Fuso Horário:** Horário de Brasília (UTC-3).
 
-### 4. Aplicativo Mobile (React Native)
+### 4. Aplicativo Mobile (React Native / Expo)
 Interface mobile voltada para consultas rápidas e registros em mobilidade. Responsável por:
-- Exibir saldo e extrato de forma simplificada
-- Permitir o registro rápido de transações
-- Sincronizar dados em tempo real com a API backend
+- Exibir saldo, extrato e detalhes de transações
+- Permitir o registro rápido de transações com seleção de conta e categoria
+- **Capturar comprovantes diretamente pela câmera ou galeria do dispositivo** (RF10), enviando a imagem junto à transação via `multipart/form-data`
+- Visualizar o comprovante anexado na tela de detalhes da transação
+- Autenticar o usuário por biometria (Face ID / digital) com credenciais armazenadas via `expo-secure-store`
+- Sincronizar dados com a API backend via Bearer Token (Laravel Sanctum)
 
 ---
 
@@ -372,6 +375,7 @@ Diferente de bancos relacionais que utilizam triggers ou chaves estrangeiras rí
 - **Database Observers (Hooks):** O sistema utiliza *Observers* na model `Transaction`. Sempre que uma transação é **criada, editada ou excluída**, eventos no backend disparam automaticamente:
     - Atualização do `balance` na coleção `accounts`.
     - Recálculo do `spentAmount` na coleção `budgets` para o mês correspondente.
+    - **Exclusão do arquivo de comprovante** do disco (`Storage::disk('public')`) quando a transação é removida, evitando arquivos órfãos.
 - **Atomicidade via Aplicação:** Garante que o usuário sempre visualize saldos atualizados sem a necessidade de processamentos pesados de agregação no momento da leitura.
 
 ### Boas Práticas NoSQL
@@ -390,7 +394,7 @@ Diferente de bancos relacionais que utilizam triggers ou chaves estrangeiras rí
 | Backend | Laravel (PHP 8.x) | Framework robusto com suporte a autenticação, ORM Eloquent, filas e geração de relatórios |
 | Autenticação | Laravel Sanctum / JWT | Gerenciamento seguro de tokens de acesso para a API REST |
 | Dashboard Web | React.js + JavaScript | Biblioteca moderna para construção de interfaces reativas e responsivas |
-| App Mobile | React Native | Permite compartilhamento de lógica entre Web e Mobile com uma única base de código |
+| App Mobile | React Native + Expo SDK | Permite compartilhamento de lógica entre Web e Mobile; Expo fornece acesso nativo à câmera (`expo-image-picker`), biometria (`expo-local-authentication`) e armazenamento seguro (`expo-secure-store`) |
 | WhatsApp Bridge | Node.js + Webhook | Leveza e eficiência no processamento assíncrono de mensagens do WhatsApp |
 | Banco de Dados | MongoDB Atlas (Free Tier) | Flexibilidade de esquema para acomodar diferentes tipos de transações e metadados financeiros |
 | Hospedagem Backend | Render / Azure (Free Tier) | Disponibilidade sem custo inicial adequada ao ciclo acadêmico |

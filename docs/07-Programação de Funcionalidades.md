@@ -78,31 +78,124 @@ A API utiliza o **Laravel Sanctum** para autenticação baseada em tokens.
 
 ---
 
-### 2. Contas (Accounts) [Implementação em andamento]
+### 2. Contas (Accounts)
 
 #### **Listar Contas da Família**
 - **URL:** `/api/accounts`
 - **Método:** `GET`
-- **Resposta:** Lista de contas (Itaú, Nubank, etc.) vinculadas à `familyId` do usuário.
+- **Proteção:** Ativa (`auth:sanctum`)
+- **Resposta (200):** Lista de contas vinculadas à `familyId` do usuário autenticado.
 
----
-
-### 3. Transações (Transactions) [Implementação em andamento]
-
-#### **Registrar Transação**
-- **URL:** `/api/transactions`
+#### **Criar Conta**
+- **URL:** `/api/accounts`
 - **Método:** `POST`
+- **Proteção:** Ativa (`auth:sanctum`)
 - **Body:**
   ```json
   {
-    "accountId": "...",
-    "categoryId": "...",
-    "type": "expense",
-    "amount": 50.00,
-    "description": "Jantar",
-    "date": "2026-04-03"
+    "name": "Nubank",
+    "type": "checking",
+    "balance": 1500.00
   }
   ```
+- **Campos obrigatórios:** `name`, `type`, `balance`
+- **Tipos aceitos:** `checking`, `savings`, `investment`, `cash`
+- **Resposta (201):** Objeto da conta criada.
+
+#### **Atualizar Conta**
+- **URL:** `/api/accounts/{id}`
+- **Método:** `PUT`
+- **Proteção:** Ativa (`auth:sanctum`)
+- **Body:** Mesmos campos de criação (todos opcionais na atualização).
+- **Resposta (200):** Objeto atualizado da conta.
+- **Erros (404):** Conta não encontrada ou pertence a outra família.
+
+#### **Excluir Conta**
+- **URL:** `/api/accounts/{id}`
+- **Método:** `DELETE`
+- **Proteção:** Ativa (`auth:sanctum`)
+- **Descrição:** Remove a conta permanentemente. O saldo da família é recalculado automaticamente.
+- **Resposta (200):** `{ "message": "Conta removida com sucesso." }`
+- **Erros (404):** Conta não encontrada ou pertence a outra família.
+
+---
+
+### 3. Transações (Transactions)
+
+#### **Listar Transações da Família**
+- **URL:** `/api/transactions`
+- **Método:** `GET`
+- **Proteção:** Ativa (`auth:sanctum`)
+- **Resposta (200):** Objeto paginado com as transações da família.
+  ```json
+  {
+    "data": [ { "_id": "...", "description": "...", "amount": 50.00, ... } ],
+    "current_page": 1,
+    "last_page": 3
+  }
+  ```
+
+#### **Buscar Transação por ID**
+- **URL:** `/api/transactions/{id}`
+- **Método:** `GET`
+- **Proteção:** Ativa (`auth:sanctum`)
+- **Resposta (200):** Objeto completo da transação, incluindo `attachmentUrl` caso tenha comprovante.
+- **Erros (404):** Transação não encontrada ou pertence a outra família.
+
+#### **Registrar Transação (com suporte a comprovante)**
+- **URL:** `/api/transactions`
+- **Método:** `POST`
+- **Proteção:** Ativa (`auth:sanctum`)
+- **Content-Type:** `multipart/form-data` (quando há comprovante) ou `application/json`
+- **Body:**
+  ```
+  accountId:   "ObjectId"        (obrigatório)
+  categoryId:  "ObjectId"        (obrigatório)
+  type:        "expense"|"income" (obrigatório)
+  amount:      50.00             (obrigatório, > 0)
+  description: "Almoço"         (obrigatório)
+  date:        "2026-04-03"      (obrigatório)
+  attachment:  <arquivo imagem>  (opcional — jpeg/png/jpg/gif, máx. 5 MB)
+  ```
+- **Resposta (201):** Objeto da transação criada. O campo `attachmentUrl` é preenchido com a URL pública do comprovante, caso enviado.
+  ```json
+  {
+    "_id": "...",
+    "description": "Almoço no restaurante",
+    "amount": 45.90,
+    "type": "expense",
+    "date": "2026-04-03",
+    "attachmentUrl": "http://seu-dominio/storage/attachments/uuid.jpg",
+    "accountId": "...",
+    "categoryId": "...",
+    "source": "mobile"
+  }
+  ```
+- **Efeitos colaterais (via `TransactionObserver`):**
+  - O `balance` da conta referenciada é atualizado automaticamente.
+  - O `spentAmount` do orçamento (`Budget`) do mês corrente é recalculado.
+
+#### **Excluir Transação**
+- **URL:** `/api/transactions/{id}`
+- **Método:** `DELETE`
+- **Proteção:** Ativa (`auth:sanctum`)
+- **Descrição:** Remove a transação e, caso tenha comprovante, exclui o arquivo do disco automaticamente (via `TransactionObserver::deleted()`).
+- **Resposta (200):** `{ "message": "Transação removida com sucesso." }`
+- **Efeitos colaterais:** Saldo da conta e `spentAmount` do orçamento são revertidos.
+
+---
+
+### Configuração de Armazenamento de Comprovantes
+
+O backend utiliza `Storage::disk('public')` do Laravel para salvar os comprovantes na pasta `storage/app/public/attachments/`. Para que os arquivos sejam acessíveis via URL pública, é necessário criar o link simbólico:
+
+```bash
+php artisan storage:link
+```
+
+Após isso, os arquivos ficam disponíveis em `public/storage/attachments/`.
+
+> **Nota para ambiente de desenvolvimento (mobile):** A URL armazenada no banco pode usar `localhost` como hostname. O aplicativo mobile resolve isso substituindo o host pela URL da API configurada na variável de ambiente `EXPO_PUBLIC_API_URL`, via a função `resolveAttachmentUrl()` em `src/mobile/src/services/api.ts`.
 
 ---
 
