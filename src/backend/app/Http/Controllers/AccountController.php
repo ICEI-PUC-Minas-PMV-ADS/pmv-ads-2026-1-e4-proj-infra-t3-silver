@@ -49,7 +49,38 @@ class AccountController extends Controller
     {
         $user = Auth::user();
         $account = Account::where('familyId', $user->familyId)->findOrFail($id);
-        
+
         return response()->json($account);
+    }
+
+    /**
+     * Update the specified account.
+     */
+    public function update(Request $request, $id)
+    {
+        $user = Auth::user();
+        $account = Account::where('familyId', $user->familyId)->findOrFail($id);
+
+        $validated = $request->validate([
+            'name' => 'sometimes|string|max:255',
+            'type' => 'sometimes|string|in:checking,savings,investment,cash',
+            'balance' => 'sometimes|numeric',
+        ]);
+
+        $account->update($validated);
+
+        return response()->json($account);
+    }
+
+    /**
+     * Remove the specified account.
+     */
+    public function destroy($id)
+    {
+        $user = Auth::user();
+        $account = Account::where('familyId', $user->familyId)->findOrFail($id);
+        $account->delete();
+
+        return response()->json(['message' => 'Account deleted successfully']);
     }
 }

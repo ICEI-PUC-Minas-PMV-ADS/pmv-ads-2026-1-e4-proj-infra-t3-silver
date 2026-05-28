@@ -20,7 +20,14 @@ export interface AuthResponse {
 }
 
 export interface Account {
-  id: number;
+  _id?: string;
+  id: string | number;
+  name: string;
+  type: AccountType;
+  balance: number;
+}
+
+export interface CreateAccountPayload {
   name: string;
   type: AccountType;
   balance: number;

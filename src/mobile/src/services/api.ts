@@ -6,6 +6,7 @@ import {
   AuthResponse,
   Budget,
   Category,
+  CreateAccountPayload,
   CreateTransactionPayload,
   Goal,
   Transaction,
@@ -67,6 +68,20 @@ export async function getMe(): Promise<User> {
 export async function getAccounts(): Promise<Account[]> {
   const response = await api.get<Account[]>('/accounts');
   return response.data;
+}
+
+export async function createAccount(payload: CreateAccountPayload): Promise<Account> {
+  const response = await api.post<Account>('/accounts', payload);
+  return response.data;
+}
+
+export async function updateAccount(id: string, payload: Partial<CreateAccountPayload>): Promise<Account> {
+  const response = await api.put<Account>(`/accounts/${id}`, payload);
+  return response.data;
+}
+
+export async function deleteAccount(id: string): Promise<void> {
+  await api.delete(`/accounts/${id}`);
 }
 
 export async function getTransactions(): Promise<Transaction[]> {
