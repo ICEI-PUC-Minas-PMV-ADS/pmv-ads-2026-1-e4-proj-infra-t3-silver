@@ -1,10 +1,12 @@
 import { ListItem } from '../src/components/ListItem';
 import { Screen } from '../src/components/Screen';
+import { useTheme } from '../src/context/ThemeContext';
 import { mockGoals } from '../src/mocks/financial-data';
-import { colors } from '../src/theme/theme';
 import { formatCurrency, formatDate, formatPercent } from '../src/utils/formatters';
 
 export default function GoalsScreen() {
+  const { colors } = useTheme();
+
   return (
     <Screen title="Metas" subtitle="Acompanhamento mockado das metas familiares. Integracao futura: GET /api/goals.">
       {mockGoals.map((goal) => {

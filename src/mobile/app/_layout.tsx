@@ -1,8 +1,10 @@
 import { Stack } from 'expo-router';
 
-import { colors } from '../src/theme/theme';
+import { ThemeProvider, useTheme } from '../src/context/ThemeContext';
 
-export default function RootLayout() {
+function RootStack() {
+  const { colors } = useTheme();
+
   return (
     <Stack
       screenOptions={{
@@ -10,22 +12,31 @@ export default function RootLayout() {
         headerStyle: { backgroundColor: colors.surface },
         headerTintColor: colors.text,
         headerTitleStyle: { fontWeight: '700' },
+        headerShadowVisible: false,
       }}
     >
       <Stack.Screen name="index" options={{ headerShown: false }} />
-      <Stack.Screen name="login" options={{ title: 'Login' }} />
-      <Stack.Screen name="register" options={{ title: 'Cadastro' }} />
-      <Stack.Screen name="dashboard" options={{ title: 'Dashboard' }} />
+      <Stack.Screen name="login" options={{ headerShown: false }} />
+      <Stack.Screen name="register" options={{ title: 'Criar conta' }} />
+      <Stack.Screen name="dashboard" options={{ title: 'Painel' }} />
       <Stack.Screen name="profile" options={{ title: 'Perfil' }} />
-      <Stack.Screen name="transactions" options={{ title: 'Transacoes' }} />
-      <Stack.Screen name="transaction-new" options={{ title: 'Nova transacao' }} />
+      <Stack.Screen name="transactions" options={{ title: 'Transações' }} />
+      <Stack.Screen name="transaction-new" options={{ title: 'Nova transação' }} />
       <Stack.Screen name="transaction-detail" options={{ title: 'Detalhes' }} />
-      <Stack.Screen name="account-new" options={{ title: 'Nova conta' }} />
       <Stack.Screen name="accounts" options={{ title: 'Contas' }} />
+      <Stack.Screen name="account-new" options={{ title: 'Nova conta' }} />
       <Stack.Screen name="categories" options={{ title: 'Categorias' }} />
-      <Stack.Screen name="budgets" options={{ title: 'Orcamentos' }} />
+      <Stack.Screen name="budgets" options={{ title: 'Orçamentos' }} />
       <Stack.Screen name="goals" options={{ title: 'Metas' }} />
-      <Stack.Screen name="history" options={{ title: 'Historico' }} />
+      <Stack.Screen name="history" options={{ title: 'Histórico' }} />
     </Stack>
+  );
+}
+
+export default function RootLayout() {
+  return (
+    <ThemeProvider>
+      <RootStack />
+    </ThemeProvider>
   );
 }

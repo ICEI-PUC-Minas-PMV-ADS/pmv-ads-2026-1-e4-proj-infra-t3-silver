@@ -1,7 +1,8 @@
 import * as ImagePicker from 'expo-image-picker';
 import { Alert, Image, Pressable, StyleSheet, Text, View } from 'react-native';
 
-import { colors, radius, spacing, typography } from '../theme/theme';
+import { useTheme } from '../context/ThemeContext';
+import { radius, spacing, typography } from '../theme/theme';
 
 interface ReceiptPickerProps {
   uri: string | null;
@@ -9,6 +10,8 @@ interface ReceiptPickerProps {
 }
 
 export function ReceiptPicker({ uri, onChange }: ReceiptPickerProps) {
+  const { colors } = useTheme();
+
   async function handleCamera() {
     const { status } = await ImagePicker.requestCameraPermissionsAsync();
     if (status !== 'granted') {
@@ -26,7 +29,7 @@ export function ReceiptPicker({ uri, onChange }: ReceiptPickerProps) {
       return;
     }
     const result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.Images,
+      mediaTypes: ['images'] as ImagePicker.MediaType[],
       allowsEditing: true,
       quality: 0.7,
     });
@@ -42,23 +45,25 @@ export function ReceiptPicker({ uri, onChange }: ReceiptPickerProps) {
 
   return (
     <View>
-      <Text style={styles.label}>{uri ? 'Comprovante' : 'Comprovante (opcional)'}</Text>
+      <Text style={[styles.label, { color: colors.text }]}>
+        {uri ? 'Comprovante' : 'Comprovante (opcional)'}
+      </Text>
 
       {uri ? (
         <>
           <Image resizeMode="cover" source={{ uri }} style={styles.image} />
           <Pressable onPress={handleRemove} style={styles.removeButton}>
-            <Text style={styles.removeText}>Remover foto</Text>
+            <Text style={[styles.removeText, { color: colors.danger }]}>Remover foto</Text>
           </Pressable>
         </>
       ) : (
-        <View style={styles.placeholder}>
+        <View style={[styles.placeholder, { borderColor: colors.border }]}>
           <Pressable onPress={handleCamera} style={styles.actionButton}>
-            <Text style={styles.actionText}>Tirar foto</Text>
+            <Text style={[styles.actionText, { color: colors.primary }]}>Tirar foto</Text>
           </Pressable>
-          <View style={styles.divider} />
+          <View style={[styles.divider, { backgroundColor: colors.border }]} />
           <Pressable onPress={handleGallery} style={styles.actionButton}>
-            <Text style={styles.actionText}>Escolher da galeria</Text>
+            <Text style={[styles.actionText, { color: colors.primary }]}>Escolher da galeria</Text>
           </Pressable>
         </View>
       )}
@@ -68,13 +73,11 @@ export function ReceiptPicker({ uri, onChange }: ReceiptPickerProps) {
 
 const styles = StyleSheet.create({
   label: {
-    color: colors.text,
     fontSize: typography.small,
     fontWeight: '700',
     marginBottom: spacing.xs,
   },
   placeholder: {
-    borderColor: colors.border,
     borderRadius: radius.md,
     borderStyle: 'dashed',
     borderWidth: 1,
@@ -88,12 +91,10 @@ const styles = StyleSheet.create({
     paddingVertical: spacing.md,
   },
   actionText: {
-    color: colors.primary,
     fontSize: typography.small,
     fontWeight: '600',
   },
   divider: {
-    backgroundColor: colors.border,
     width: 1,
   },
   image: {
@@ -107,7 +108,6 @@ const styles = StyleSheet.create({
     paddingVertical: spacing.xs,
   },
   removeText: {
-    color: colors.danger,
     fontSize: typography.small,
     fontWeight: '600',
   },

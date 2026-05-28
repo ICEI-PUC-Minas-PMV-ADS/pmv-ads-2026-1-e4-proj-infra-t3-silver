@@ -2,8 +2,9 @@ import { useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { ActivityIndicator, Image, ScrollView, StyleSheet, Text, View } from 'react-native';
 
+import { useTheme } from '../src/context/ThemeContext';
 import { getTransaction, resolveAttachmentUrl } from '../src/services/api';
-import { colors, radius, spacing, typography } from '../src/theme/theme';
+import { radius, spacing, typography } from '../src/theme/theme';
 import { Transaction } from '../src/types/financial';
 import { formatCurrency, formatDate } from '../src/utils/formatters';
 
@@ -13,6 +14,7 @@ const TYPE_LABEL: Record<string, string> = {
 };
 
 export default function TransactionDetailScreen() {
+  const { colors } = useTheme();
   const { id } = useLocalSearchParams<{ id: string }>();
   const [transaction, setTransaction] = useState<Transaction | null>(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -28,7 +30,7 @@ export default function TransactionDetailScreen() {
 
   if (isLoading) {
     return (
-      <View style={styles.centered}>
+      <View style={[styles.centered, { backgroundColor: colors.background }]}>
         <ActivityIndicator color={colors.primary} size="large" />
       </View>
     );
@@ -36,8 +38,8 @@ export default function TransactionDetailScreen() {
 
   if (error || !transaction) {
     return (
-      <View style={styles.centered}>
-        <Text style={styles.error}>{error || 'Transação não encontrada.'}</Text>
+      <View style={[styles.centered, { backgroundColor: colors.background }]}>
+        <Text style={[styles.error, { color: colors.danger }]}>{error || 'Transação não encontrada.'}</Text>
       </View>
     );
   }
@@ -45,15 +47,15 @@ export default function TransactionDetailScreen() {
   const isIncome = transaction.type === 'income';
 
   return (
-    <ScrollView contentContainerStyle={styles.container} style={styles.screen}>
-      <View style={[styles.amountBadge, isIncome ? styles.badgeIncome : styles.badgeExpense]}>
-        <Text style={styles.amountValue}>
+    <ScrollView contentContainerStyle={styles.container} style={{ backgroundColor: colors.background }}>
+      <View style={[styles.amountBadge, { backgroundColor: isIncome ? colors.successLight : colors.dangerLight }]}>
+        <Text style={[styles.amountValue, { color: colors.text }]}>
           {isIncome ? '+' : '-'} {formatCurrency(transaction.amount)}
         </Text>
-        <Text style={styles.amountType}>{TYPE_LABEL[transaction.type]}</Text>
+        <Text style={[styles.amountType, { color: colors.muted }]}>{TYPE_LABEL[transaction.type]}</Text>
       </View>
 
-      <View style={styles.card}>
+      <View style={[styles.card, { backgroundColor: colors.surface, borderColor: colors.border }]}>
         <Row label="Descrição" value={transaction.description} />
         <Divider />
         <Row label="Data" value={formatDate(transaction.date)} />
@@ -64,8 +66,8 @@ export default function TransactionDetailScreen() {
       </View>
 
       {transaction.attachmentUrl ? (
-        <View style={styles.card}>
-          <Text style={styles.sectionTitle}>Comprovante</Text>
+        <View style={[styles.card, { backgroundColor: colors.surface, borderColor: colors.border }]}>
+          <Text style={[styles.sectionTitle, { color: colors.text }]}>Comprovante</Text>
           <Image
             resizeMode="contain"
             source={{ uri: resolveAttachmentUrl(transaction.attachmentUrl) }}
@@ -78,23 +80,21 @@ export default function TransactionDetailScreen() {
 }
 
 function Row({ label, value }: { label: string; value: string }) {
+  const { colors } = useTheme();
   return (
     <View style={styles.row}>
-      <Text style={styles.rowLabel}>{label}</Text>
-      <Text style={styles.rowValue}>{value}</Text>
+      <Text style={[styles.rowLabel, { color: colors.muted }]}>{label}</Text>
+      <Text style={[styles.rowValue, { color: colors.text }]}>{value}</Text>
     </View>
   );
 }
 
 function Divider() {
-  return <View style={styles.divider} />;
+  const { colors } = useTheme();
+  return <View style={[styles.divider, { backgroundColor: colors.border }]} />;
 }
 
 const styles = StyleSheet.create({
-  screen: {
-    backgroundColor: colors.background,
-    flex: 1,
-  },
   container: {
     gap: spacing.md,
     padding: spacing.md,
@@ -112,53 +112,39 @@ const styles = StyleSheet.create({
     gap: spacing.xs,
     padding: spacing.lg,
   },
-  badgeIncome: {
-    backgroundColor: '#D1FAE5',
-  },
-  badgeExpense: {
-    backgroundColor: '#FEE2E2',
-  },
   amountValue: {
-    color: colors.text,
     fontSize: 32,
     fontWeight: '700',
   },
   amountType: {
-    color: colors.muted,
     fontSize: typography.small,
     fontWeight: '600',
   },
   card: {
-    backgroundColor: colors.surface,
-    borderColor: colors.border,
     borderRadius: radius.md,
     borderWidth: 1,
-    padding: spacing.md,
     gap: spacing.sm,
+    padding: spacing.md,
   },
   row: {
+    alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center',
   },
   rowLabel: {
-    color: colors.muted,
     fontSize: typography.small,
   },
   rowValue: {
-    color: colors.text,
+    flexShrink: 1,
     fontSize: typography.small,
     fontWeight: '600',
-    flexShrink: 1,
-    textAlign: 'right',
     marginLeft: spacing.md,
+    textAlign: 'right',
   },
   divider: {
-    backgroundColor: colors.border,
     height: 1,
   },
   sectionTitle: {
-    color: colors.text,
     fontSize: typography.small,
     fontWeight: '700',
   },
@@ -168,7 +154,6 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   error: {
-    color: colors.danger,
     fontSize: typography.body,
     textAlign: 'center',
   },

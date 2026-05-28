@@ -1,10 +1,11 @@
 import { ListItem } from '../src/components/ListItem';
 import { Screen } from '../src/components/Screen';
+import { useTheme } from '../src/context/ThemeContext';
 import { mockTransactions } from '../src/mocks/financial-data';
-import { colors } from '../src/theme/theme';
 import { formatCurrency, formatDate } from '../src/utils/formatters';
 
 export default function HistoryScreen() {
+  const { colors } = useTheme();
   const orderedTransactions = [...mockTransactions].sort((a, b) => b.date.localeCompare(a.date));
 
   return (

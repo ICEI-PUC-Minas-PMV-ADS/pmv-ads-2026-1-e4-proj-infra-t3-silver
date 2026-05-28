@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native';
 
-import { colors, radius, spacing, typography } from '../theme/theme';
+import { useTheme } from '../context/ThemeContext';
+import { radius, spacing, typography } from '../theme/theme';
 
 interface ListItemProps {
   title: string;
@@ -9,15 +10,18 @@ interface ListItemProps {
   accentColor?: string;
 }
 
-export function ListItem({ title, description, amount, accentColor = colors.primary }: ListItemProps) {
+export function ListItem({ title, description, amount, accentColor }: ListItemProps) {
+  const { colors } = useTheme();
+  const accent = accentColor ?? colors.primary;
+
   return (
-    <View style={styles.item}>
-      <View style={[styles.accent, { backgroundColor: accentColor }]} />
+    <View style={[styles.item, { backgroundColor: colors.surface, borderColor: colors.border }]}>
+      <View style={[styles.accent, { backgroundColor: accent }]} />
       <View style={styles.content}>
-        <Text style={styles.title}>{title}</Text>
-        {description ? <Text style={styles.description}>{description}</Text> : null}
+        <Text style={[styles.title, { color: colors.text }]}>{title}</Text>
+        {description ? <Text style={[styles.description, { color: colors.muted }]}>{description}</Text> : null}
       </View>
-      {amount ? <Text style={styles.amount}>{amount}</Text> : null}
+      {amount ? <Text style={[styles.amount, { color: colors.text }]}>{amount}</Text> : null}
     </View>
   );
 }
@@ -25,35 +29,31 @@ export function ListItem({ title, description, amount, accentColor = colors.prim
 const styles = StyleSheet.create({
   item: {
     alignItems: 'center',
-    backgroundColor: colors.surface,
-    borderColor: colors.border,
     borderRadius: radius.md,
     borderWidth: 1,
     flexDirection: 'row',
     gap: spacing.md,
-    padding: spacing.md,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm + spacing.xs,
   },
   accent: {
-    borderRadius: radius.sm,
-    height: 36,
-    width: 6,
+    borderRadius: radius.full,
+    height: 32,
+    width: 4,
   },
   content: {
     flex: 1,
-    gap: spacing.xs,
+    gap: 2,
   },
   title: {
-    color: colors.text,
     fontSize: typography.body,
-    fontWeight: '700',
+    fontWeight: '600',
   },
   description: {
-    color: colors.muted,
     fontSize: typography.small,
   },
   amount: {
-    color: colors.text,
     fontSize: typography.small,
-    fontWeight: '700',
+    fontWeight: '600',
   },
 });

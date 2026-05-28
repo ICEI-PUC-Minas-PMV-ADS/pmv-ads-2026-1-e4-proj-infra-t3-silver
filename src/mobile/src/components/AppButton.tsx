@@ -1,6 +1,7 @@
 import { Pressable, StyleSheet, Text } from 'react-native';
 
-import { colors, radius, spacing, typography } from '../theme/theme';
+import { useTheme } from '../context/ThemeContext';
+import { radius, spacing, typography } from '../theme/theme';
 
 interface AppButtonProps {
   disabled?: boolean;
@@ -10,6 +11,7 @@ interface AppButtonProps {
 }
 
 export function AppButton({ disabled = false, label, onPress, variant = 'primary' }: AppButtonProps) {
+  const { colors } = useTheme();
   const isPrimary = variant === 'primary';
 
   return (
@@ -19,12 +21,13 @@ export function AppButton({ disabled = false, label, onPress, variant = 'primary
       onPress={onPress}
       style={({ pressed }) => [
         styles.button,
-        isPrimary ? styles.primary : styles.secondary,
-        pressed ? styles.pressed : null,
-        disabled ? styles.disabled : null,
+        { backgroundColor: isPrimary ? colors.primary : colors.surface },
+        !isPrimary && { borderColor: colors.borderStrong, borderWidth: 1 },
+        pressed && styles.pressed,
+        disabled && styles.disabled,
       ]}
     >
-      <Text style={[styles.label, isPrimary ? styles.primaryLabel : styles.secondaryLabel]}>{label}</Text>
+      <Text style={[styles.label, { color: isPrimary ? '#ffffff' : colors.text }]}>{label}</Text>
     </Pressable>
   );
 }
@@ -33,33 +36,19 @@ const styles = StyleSheet.create({
   button: {
     alignItems: 'center',
     borderRadius: radius.md,
-    minHeight: 48,
+    minHeight: 44,
     justifyContent: 'center',
     paddingHorizontal: spacing.md,
     paddingVertical: spacing.sm,
   },
-  primary: {
-    backgroundColor: colors.primary,
-  },
-  primaryLabel: {
-    color: colors.surface,
-  },
-  secondary: {
-    backgroundColor: colors.surface,
-    borderColor: colors.border,
-    borderWidth: 1,
-  },
-  secondaryLabel: {
-    color: colors.primaryDark,
-  },
   label: {
-    fontSize: typography.body,
-    fontWeight: '700',
+    fontSize: typography.small,
+    fontWeight: '600',
   },
   pressed: {
-    opacity: 0.78,
+    opacity: 0.75,
   },
   disabled: {
-    opacity: 0.5,
+    opacity: 0.45,
   },
 });

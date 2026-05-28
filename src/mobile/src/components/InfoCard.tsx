@@ -1,7 +1,8 @@
 import { PropsWithChildren } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-import { colors, radius, spacing, typography } from '../theme/theme';
+import { useTheme } from '../context/ThemeContext';
+import { radius, spacing, typography } from '../theme/theme';
 
 interface InfoCardProps extends PropsWithChildren {
   title: string;
@@ -10,10 +11,19 @@ interface InfoCardProps extends PropsWithChildren {
 }
 
 export function InfoCard({ children, title, value, tone = 'default' }: InfoCardProps) {
+  const { colors } = useTheme();
+
+  const valueColor = {
+    default: colors.text,
+    success: colors.success,
+    danger: colors.danger,
+    warning: colors.warning,
+  }[tone];
+
   return (
-    <View style={styles.card}>
-      <Text style={styles.title}>{title}</Text>
-      {value ? <Text style={[styles.value, styles[tone]]}>{value}</Text> : null}
+    <View style={[styles.card, { backgroundColor: colors.surface, borderColor: colors.border }]}>
+      <Text style={[styles.title, { color: colors.muted }]}>{title}</Text>
+      {value ? <Text style={[styles.value, { color: valueColor }]}>{value}</Text> : null}
       {children}
     </View>
   );
@@ -21,33 +31,17 @@ export function InfoCard({ children, title, value, tone = 'default' }: InfoCardP
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: colors.surface,
-    borderColor: colors.border,
     borderRadius: radius.md,
     borderWidth: 1,
     gap: spacing.sm,
     padding: spacing.md,
   },
   title: {
-    color: colors.muted,
     fontSize: typography.small,
     fontWeight: '600',
   },
   value: {
-    color: colors.text,
-    fontSize: 24,
+    fontSize: typography.title,
     fontWeight: '700',
-  },
-  default: {
-    color: colors.text,
-  },
-  success: {
-    color: colors.success,
-  },
-  danger: {
-    color: colors.danger,
-  },
-  warning: {
-    color: colors.warning,
   },
 });
