@@ -5,7 +5,7 @@ import { Alert, Share, StyleSheet, Text, TextInput, View } from 'react-native';
 import { AppButton } from '../src/components/AppButton';
 import { Screen } from '../src/components/Screen';
 import { useTheme } from '../src/context/ThemeContext';
-import { getFamily, getFamilyMembers, joinFamily } from '../src/services/api';
+import { getFamily, getFamilyMembers, joinFamily, leaveFamily } from '../src/services/api';
 import { radius, spacing, typography } from '../src/theme/theme';
 import { Family, FamilyMember } from '../src/types/financial';
 import { getApiErrorMessage } from '../src/utils/api-error';
@@ -20,6 +20,7 @@ export default function FamilyScreen() {
   const [joinId, setJoinId] = useState('');
   const [isJoining, setIsJoining] = useState(false);
   const [joinError, setJoinError] = useState('');
+  const [isLeaving, setIsLeaving] = useState(false);
 
   useFocusEffect(
     useCallback(() => {
@@ -54,6 +55,31 @@ export default function FamilyScreen() {
         { text: 'Confirmar', style: 'destructive', onPress: handleJoin },
       ]
     );
+  }
+
+  function confirmLeave() {
+    Alert.alert(
+      'Sair da família',
+      'Você sairá desta família e uma nova família privada será criada para você. Seus dados pessoais (contas, transações, categorias) serão migrados.\n\nDeseja continuar?',
+      [
+        { text: 'Cancelar', style: 'cancel' },
+        { text: 'Sair da família', style: 'destructive', onPress: handleLeave },
+      ]
+    );
+  }
+
+  async function handleLeave() {
+    setIsLeaving(true);
+    try {
+      await leaveFamily();
+      Alert.alert('Pronto', 'Você saiu da família. Uma nova família privada foi criada.', [
+        { text: 'OK', onPress: () => router.replace('/dashboard') },
+      ]);
+    } catch (err) {
+      Alert.alert('Erro', getApiErrorMessage(err));
+    } finally {
+      setIsLeaving(false);
+    }
   }
 
   async function handleJoin() {
@@ -93,6 +119,14 @@ export default function FamilyScreen() {
             </View>
 
             <AppButton label="Compartilhar ID para convidar" onPress={handleShareId} variant="secondary" />
+            {members.length > 1 && (
+              <AppButton
+                disabled={isLeaving}
+                label={isLeaving ? 'Saindo...' : 'Sair desta família'}
+                onPress={confirmLeave}
+                variant="danger"
+              />
+            )}
           </>
         ) : null}
       </View>

@@ -7,12 +7,19 @@ interface AppButtonProps {
   disabled?: boolean;
   label: string;
   onPress: () => void;
-  variant?: 'primary' | 'secondary';
+  variant?: 'primary' | 'secondary' | 'danger';
 }
 
 export function AppButton({ disabled = false, label, onPress, variant = 'primary' }: AppButtonProps) {
   const { colors } = useTheme();
-  const isPrimary = variant === 'primary';
+
+  const bgColor =
+    variant === 'primary' ? colors.primary :
+    variant === 'danger'  ? colors.danger  :
+    colors.surface;
+
+  const textColor =
+    variant === 'primary' || variant === 'danger' ? '#ffffff' : colors.text;
 
   return (
     <Pressable
@@ -21,13 +28,13 @@ export function AppButton({ disabled = false, label, onPress, variant = 'primary
       onPress={onPress}
       style={({ pressed }) => [
         styles.button,
-        { backgroundColor: isPrimary ? colors.primary : colors.surface },
-        !isPrimary && { borderColor: colors.borderStrong, borderWidth: 1 },
+        { backgroundColor: bgColor },
+        variant === 'secondary' && { borderColor: colors.borderStrong, borderWidth: 1 },
         pressed && styles.pressed,
         disabled && styles.disabled,
       ]}
     >
-      <Text style={[styles.label, { color: isPrimary ? '#ffffff' : colors.text }]}>{label}</Text>
+      <Text style={[styles.label, { color: textColor }]}>{label}</Text>
     </Pressable>
   );
 }

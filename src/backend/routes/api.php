@@ -38,6 +38,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/family', [FamilyController::class, 'index']);
     Route::put('/family', [FamilyController::class, 'update']);
     Route::post('/family/join', [FamilyController::class, 'join']);
+    Route::post('/family/leave', [FamilyController::class, 'leave']);
     Route::get('/family/members', [FamilyController::class, 'members']);
 
     // Categorias (Categories)

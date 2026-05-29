@@ -93,6 +93,35 @@ class FamilyController extends Controller
     }
 
     /**
+     * Leave the current family and create a new private one.
+     * Migrates all records owned by this user (userId) to the new family.
+     */
+    public function leave()
+    {
+        $user = Auth::user();
+        $oldFamilyId = $user->familyId;
+
+        $newFamily = Family::create(['name' => 'Família de ' . $user->name]);
+
+        Account::where('userId', $user->_id)->update(['familyId' => $newFamily->id]);
+        Transaction::where('userId', $user->_id)->update(['familyId' => $newFamily->id]);
+        Category::where('userId', $user->_id)->update(['familyId' => $newFamily->id]);
+        Budget::where('userId', $user->_id)->update(['familyId' => $newFamily->id]);
+
+        $user->update(['familyId' => $newFamily->id]);
+
+        $remainingUsers = User::where('familyId', $oldFamilyId)->count();
+        if ($remainingUsers === 0) {
+            Family::destroy($oldFamilyId);
+        }
+
+        return response()->json([
+            'message' => 'Você saiu da família e uma nova família privada foi criada.',
+            'family' => $newFamily,
+        ]);
+    }
+
+    /**
      * List members of the family.
      */
     public function members()

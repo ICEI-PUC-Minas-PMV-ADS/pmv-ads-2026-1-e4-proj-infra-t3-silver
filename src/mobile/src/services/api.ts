@@ -148,6 +148,10 @@ export async function joinFamily(familyId: string): Promise<void> {
   await api.post('/family/join', { family_id: familyId });
 }
 
+export async function leaveFamily(): Promise<void> {
+  await api.post('/family/leave');
+}
+
 export async function getCategories(): Promise<Category[]> {
   const response = await api.get<Category[]>('/categorias');
   return response.data;
