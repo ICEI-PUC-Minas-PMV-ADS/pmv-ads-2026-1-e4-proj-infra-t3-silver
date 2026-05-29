@@ -8,13 +8,15 @@ import {
   Category,
   CreateAccountPayload,
   CreateTransactionPayload,
+  Family,
+  FamilyMember,
   Goal,
   Transaction,
   User,
 } from '../types/financial';
 
 const TOKEN_KEY = '@silver:auth_token';
-export const API_BASE_URL = process.env.EXPO_PUBLIC_API_URL ?? 'http://127.0.0.1:8000/api';
+export const API_BASE_URL = process.env.EXPO_PUBLIC_API_URL ?? 'http://192.168.15.27:8000/api';
 
 // Substitui o host do attachmentUrl pelo mesmo host da API,
 // corrigindo URLs gravadas com localhost ou 127.0.0.1 no banco.
@@ -130,6 +132,20 @@ export async function createTransaction(
 
   const response = await api.post<Transaction>('/transactions', { ...payload, source: 'mobile' });
   return response.data;
+}
+
+export async function getFamily(): Promise<Family> {
+  const response = await api.get<Family>('/family');
+  return response.data;
+}
+
+export async function getFamilyMembers(): Promise<FamilyMember[]> {
+  const response = await api.get<FamilyMember[]>('/family/members');
+  return response.data;
+}
+
+export async function joinFamily(familyId: string): Promise<void> {
+  await api.post('/family/join', { family_id: familyId });
 }
 
 export async function getCategories(): Promise<Category[]> {

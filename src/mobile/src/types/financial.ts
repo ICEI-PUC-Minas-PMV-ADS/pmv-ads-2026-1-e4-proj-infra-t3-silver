@@ -69,6 +69,19 @@ export interface Goal {
   deadline: string;
 }
 
+export interface Family {
+  _id?: string;
+  id?: string;
+  name: string;
+}
+
+export interface FamilyMember {
+  _id?: string;
+  id?: string;
+  name: string;
+  email: string;
+}
+
 export interface CreateTransactionPayload {
   description: string;
   amount: number;

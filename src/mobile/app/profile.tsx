@@ -80,6 +80,7 @@ export default function ProfileScreen() {
         </View>
       </InfoCard>
 
+      <AppButton label="Gerenciar família" onPress={() => router.push('/family')} variant="secondary" />
       <AppButton label="Atualizar perfil" onPress={loadProfile} variant="secondary" />
       <AppButton label="Sair" onPress={handleLogout} />
       <Text style={[styles.apiUrl, { color: colors.muted }]}>API: {API_BASE_URL}</Text>

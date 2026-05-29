@@ -24,6 +24,7 @@ function RootStack() {
       <Stack.Screen name="transaction-new" options={{ title: 'Nova transação' }} />
       <Stack.Screen name="transaction-detail" options={{ title: 'Detalhes' }} />
       <Stack.Screen name="accounts" options={{ title: 'Contas' }} />
+      <Stack.Screen name="family" options={{ title: 'Família' }} />
       <Stack.Screen name="account-new" options={{ title: 'Nova conta' }} />
       <Stack.Screen name="categories" options={{ title: 'Categorias' }} />
       <Stack.Screen name="budgets" options={{ title: 'Orçamentos' }} />
