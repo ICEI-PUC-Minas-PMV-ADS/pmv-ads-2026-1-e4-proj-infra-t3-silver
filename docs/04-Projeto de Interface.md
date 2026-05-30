@@ -30,7 +30,23 @@ As referências abaixo irão auxiliá-lo na geração do artefato “Diagramas d
 ![Exemplo de Wireframe](img/home1.png)
 ![Exemplo de Wireframe](img/cadastt.png)
 
+## Wireframes MOBILE
+
+![Exemplo de Wireframe](img/silverwire/bemvindo.png)
+![Exemplo de Wireframe](img/silverwire/capamobile.png)
+![Exemplo de Wireframe](img/silverwire/categoriasmob.png)
+![Exemplo de Wireframe](img/silverwire/compartmob.png)
+![Exemplo de Wireframe](img/silverwire/esqsenhamob.png)
+![Exemplo de Wireframe](img/silverwire/faceidmob.png)
+![Exemplo de Wireframe](img/silverwire/historimob.png)
+![Exemplo de Wireframe](img/silverwire/homepagmob.png)
+![Exemplo de Wireframe](img/silverwire/loginmobi.png)
+![Exemplo de Wireframe](img/silverwire/metasmob.png)
+![Exemplo de Wireframe](img/silverwire/parte1mob.png)
+![Exemplo de Wireframe](img/silverwire/parte2mobile.png)
+![Exemplo de Wireframe](img/silverwire/templatepadraomob.png)
+
 São protótipos usados em design de interface para sugerir a estrutura de um site web e seu relacionamentos entre suas páginas. Um wireframe web é uma ilustração semelhante do layout de elementos fundamentais na interface.
  
-> **FIGMA SILVER**:
-> - [Veja nosso Wireframe no Figma completo](https://www.figma.com/design/npC61aU8dnzFzvTuCfxXfw/silver-wireframe?node-id=0-1&t=5IGyKrytdM2cGXC2-1)
+> **FIGMA SILVER Disponível MOBILE E WEB Wireframes no link**:
+> - [Veja nosso Wireframe Mobile e web no Figma completo](https://www.figma.com/design/npC61aU8dnzFzvTuCfxXfw/silver-wireframe?node-id=0-1&t=5IGyKrytdM2cGXC2-1)
