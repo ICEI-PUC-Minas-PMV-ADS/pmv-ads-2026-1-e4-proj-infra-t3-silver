@@ -48,10 +48,27 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 <strong>Cada aluno será responsável pela execução completa (back, web e mobile) de pelo menos 2 requisitos que será acompanhado pelo professor</strong>
 ### Requisitos Funcionais
 
+<<<<<<< Updated upstream
 |ID    | Descrição do Requisito  | Prioridade | Responsável |
 |------|-----------------------------------------|----|----|
 |RF-001| Permitir que o usuário cadastre tarefas | ALTA | Pedro |
 |RF-002| Emitir um relatório de tarefas no mês   | MÉDIA | João |
+=======
+| ID | Descrição do Requisito | Prioridade | Responsável |
+| :--- | :--- | :--- | :--- |
+| **RF01** | Permitir o registro de transações (receitas/despesas) via API e WhatsApp. | Alta | Aécio |
+| **RF02** | Fornecer um Dashboard Web principal para visualização de saldo e extrato. | Alta | Adrian |
+| **RF03** | Permitir a sincronização em tempo real entre Web e Mobile. | Alta | Nathan |
+| **RF04** | Permitir a criação, edição e exclusão de categorias financeiras. | Média | Victor |
+| **RF05** | Realizar o cálculo e exibição de saldo consolidado de múltiplas contas. | Alta | Vinícius |
+| **RF06** | Permitir o cadastro de metas financeiras com acompanhamento de progresso. | Média | Yago |
+| **RF07** | Gerenciar autenticação (Login/Registro) e perfil de usuário. | Alta | Aécio |
+| **RF08** | Possibilitar a exportação de relatórios em PDF/CSV no Dashboard Web. | Baixa | Adrian |
+| **RF09** | Disparar alertas ou resumos diários de orçamento via WhatsApp. | Média | Nathan |
+| **RF10** | Permitir a anexação de comprovantes (imagens/recibos) nas transações. | Baixa | Victor |
+| **RF11** | Permitir a criação de orçamentos mensais com limites de gastos. | Alta | Vinícius |
+| **RF12** | Manter e exibir um histórico filtrável de movimentações financeiras. | Média | Yago |
+>>>>>>> Stashed changes
 
 ### Requisitos não Funcionais
 
