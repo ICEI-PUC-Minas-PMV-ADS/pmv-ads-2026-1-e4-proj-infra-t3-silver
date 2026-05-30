@@ -35,7 +35,12 @@ Este documento apresenta um resumo das atividades realizadas em cada etapa do pr
 - _Preencher_
 
 #### Victor da Silva Folgado
-- _Preencher_
+- Aprimoramento da introdução do projeto, tornando a contextualização mais clara e objetiva.
+- Revisão e complementação da descrição do problema abordado pela aplicação.
+- Ampliação do conteúdo documental com acréscimo de informações relevantes para o entendimento da proposta.
+- Definição e detalhamento do público-alvo, incluindo características e necessidades dos usuários.
+- Inclusão e documentação do Diagrama de Casos de Uso para representar as funcionalidades principais do sistema.
+- Revisão geral da documentação da etapa, contribuindo para maior organização, clareza e qualidade do material entregue.
 
 #### Vinícius Soares Pires e Luz
 - _Preencher_
@@ -73,7 +78,13 @@ Este documento apresenta um resumo das atividades realizadas em cada etapa do pr
 - _Preencher_
 
 #### Victor da Silva Folgado
-- _Preencher_
+- Desenvolvimento e documentação dos wireframes da aplicação.
+- Criação e organização dos protótipos iniciais no Figma.
+- Inclusão de imagens dos wireframes na documentação do projeto.
+- Disponibilização do link de acesso ao protótipo para a equipe.
+- Revisão dos fluxos de navegação e validação da estrutura visual proposta.
+- Apoio na organização da documentação da interface e definição da experiência do usuário.
+- Ajuda no início do desenvolvimento
 
 #### Vinícius Soares Pires e Luz
 - _Preencher_
@@ -112,7 +123,13 @@ Este documento apresenta um resumo das atividades realizadas em cada etapa do pr
 - _Preencher_
 
 #### Victor da Silva Folgado
-- _Preencher_
+- Implementação das funcionalidades de receitas e despesas no sistema.
+- Criação das rotas relacionadas às transações financeiras.
+- Desenvolvimento das telas de receitas e despesas no Front-end Web.
+- Ajustes e manutenção da estrutura do projeto durante a integração entre Front-end e Back-end.
+- Participação na validação das funcionalidades implementadas.
+- Revisão geral da interface e correção de inconsistências identificadas durante os testes.
+- Produção e gravação do vídeo de apresentação da etapa.
 
 #### Vinícius Soares Pires e Luz
 - _Preencher_
@@ -150,8 +167,14 @@ Este documento apresenta um resumo das atividades realizadas em cada etapa do pr
 - _Preencher_
 
 #### Victor da Silva Folgado
-- _Preencher_
-
+- Criação dos wireframes da aplicação Mobile.
+- Organização e documentação dos protótipos desenvolvidos no Figma.
+- Adição de novas referências à documentação do projeto.
+- Implementação do CRUD da tela de transações.
+- Desenvolvimento da funcionalidade de exclusão de transações.
+- Correções e melhorias na tela de transações.
+- Revisão e ajustes em funcionalidades já existentes.
+- Apoio nos testes e validação das funcionalidades implementadas.
 #### Vinícius Soares Pires e Luz
 - _Preencher_
 
