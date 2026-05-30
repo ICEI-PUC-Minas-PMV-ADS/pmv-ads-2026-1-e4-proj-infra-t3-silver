@@ -1,17 +1,15 @@
-# Instruções de utilização
+# Código Fonte
 
-Crie pastas diferentes para o backend, frontend web e frontend mobile.
-## Instalação do Site
+Este diretório concentra os módulos executáveis do projeto.
 
-O site em HTML/CSS/JS é um projeto estático, logo pode ser utilizado tanto em servidores...
+## Estrutura
 
-## Histórico de versões
+```text
+src/
+├── backend/   # API Laravel
+└── mobile/    # App mobile (em evolução)
+```
 
-<<<<<<< Updated upstream
-### [0.1.0] - DD/MM/AAAA
-#### Adicionado
-- Adicionado ...
-=======
 ## Backend (`src/backend`)
 
 ### Requisitos
@@ -126,4 +124,3 @@ php artisan serve --host=0.0.0.0 --port=8000
 ```
 
 Instruções completas: [`src/mobile/README.md`](mobile/README.md).
->>>>>>> Stashed changes

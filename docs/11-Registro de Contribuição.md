@@ -1,123 +1,83 @@
 # Documentação do Projeto de Trabalho em Equipe
 
-Este é um exemplo de documento para a documentação das etapas e contribuição de cada membro. É importante salientar que todos os membros devem participar ativamente em todas as etapas e, nas etapas de desenvolvimento é impressindível que todos tenham atividades de desenvolvimento. <strong>Este arquivo deve refletir a execução das tarefas de cada aluno por etapa e estar em consonância com as ferramentas de gestão de tempo utilizadas pelo grupo, contando principalmente o tempo de início e termino de cada tarefa.</strong>
+Este é um exemplo de documento para a documentação das etapas e contribuição de cada membro. É importante salientar que todos os membros devem participar ativamente em todas as etapas e, nas etapas de desenvolvimento é imprescindível que todos tenham atividades de desenvolvimento. <strong>Este arquivo deve refletir a execução das tarefas de cada aluno por etapa e estar em consonância com as ferramentas de gestão de tempo utilizadas pelo grupo, contando principalmente o tempo de início e término de cada tarefa.</strong>
 
 ## Visão Geral
 
 Este documento detalha as etapas e responsabilidades do trabalho em equipe para o desenvolvimento de um projeto. O projeto está dividido em cinco etapas principais, cada uma com suas respectivas tarefas e prazos. Cada membro da equipe é responsável por completar as tarefas atribuídas e colaborar com os demais para garantir o sucesso do projeto.
 
 ## Etapa 1: Levantamento
-
 ### Objetivo
-
 Coletar e documentar todos os requisitos necessários para o desenvolvimento do projeto.
-
 ### Tarefas
-
-- **Reunião com stakeholders**: Realizar reuniões com as partes interessadas para entender as necessidades e expectativas.
-- **Levantamento de requisitos**: Documentar os requisitos funcionais e não funcionais do projeto.
-- **Análise de viabilidade**: Avaliar a viabilidade técnica e econômica do projeto.
-
+- **Reunião com stakeholders**: Definição do escopo e objetivos financeiros.
+- **Levantamento de requisitos**: Documentação dos 12 requisitos funcionais.
+- **Análise de viabilidade**: Escolha da arquitetura distribuída (Laravel + WhatsApp).
 ### Responsáveis
-
-- **Analista de Requisitos**: Nome do analista
-- **Gerente de Projeto**: Nome do gerente
-
+- **Analista de Requisitos**: Nathan Reis, Vinícius Silva
+- **Gerente de Projeto**: Aécio Santos
 ### Prazo
-
-- **Data de conclusão**: YYYY-MM-DD
+- **Data de conclusão**: 2026-03-06
 
 ---
 
-## Etapa 2: Desenvolvimento Backend
-
+## Etapa 2: Desenvolvimento Backend (Laravel/API)
 ### Objetivo
-
 Desenvolver a lógica de negócio e os serviços de backend do projeto.
-
 ### Tarefas
-
-- **Desenvolvimento da API**: Implementar as APIs necessárias para o funcionamento do sistema.
-- **Gestão de Banco de Dados**: Projetar e implementar o banco de dados.
-- **Testes Unitários**: Criar e executar testes unitários para garantir a qualidade do código backend.
-
+- **Desenvolvimento da API**: Registro de transações e autenticação (RF01, RF07).
+- **Gestão de Banco de Dados**: Modelagem MongoDB para usuários e finanças.
+- **Testes Unitários**: Validação dos cálculos de saldo (RF05).
 ### Responsáveis
-
-- **Desenvolvedor Backend**: Nome do desenvolvedor
-- **Engenheiro de Dados**: Nome do engenheiro
-
+- **Desenvolvedor Backend**: Aécio Santos, Vinícius Silva
+- **Engenheiro de Dados**: Yago Oliveira
 ### Prazo
-
-- **Data de conclusão**: YYYY-MM-DD
+- **Data de conclusão**: 2026-04-15
 
 ---
 
-## Etapa 3: Desenvolvimento Web
-
+## Etapa 3: Desenvolvimento Web (Dashboard)
 ### Objetivo
-
-Desenvolver a interface web do projeto, garantindo uma experiência de usuário eficaz e responsiva.
-
+Desenvolver a interface web do projeto e integração analítica.
 ### Tarefas
-
-- **Desenvolvimento Frontend**: Criar a interface de usuário utilizando as tecnologias web escolhidas.
-- **Integração com Backend**: Integrar o frontend com as APIs desenvolvidas na etapa anterior.
-- **Testes de Interface**: Realizar testes de usabilidade e interface para assegurar a qualidade da aplicação web.
-
+- **Desenvolvimento Frontend**: Criação dos gráficos e dashboard (RF02, RF12).
+- **Integração com Backend**: Consumo da API Laravel para relatórios (RF08).
+- **Testes de Interface**: Responsividade do Dashboard Web.
 ### Responsáveis
-
-- **Desenvolvedor Frontend**: Nome do desenvolvedor
-- **Designer UI/UX**: Nome do designer
-
+- **Desenvolvedor Frontend**: Adrian Martins, Yago Oliveira
+- **Designer UI/UX**: Victor Hugo
 ### Prazo
-
-- **Data de conclusão**: YYYY-MM-DD
+- **Data de conclusão**: 2026-05-15
 
 ---
 
-## Etapa 4: Desenvolvimento Mobile
-
+## Etapa 4: Integração WhatsApp e Mobile
 ### Objetivo
-
-Desenvolver a aplicação mobile do projeto, adaptando as funcionalidades para dispositivos móveis.
-
+Implementar os terminais de acesso mobile e mensageria.
 ### Tarefas
-
-- **Desenvolvimento Mobile**: Implementar a versão mobile do projeto para Android e iOS.
-- **Integração com Backend**: Garantir que a aplicação mobile se comunique corretamente com o backend.
-- **Testes em Dispositivos**: Realizar testes em diferentes dispositivos móveis para assegurar compatibilidade e desempenho.
-
+- **Bridge WhatsApp**: Integração Node.js para mensagens instantâneas (RF01, RF09).
+- **App Mobile**: Sincronização em tempo real (RF03).
+- **Anexo de Documentos**: Upload de recibos via mobile (RF10).
 ### Responsáveis
-
-- **Desenvolvedor Mobile**: Nome do desenvolvedor
-- **QA Mobile**: Nome do engenheiro de qualidade
-
+- **Desenvolvedor Mobile/Bridge**: Nathan Reis, Victor Hugo
+- **QA Mobile**: Adrian Martins
 ### Prazo
-
-- **Data de conclusão**: YYYY-MM-DD
+- **Data de conclusão**: 2026-06-15
 
 ---
 
-## Etapa 5: Homologação e Apresentação da Solução Produzida
-
+## Etapa 5: Homologação e Entrega Final
 ### Objetivo
-
-Garantir que a solução desenvolvida esteja pronta para produção e apresentar o projeto às partes interessadas.
-
+Garantir que a solução esteja pronta para produção e apresentar o projeto.
 ### Tarefas
-
-- **Homologação**: Realizar testes finais com os stakeholders para validar a solução.
-- **Correção de Bugs**: Corrigir quaisquer problemas encontrados durante a homologação.
-- **Apresentação Final**: Preparar e conduzir a apresentação da solução final para os stakeholders.
-
+- **Homologação**: Testes ponta a ponta entre WhatsApp, Web e Mobile.
+- **Correção de Bugs**: Ajustes finais de sincronização.
+- **Apresentação Final**: Gravação do vídeo obrigatório e defesa do projeto.
 ### Responsáveis
-
-- **Líder de Homologação**: Nome do líder
-- **Gerente de Projeto**: Nome do gerente
-
+- **Líder de Homologação**: Nathan Reis
+- **Gerente de Projeto**: Aécio Santos
 ### Prazo
-
-- **Data de conclusão**: YYYY-MM-DD
+- **Data de conclusão**: 2026-06-30
 
 ---
 

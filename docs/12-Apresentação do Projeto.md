@@ -4,6 +4,9 @@
 
 Conjunto de slides em um arquivo PowerPoint ou PDF com a apresentação do projeto contemplando todos os itens trabalhados nos demais artefatos.
 
+> [!IMPORTANT]
+> **Entrega de Vídeo Obrigatória:** O grupo deve gravar um vídeo com a participação de todos os membros, abordando as atividades elaboradas por cada integrante (aprox. 1 minuto por membro). **Entregas sem vídeo receberão nota igual a 0 (zero).**
+
 ## Título do Projeto
 
 Nome e marca do projeto

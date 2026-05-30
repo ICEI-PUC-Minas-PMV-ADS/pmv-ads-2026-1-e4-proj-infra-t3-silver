@@ -1,60 +1,109 @@
-# Testes Unitários no Backend
+# Registro de Testes Unitários
 
-## O que são Testes Unitários?
+Este documento registra os testes implementados no backend do Silver para o recurso de **Orçamentos Mensais (Budgets)**, desenvolvido na Etapa 2, Tarefa 2.
 
-Testes unitários são testes automatizados escritos e executados para garantir que pequenas partes individuais do código (unidades) funcionem conforme esperado. No contexto do desenvolvimento backend, isso geralmente significa testar funções, métodos, ou classes de maneira isolada, sem dependências externas como bancos de dados ou serviços web.
+---
 
-## Por que são Importantes?
+## Framework de Testes
 
-Testes unitários ajudam a:
+O Silver utiliza o **[Pest PHP](https://pestphp.com/)**, um framework de testes moderno para PHP construído sobre o PHPUnit. O Pest oferece uma sintaxe concisa e expressiva que facilita tanto a escrita quanto a leitura dos testes.
 
-- Identificar problemas de maneira precoce no ciclo de desenvolvimento.
-- Garantir que o código continue funcionando após alterações (regressões).
-- Facilitar o processo de refatoração.
-- Melhorar a confiabilidade e a qualidade do software.
+### Como executar os testes
 
-## Configuração do Ambiente
+```bash
+# Entrar na pasta do backend
+cd src/backend
 
-Para começar a escrever testes unitários em um projeto backend utilizando C#, siga os passos abaixo:
+# Rodar todos os testes
+php artisan test
 
-1. **Instale o .NET SDK**: Certifique-se de ter o [.NET SDK](https://dotnet.microsoft.com/download) instalado.
+# Rodar apenas os testes de Budgets
+php artisan test --filter=Budget
 
-2. **Crie um projeto de testes**: No terminal, navegue até o diretório do seu projeto e execute o seguinte comando para criar um projeto de testes usando xUnit (um framework popular de testes unitários para .NET):
+# Rodar apenas testes unitários
+php artisan test --testsuite=Unit
 
-    ```bash
-    dotnet new xunit -o tests
-    ```
+# Rodar apenas testes de feature
+php artisan test --testsuite=Feature
+```
 
-3. **Adicione uma referência ao seu projeto principal**: No diretório do projeto de testes, adicione uma referência ao seu projeto principal:
+---
 
-    ```bash
-    dotnet add reference ../src/MyProject.csproj
-    ```
+## Testes Unitários — Modelo Budget
 
-4. **Organize sua estrutura de diretórios**: Uma estrutura comum de projeto é a seguinte:
+**Arquivo:** `tests/Unit/BudgetTest.php`
 
-    ```
-    MyProject/
-    ├── src/
-    │   └── MyProject.cs
-    └── tests/
-        └── MyProject.Tests.cs
-    ```
+Estes testes validam o comportamento isolado do modelo `Budget`, sem acesso ao banco de dados ou à API.
 
-## Exemplo de Teste Unitário
+| # | Nome do Teste | O que valida | Resultado Esperado |
+|---|---|---|---|
+| 1 | `limitAmount e convertido para float pelo cast` | O cast do model converte string `"800"` para `float` | `800.0` como `float` |
+| 2 | `spentAmount e convertido para float pelo cast` | O cast do model converte string `"320"` para `float` | `320.0` como `float` |
+| 3 | `fillable contem os campos esperados` | O array `$fillable` contém todos os campos necessários | Array com `familyId`, `userId`, `categoryId`, `monthYear`, `limitAmount`, `spentAmount` |
+| 4 | `modelo pertence a colecao budgets no mongodb` | O modelo aponta para a coleção correta no MongoDB | `"budgets"` |
+| 5 | `spentAmount inicial e zero quando criado sem valor` | `spentAmount` é `null` na instância direta (o controller define 0 na criação) | `null` na instância; `0.0` após atribuição |
+| 6 | `limite restante e calculado corretamente` | Subtração `limitAmount - spentAmount` retorna o valor disponível | `650.0` para limite de R$ 1.000 com R$ 350 gastos |
 
-Aqui está um exemplo simples de um teste unitário em C# usando xUnit. Vamos supor que temos um método na classe `Calculator` que soma dois números.
+---
 
-```csharp
-// src/MyProject.cs
+## Testes de Feature — API de Budgets
 
-namespace MyProject
-{
-    public class Calculator
-    {
-        public int Add(int a, int b)
-        {
-            return a + b;
-        }
-    }
-}
+**Arquivo:** `tests/Feature/Api/BudgetApiTest.php`
+
+Estes testes verificam o comportamento completo dos endpoints da API de orçamentos, incluindo autenticação via Sanctum, persistência no MongoDB e regras de negócio.
+
+| # | Nome do Teste | Endpoint | O que valida | Resultado Esperado |
+|---|---|---|---|---|
+| 1 | `usuario autenticado pode listar seus orcamentos` | `GET /api/budgets` | Lista orçamentos da família autenticada | Status 200, array com 1 item |
+| 2 | `usuario pode filtrar orcamentos por mes` | `GET /api/budgets?monthYear=2026-04` | Filtro por `monthYear` retorna apenas os do mês | Status 200, apenas 1 dos 2 orçamentos |
+| 3 | `usuario pode criar um orcamento mensal` | `POST /api/budgets` | Cria orçamento com `spentAmount` zerado automaticamente | Status 201, `spentAmount: 0.0` |
+| 4 | `usuario pode buscar um orcamento pelo id` | `GET /api/budgets/{id}` | Retorna orçamento específico | Status 200, dados corretos |
+| 5 | `usuario pode atualizar o limite de um orcamento` | `PUT /api/budgets/{id}` | Atualiza `limitAmount` | Status 200, novo limite salvo |
+| 6 | `usuario pode deletar um orcamento` | `DELETE /api/budgets/{id}` | Remove orçamento e confirma ausência no banco | Status 200, orçamento removido |
+| 7 | `usuario nao pode acessar orcamento de outra familia` | `GET /api/budgets/{id}` | Isolamento de dados entre famílias | Status 404 |
+| 8 | `criar orcamento sem categoryId retorna erro de validacao` | `POST /api/budgets` | Campo `categoryId` é obrigatório | Status 422, erro em `categoryId` |
+| 9 | `criar orcamento com limite negativo retorna erro de validacao` | `POST /api/budgets` | `limitAmount` deve ser positivo | Status 422, erro em `limitAmount` |
+| 10 | `nao permite criar orcamento duplicado para mesma categoria e mes` | `POST /api/budgets` | Bloqueia duplicata (mesma categoria + mesmo mês) | Status 422, mensagem de conflito |
+
+---
+
+## Saída Esperada ao Rodar os Testes
+
+```
+PASS  Tests\Unit\BudgetTest
+✓ limitAmount e convertido para float pelo cast
+✓ spentAmount e convertido para float pelo cast
+✓ fillable contem os campos esperados
+✓ modelo pertence a colecao budgets no mongodb
+✓ spentAmount inicial e zero quando criado sem valor
+✓ limite restante e calculado corretamente
+
+PASS  Tests\Feature\Api\BudgetApiTest
+✓ usuario autenticado pode listar seus orcamentos
+✓ usuario pode filtrar orcamentos por mes
+✓ usuario pode criar um orcamento mensal
+✓ usuario pode buscar um orcamento pelo id
+✓ usuario pode atualizar o limite de um orcamento
+✓ usuario pode deletar um orcamento
+✓ usuario nao pode acessar orcamento de outra familia
+✓ criar orcamento sem categoryId retorna erro de validacao
+✓ criar orcamento com limite negativo retorna erro de validacao
+✓ nao permite criar orcamento duplicado para mesma categoria e mes
+
+Tests:  16 passed
+```
+
+---
+
+## Configuração do Ambiente de Testes
+
+Para rodar os testes de feature configure o arquivo `.env.testing` na raiz do backend:
+
+```env
+APP_ENV=testing
+DB_CONNECTION=mongodb
+DB_DSN=mongodb+srv://<usuario>:<senha>@cluster.mongodb.net/silver_test?retryWrites=true&w=majority
+DB_DATABASE=silver_test
+```
+
+> Use um banco separado (`silver_test`) para os testes, evitando sobrescrever dados de desenvolvimento. O Pest aplica `RefreshDatabase` para limpar os dados entre os testes de feature.
