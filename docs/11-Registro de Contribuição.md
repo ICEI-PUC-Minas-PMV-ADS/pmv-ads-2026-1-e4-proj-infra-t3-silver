@@ -232,11 +232,11 @@ Este documento apresenta um resumo das atividades realizadas em cada etapa do pr
 
 ### Print 1
 
-![Kanban 1](./assets/kanban-1.png)
+![Kanban 1](img/kanbanimgs/contrikanban2.png)
 
 ### Print 2
 
-![Kanban 2](./assets/kanban-2.png)
+![Kanban 2](img/kanbanimgs/kanbancontribui1.png)
 
 ---
 
