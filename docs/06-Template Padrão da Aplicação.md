@@ -5,12 +5,11 @@
 Layout padrão das aplicações web e mobile que serão utilizadas em todas as páginas com a definição de identidade visual, aspectos de responsividade e iconografia.
 
 | ![Carlos](https://i.pravatar.cc/150?u=carlos) |
-
-|!(https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2026-1-e4-proj-infra-t3-silver/blob/main/docs/img/Mobile-1.png?raw=true)|
-|!(https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2026-1-e4-proj-infra-t3-silver/blob/main/docs/img/Mobile-2.png?raw=true)|
-|!(https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2026-1-e4-proj-infra-t3-silver/blob/main/docs/img/Mobile-3.png?raw=true)|
-|!(https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2026-1-e4-proj-infra-t3-silver/blob/main/docs/img/Mobile-4.png?raw=true)|
-|!(https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2026-1-e4-proj-infra-t3-silver/blob/main/docs/img/Mobile-5.png?raw=true)|
+| ![Mobile-1](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2026-1-e4-proj-infra-t3-silver/blob/main/docs/img/Mobile-1.png).|
+| ![Mobile-2](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2026-1-e4-proj-infra-t3-silver/blob/main/docs/img/Mobile-2.png).|
+| ![Mobile-3](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2026-1-e4-proj-infra-t3-silver/blob/main/docs/img/Mobile-3.png).|
+| ![Mobile-4](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2026-1-e4-proj-infra-t3-silver/blob/main/docs/img/Mobile-4.png).|
+| ![Mobile-5](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2026-1-e4-proj-infra-t3-silver/blob/main/docs/img/Mobile-5.png).|
 
 > **Links Úteis**:
 >
