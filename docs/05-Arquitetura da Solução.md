@@ -66,7 +66,7 @@ Núcleo central da plataforma. Responsável por:
 ### 2. Dashboard Web (React/JavaScript)
 Interface frontend voltada para análise e planejamento financeiro detalhado. Responsável por:
 - Exibir saldo consolidado e gráficos de desempenho financeiro
-- Permitir o cadastro e a gestão de categorias, metas e orçamentos mensais
+- Permitir o cadastro e a gestão de categorias, metas e orçamentos
 - Oferecer visualizações filtráveis do histórico de transações
 - Possibilitar a exportação de relatórios em PDF e CSV
 
