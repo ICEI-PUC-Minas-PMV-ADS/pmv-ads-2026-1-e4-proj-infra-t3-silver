@@ -62,11 +62,24 @@ export interface Budget {
 }
 
 export interface Goal {
-  id: number;
-  name: string;
-  targetAmount: number;
-  currentAmount: number;
-  deadline: string;
+  _id?: string;
+  id?: string | number;
+  userId?: string;
+  title: string;
+  description?: string | null;
+  target_amount: number;
+  current_amount: number;
+  deadline?: string | null;
+  status: 'ativa' | 'concluida' | 'cancelada' | string;
+}
+
+export interface CreateGoalPayload {
+  title: string;
+  description?: string | null;
+  target_amount: number;
+  current_amount?: number;
+  deadline?: string | null;
+  status?: 'ativa' | 'concluida' | 'cancelada' | string;
 }
 
 export interface Family {

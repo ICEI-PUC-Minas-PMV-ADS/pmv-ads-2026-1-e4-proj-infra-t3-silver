@@ -11,6 +11,7 @@ import {
   Family,
   FamilyMember,
   Goal,
+  CreateGoalPayload,
   Transaction,
   User,
 } from '../types/financial';
@@ -42,6 +43,18 @@ api.interceptors.request.use(async (config) => {
 
   return config;
 });
+
+api.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    console.log('API ERROR STATUS:', error.response?.status);
+    console.log('API ERROR DATA:', error.response?.data);
+    console.log('API ERROR URL:', error.config?.url);
+    console.log('API BASE URL:', API_BASE_URL);
+
+    return Promise.reject(error);
+  }
+);
 
 export async function saveAuthToken(token: string): Promise<void> {
   await AsyncStorage.setItem(TOKEN_KEY, token);
@@ -163,8 +176,31 @@ export async function getBudgets(): Promise<Budget[]> {
 }
 
 export async function getGoals(): Promise<Goal[]> {
-  const response = await api.get<Goal[]>('/goals');
+  const response = await api.get<{ data: Goal[] } | Goal[]>('/goals');
+
+  const result = response.data;
+
+  if (Array.isArray(result)) {
+    return result;
+  }
+
+  return result.data ?? [];
+}
+
+export async function createGoal(payload: CreateGoalPayload): Promise<Goal> {
+  const response = await api.post<Goal>('/goals', payload);
+
   return response.data;
+}
+
+export async function updateGoal(id: string, payload: Partial<CreateGoalPayload>): Promise<Goal> {
+  const response = await api.put<Goal>(`/goals/${id}`, payload);
+
+  return response.data;
+}
+
+export async function deleteGoal(id: string): Promise<void> {
+  await api.delete(`/goals/${id}`);
 }
 
 export async function syncSince(date: string): Promise<{
