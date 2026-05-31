@@ -30,7 +30,7 @@ Desenvolver a lógica de negócio e os serviços de backend do projeto.
 - **Testes Unitários**: Validação dos cálculos de saldo (RF05).
 ### Responsáveis
 - **Desenvolvedor Backend**: Aécio Santos, Vinícius Soares
-- **Engenheiro de Dados**: Yago Oliveira
+- **Engenheiro de Dados**: Yago Miranda
 ### Prazo
 - **Data de conclusão**: 2026-04-15
 
@@ -44,7 +44,7 @@ Desenvolver a interface web do projeto e integração analítica.
 - **Integração com Backend**: Consumo da API Laravel para relatórios (RF08).
 - **Testes de Interface**: Responsividade do Dashboard Web.
 ### Responsáveis
-- **Desenvolvedor Frontend**: Adrian Martins, Yago Oliveira
+- **Desenvolvedor Frontend**: Adrian Martins, Yago Miranda
 - **Designer UI/UX**: Victor Hugo
 ### Prazo
 - **Data de conclusão**: 2026-05-15
