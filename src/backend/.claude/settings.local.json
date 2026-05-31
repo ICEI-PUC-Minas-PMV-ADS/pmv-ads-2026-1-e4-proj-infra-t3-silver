@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(php artisan *)",
+      "Bash(php -r \"echo file_exists\\('public/build/manifest.json'\\) ? 'manifest OK' : 'manifest MISSING';\")",
+      "Bash(php -r \"echo file_exists\\('public/hot'\\) ? 'hot file OK' : 'hot file MISSING';\")",
+      "Bash(php -r \"echo is_dir\\('node_modules'\\) ? 'node_modules OK' : 'node_modules MISSING';\")",
+      "Bash(php -r ' *)",
+      "Bash(npm run *)"
+    ]
+  }
+}

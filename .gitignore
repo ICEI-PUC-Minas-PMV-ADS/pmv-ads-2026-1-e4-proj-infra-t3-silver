@@ -1,0 +1,80 @@
+# ========================
+# Silver Project .gitignore
+# ========================
+
+# === Laravel (Backend) ===
+/vendor/
+node_modules/
+.env
+.env.backup
+.env.production
+storage/*.key
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+/.vagrant
+/public/hot
+/public/storage
+/storage/*.key
+bootstrap/cache/*
+!bootstrap/cache/.gitkeep
+
+# === Node.js (WhatsApp Bridge) ===
+node_modules/
+package-lock.json
+yarn.lock
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# === React Native / Mobile ===
+ios/Pods/
+android/.gradle/
+android/app/build/
+android/build/
+*.apk
+*.aab
+*.ipa
+.expo/
+__generated__/
+
+# === macOS ===
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# === IDEs e Editores ===
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.settings/
+*.sublime-project
+*.sublime-workspace
+
+# === Logs e temporários ===
+*.log
+tmp/
+temp/
+.cache/
+/aecio_docs
+/Codex.md
+/CLAUDE.md
+/src/backend/.agents/
+/src/backend/.codex/
+/src/backend/.cursor/
+/src/backend/.junie/
+
+# === Build outputs ===
+/dist/
+/build/

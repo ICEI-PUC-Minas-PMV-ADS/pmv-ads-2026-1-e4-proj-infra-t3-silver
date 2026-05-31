@@ -1,0 +1,7 @@
+# Regras do Agente (Silver Project)
+
+1. **Commits e Push**: NUNCA realize `git commit` ou `git push` automaticamente sem antes perguntar e pedir a permissão explícita do usuário.
+2. **Branch Padrão de Trabalho**: Todo o desenvolvimento de novas features e modificações deve ocorrer na branch `dev` ou em branches que partem dela.
+3. **Padrão de Commits**: Use conventional commits (ex: `feat:`, `fix:`, `docs:`).
+
+Essas regras devem ser lidas e respeitadas em todas as sessões do projeto Silver.

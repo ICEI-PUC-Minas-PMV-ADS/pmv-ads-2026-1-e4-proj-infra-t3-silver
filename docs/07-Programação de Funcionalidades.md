@@ -1,15 +1,351 @@
-# Programação de Funcionalidades
+# Documentação da implementação da Web API Rest
 
-<span style="color:red">Pré-requisitos: <a href="2-Especificação do Projeto.md"> Especificação do Projeto</a></span>, <a href="3-Projeto de Interface.md"> Projeto de Interface</a>, <a href="4-Metodologia.md"> Metodologia</a>, <a href="3-Projeto de Interface.md"> Projeto de Interface</a>, <a href="5-Arquitetura da Solução.md"> Arquitetura da Solução</a>
+Esta seção detalha a implementação da API Backend desenvolvida em **Laravel**, responsável por processar as regras de negócio e centralizar os dados no **MongoDB**.
 
-Implementação do sistema descritas por meio dos requisitos funcionais e/ou não funcionais. Deve relacionar os requisitos atendidos os artefatos criados (código fonte) além das estruturas de dados utilizadas e as instruções para acesso e verificação da implementação que deve estar funcional no ambiente de hospedagem.
+## Configurações de Ambiente
 
-Para cada requisito funcional, pode ser entregue um artefato desse tipo
+A API requer as seguintes variáveis de ambiente configuradas no arquivo `.env`:
 
-> **Links Úteis**:
->
-> - [Trabalhando com HTML5 Local Storage e JSON](https://www.devmedia.com.br/trabalhando-com-html5-local-storage-e-json/29045)
-> - [JSON Tutorial](https://www.w3resource.com/JSON)
-> - [JSON Data Set Sample](https://opensource.adobe.com/Spry/samples/data_region/JSONDataSetSample.html)
-> - [JSON - Introduction (W3Schools)](https://www.w3schools.com/js/js_json_intro.asp)
-> - [JSON Tutorial (TutorialsPoint)](https://www.tutorialspoint.com/json/index.htm)
+```env
+APP_NAME=Silver
+APP_ENV=local
+APP_KEY=base64:...
+APP_DEBUG=true
+APP_URL=http://localhost:8000
+
+DB_CONNECTION=mongodb
+DB_DSN=mongodb+srv://<usuario>:<senha>@cluster.mongodb.net/silver_db?retryWrites=true&w=majority
+DB_DATABASE=silver_db
+```
+
+### Instalação e Execução
+1. `composer install`
+2. `php artisan key:generate`
+3. `php artisan serve`
+
+---
+
+## Autenticação
+
+A API utiliza o **Laravel Sanctum** para autenticação baseada em tokens.
+- **Formato:** Bearer Token
+- **Header:** `Authorization: Bearer <token>`
+- **Content-Type:** `application/json`
+
+---
+
+## Recursos e Rotas
+
+### 1. Autenticação
+
+#### **Registrar Novo Usuário**
+- **URL:** `/api/register`
+- **Método:** `POST`
+- **Body:**
+  ```json
+  {
+    "name": "João Silva",
+    "email": "joao@example.com",
+    "password": "password123",
+    "password_confirmation": "password123"
+  }
+  ```
+- **Resposta (201):**
+  ```json
+  {
+    "user": { "id": "...", "name": "...", "email": "..." },
+    "token": "..."
+  }
+  ```
+
+#### **Login**
+- **URL:** `/api/login`
+- **Método:** `POST`
+- **Body:**
+  ```json
+  {
+    "email": "joao@example.com",
+    "password": "password123"
+  }
+  ```
+- **Resposta (200):** Token de acesso válido.
+
+#### **Perfil Atual (Me)**
+- **URL:** `/api/me`
+- **Método:** `GET`
+- **Proteção:** Ativa (`auth:sanctum`)
+- **Resposta (200):** Dados do usuário logado e sua `familyId`.
+
+---
+
+### 2. Contas (Accounts)
+
+#### **Listar Contas da Família**
+- **URL:** `/api/accounts`
+- **Método:** `GET`
+- **Proteção:** Ativa (`auth:sanctum`)
+- **Resposta (200):** Lista de contas vinculadas à `familyId` do usuário autenticado.
+
+#### **Criar Conta**
+- **URL:** `/api/accounts`
+- **Método:** `POST`
+- **Proteção:** Ativa (`auth:sanctum`)
+- **Body:**
+  ```json
+  {
+    "name": "Nubank",
+    "type": "checking",
+    "balance": 1500.00
+  }
+  ```
+- **Campos obrigatórios:** `name`, `type`, `balance`
+- **Tipos aceitos:** `checking`, `savings`, `investment`, `cash`
+- **Resposta (201):** Objeto da conta criada.
+
+#### **Atualizar Conta**
+- **URL:** `/api/accounts/{id}`
+- **Método:** `PUT`
+- **Proteção:** Ativa (`auth:sanctum`)
+- **Body:** Mesmos campos de criação (todos opcionais na atualização).
+- **Resposta (200):** Objeto atualizado da conta.
+- **Erros (404):** Conta não encontrada ou pertence a outra família.
+
+#### **Excluir Conta**
+- **URL:** `/api/accounts/{id}`
+- **Método:** `DELETE`
+- **Proteção:** Ativa (`auth:sanctum`)
+- **Descrição:** Remove a conta permanentemente. O saldo da família é recalculado automaticamente.
+- **Resposta (200):** `{ "message": "Conta removida com sucesso." }`
+- **Erros (404):** Conta não encontrada ou pertence a outra família.
+
+---
+
+### 3. Transações (Transactions)
+
+#### **Listar Transações da Família**
+- **URL:** `/api/transactions`
+- **Método:** `GET`
+- **Proteção:** Ativa (`auth:sanctum`)
+- **Resposta (200):** Objeto paginado com as transações da família.
+  ```json
+  {
+    "data": [ { "_id": "...", "description": "...", "amount": 50.00, ... } ],
+    "current_page": 1,
+    "last_page": 3
+  }
+  ```
+
+#### **Buscar Transação por ID**
+- **URL:** `/api/transactions/{id}`
+- **Método:** `GET`
+- **Proteção:** Ativa (`auth:sanctum`)
+- **Resposta (200):** Objeto completo da transação, incluindo `attachmentUrl` caso tenha comprovante.
+- **Erros (404):** Transação não encontrada ou pertence a outra família.
+
+#### **Registrar Transação (com suporte a comprovante)**
+- **URL:** `/api/transactions`
+- **Método:** `POST`
+- **Proteção:** Ativa (`auth:sanctum`)
+- **Content-Type:** `multipart/form-data` (quando há comprovante) ou `application/json`
+- **Body:**
+  ```
+  accountId:   "ObjectId"        (obrigatório)
+  categoryId:  "ObjectId"        (obrigatório)
+  type:        "expense"|"income" (obrigatório)
+  amount:      50.00             (obrigatório, > 0)
+  description: "Almoço"         (obrigatório)
+  date:        "2026-04-03"      (obrigatório)
+  attachment:  <arquivo imagem>  (opcional — jpeg/png/jpg/gif, máx. 5 MB)
+  ```
+- **Resposta (201):** Objeto da transação criada. O campo `attachmentUrl` é preenchido com a URL pública do comprovante, caso enviado.
+  ```json
+  {
+    "_id": "...",
+    "description": "Almoço no restaurante",
+    "amount": 45.90,
+    "type": "expense",
+    "date": "2026-04-03",
+    "attachmentUrl": "http://seu-dominio/storage/attachments/uuid.jpg",
+    "accountId": "...",
+    "categoryId": "...",
+    "source": "mobile"
+  }
+  ```
+- **Efeitos colaterais (via `TransactionObserver`):**
+  - O `balance` da conta referenciada é atualizado automaticamente.
+  - O `spentAmount` do orçamento (`Budget`) do mês corrente é recalculado.
+
+#### **Excluir Transação**
+- **URL:** `/api/transactions/{id}`
+- **Método:** `DELETE`
+- **Proteção:** Ativa (`auth:sanctum`)
+- **Descrição:** Remove a transação e, caso tenha comprovante, exclui o arquivo do disco automaticamente (via `TransactionObserver::deleted()`).
+- **Resposta (200):** `{ "message": "Transação removida com sucesso." }`
+- **Efeitos colaterais:** Saldo da conta e `spentAmount` do orçamento são revertidos.
+
+---
+
+### Configuração de Armazenamento de Comprovantes
+
+O backend utiliza `Storage::disk('public')` do Laravel para salvar os comprovantes na pasta `storage/app/public/attachments/`. Para que os arquivos sejam acessíveis via URL pública, é necessário criar o link simbólico:
+
+```bash
+php artisan storage:link
+```
+
+Após isso, os arquivos ficam disponíveis em `public/storage/attachments/`.
+
+> **Nota para ambiente de desenvolvimento (mobile):** A URL armazenada no banco pode usar `localhost` como hostname. O aplicativo mobile resolve isso substituindo o host pela URL da API configurada na variável de ambiente `EXPO_PUBLIC_API_URL`, via a função `resolveAttachmentUrl()` em `src/mobile/src/services/api.ts`.
+
+---
+
+### 4. Família (Family)
+
+#### **Obter dados da família**
+- **URL:** `/api/family`
+- **Método:** `GET`
+- **Proteção:** Ativa (`auth:sanctum`)
+- **Resposta (200):**
+  ```json
+  {
+    "_id": "...",
+    "name": "Família Silva",
+    "users": [{ "_id": "...", "name": "...", "email": "..." }]
+  }
+  ```
+
+#### **Atualizar nome da família**
+- **URL:** `/api/family`
+- **Método:** `PUT`
+- **Proteção:** Ativa (`auth:sanctum`)
+- **Body:**
+  ```json
+  { "name": "Família Silva & Souza" }
+  ```
+- **Resposta (200):** Dados atualizados da família.
+
+#### **Entrar em outra família**
+- **URL:** `/api/family/join`
+- **Método:** `POST`
+- **Proteção:** Ativa (`auth:sanctum`)
+- **Body:**
+  ```json
+  { "family_id": "..." }
+  ```
+- **Descrição:** Migra todas as contas, transações, categorias e metas do usuário para a família de destino.
+- **Resposta (200):** Confirmação e dados da nova família.
+
+#### **Listar membros da família**
+- **URL:** `/api/family/members`
+- **Método:** `GET`
+- **Proteção:** Ativa (`auth:sanctum`)
+- **Resposta (200):** Array de membros com `_id`, `name` e `email`.
+
+---
+
+### 5. Orçamentos Mensais (Budgets)
+
+Os orçamentos mensais permitem que a família defina um limite de gastos por categoria em cada mês. O campo `spentAmount` é atualizado automaticamente pelo sistema sempre que uma transação de despesa é registrada ou removida.
+
+> Implementado por: Adrian Sodré da Silva — Etapa 2, Tarefa 2.
+
+#### **Listar orçamentos**
+- **URL:** `/api/budgets`
+- **Método:** `GET`
+- **Proteção:** Ativa (`auth:sanctum`)
+- **Query params opcionais:** `?monthYear=2026-04`
+- **Descrição:** Retorna todos os orçamentos da família. Quando `monthYear` é informado, filtra apenas os orçamentos daquele mês.
+- **Resposta (200):**
+  ```json
+  [
+    {
+      "_id": "ObjectId('...')",
+      "familyId": "ObjectId('...')",
+      "userId": "ObjectId('...')",
+      "categoryId": "ObjectId('...')",
+      "monthYear": "2026-04",
+      "limitAmount": 800.00,
+      "spentAmount": 320.00,
+      "createdAt": "2026-04-01T10:00:00.000000Z",
+      "updatedAt": "2026-04-10T15:00:00.000000Z"
+    }
+  ]
+  ```
+
+#### **Criar orçamento**
+- **URL:** `/api/budgets`
+- **Método:** `POST`
+- **Proteção:** Ativa (`auth:sanctum`)
+- **Body:**
+  ```json
+  {
+    "categoryId": "ObjectId('...')",
+    "monthYear": "2026-04",
+    "limitAmount": 800.00
+  }
+  ```
+- **Campos obrigatórios:** `categoryId`, `monthYear`, `limitAmount`
+- **Regras de validação:**
+  - `categoryId`: string obrigatória
+  - `monthYear`: formato `YYYY-MM` (ex: `2026-04`)
+  - `limitAmount`: numérico, mínimo R$ 0,01
+  - Não é permitido criar dois orçamentos para a mesma categoria no mesmo mês
+- **Resposta (201):**
+  ```json
+  {
+    "_id": "ObjectId('...')",
+    "familyId": "ObjectId('...')",
+    "categoryId": "ObjectId('...')",
+    "monthYear": "2026-04",
+    "limitAmount": 800.00,
+    "spentAmount": 0.00,
+    "createdAt": "2026-04-12T10:00:00.000000Z"
+  }
+  ```
+- **Erros (422):** Campos obrigatórios ausentes, formato de mês inválido, limite negativo, orçamento duplicado.
+
+#### **Buscar orçamento por ID**
+- **URL:** `/api/budgets/{id}`
+- **Método:** `GET`
+- **Proteção:** Ativa (`auth:sanctum`)
+- **Descrição:** Retorna um orçamento específico. Retorna 404 se não pertencer à família do usuário.
+- **Resposta (200):** Objeto completo do orçamento.
+- **Erros (404):** Orçamento não encontrado ou pertence a outra família.
+
+#### **Atualizar limite do orçamento**
+- **URL:** `/api/budgets/{id}`
+- **Método:** `PUT`
+- **Proteção:** Ativa (`auth:sanctum`)
+- **Descrição:** Atualiza o limite de gastos do orçamento. O `spentAmount` não é alterado manualmente — é gerenciado automaticamente pelas transações.
+- **Body:**
+  ```json
+  { "limitAmount": 1200.00 }
+  ```
+- **Resposta (200):** Objeto atualizado do orçamento.
+- **Erros (404):** Orçamento não encontrado ou pertence a outra família.
+- **Erros (422):** `limitAmount` ausente ou inválido.
+
+#### **Remover orçamento**
+- **URL:** `/api/budgets/{id}`
+- **Método:** `DELETE`
+- **Proteção:** Ativa (`auth:sanctum`)
+- **Descrição:** Remove o orçamento permanentemente. O `spentAmount` histórico das transações não é afetado.
+- **Resposta (200):**
+  ```json
+  { "message": "Orçamento removido com sucesso." }
+  ```
+- **Erros (404):** Orçamento não encontrado ou pertence a outra família.
+
+---
+
+## Modelagem NoSQL
+
+A implementação no MongoDB segue o padrão de **Documentos Embutidos** onde pertinente e **Referências** via ID para coleções principais (Transactions -> Accounts, Users -> Families). A flexibilidade do NoSQL é utilizada para permitir campos dinâmicos nas transações originadas pelo WhatsApp.
+
+### Coleção `budgets` — Decisões de Modelagem
+
+A coleção `budgets` utiliza **referências por ID** (`familyId`, `categoryId`) e adota **desnormalização intencional** com o campo `spentAmount`. Essa decisão se justifica porque:
+
+- Calcular o total gasto por categoria a cada requisição exigiria uma agregação sobre toda a coleção `transactions`, o que seria custoso em famílias com histórico extenso.
+- Manter `spentAmount` pré-calculado permite que o dashboard exiba o progresso de cada orçamento com uma única leitura, sem necessidade de joins ou aggregations.
+- A consistência é garantida pelo `TransactionObserver` no backend, que atualiza `spentAmount` automaticamente a cada transação criada ou removida.
