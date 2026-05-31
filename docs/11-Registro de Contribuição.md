@@ -45,7 +45,12 @@ Este documento apresenta um resumo das atividades realizadas em cada etapa do pr
 - Revisão geral da documentação da etapa, contribuindo para maior organização, clareza e qualidade do material entregue.
 
 #### Vinícius Soares Pires e Luz
-- _Preencher_
+- Contribuição na elaboração da documentação de contexto;
+- Contribuição na elaboração das especificações do projeto;
+- Contribuição na elaboração da metodologia de desenvolvimento;
+- Elaboração do cronograma de desenvolvimento do projeto;
+- Estudo das atividades e microfundamentos;
+- Envio da documentação no sistema.
 
 #### Yago Lopes Miranda
 - Levantamento de requisitos funcionais relacionados a metas e movimentações financeiras
@@ -95,7 +100,10 @@ Este documento apresenta um resumo das atividades realizadas em cada etapa do pr
 - Ajuda no início do desenvolvimento
 
 #### Vinícius Soares Pires e Luz
-- _Preencher_
+- Revisão na documentação do projeto;
+- Elaboração do CRUD de metas para o desenvolvimento do projeto Web;
+- Revisão dos fluxos e caminhos do projeto para inclusão das metas no projeto;
+- Envio da documentação no sistema.
 
 #### Yago Lopes Miranda
 - Contribuição no início do desenvolvimento
@@ -145,7 +153,9 @@ Este documento apresenta um resumo das atividades realizadas em cada etapa do pr
 - Produção e gravação do vídeo de apresentação da etapa.
 
 #### Vinícius Soares Pires e Luz
-- _Preencher_
+- Conclusão e testes do CRUD de metas;
+- Conexão e revisão do CRUD junto ao projeto;
+- Estudos para implementação do CRUD para o sistema mobile.
 
 #### Yago Lopes Miranda
 - Implementação do CRUD de categorias financeiras, com criação, edição, exclusão, e listagem
@@ -194,8 +204,12 @@ Este documento apresenta um resumo das atividades realizadas em cada etapa do pr
 - Correções e melhorias na tela de transações.
 - Revisão e ajustes em funcionalidades já existentes.
 - Apoio nos testes e validação das funcionalidades implementadas.
+
 #### Vinícius Soares Pires e Luz
-- _Preencher_
+- Revisão na documentação do projeto;
+- Inclusão das telas web e mobile na documentação do projeto;
+- Implementação do CRUD de metas mobile;
+- Execução de testes no CRUD de metas.
 
 #### Yago Lopes Miranda
 - Implantação e updates no CRUD de categorias financeiras
