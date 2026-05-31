@@ -52,7 +52,7 @@ O projeto utiliza o fluxo de trabalho **GitHub Flow**, onde a branch `main` mant
 A equipe utiliza metodologias ágeis, tendo escolhido o Scrum como base para definição do processo de desenvolvimento. A equipe está organizada da seguinte maneira:
 - **Scrum Master:** Aécio Santos;
 - **Product Owner:** Nathan Reis;
-- **Equipe de Desenvolvimento:** Vinícius Silva, Yago Oliveira, Adrian Martins;
+- **Equipe de Desenvolvimento:** Vinícius Soares, Yago Oliveira, Adrian Martins;
 - **Equipe de Design:** Victor Hugo.
 
 > **Links Úteis**:
