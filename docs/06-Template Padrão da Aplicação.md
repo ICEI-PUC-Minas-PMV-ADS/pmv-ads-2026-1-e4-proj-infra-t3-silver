@@ -3,7 +3,14 @@
 <span style="color:red">Pré-requisitos: <a href="2-Especificação do Projeto.md"> Especificação do Projeto</a></span>, <a href="3-Projeto de Interface.md"> Projeto de Interface</a>, <a href="4-Metodologia.md"> Metodologia</a>
 
 Layout padrão das aplicações web e mobile que serão utilizadas em todas as páginas com a definição de identidade visual, aspectos de responsividade e iconografia.
+Web
+| ![home](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2026-1-e4-proj-infra-t3-silver/blob/main/docs/img/home.png).|
+| ![home1](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2026-1-e4-proj-infra-t3-silver/blob/main/docs/img/home1.png).|
+| ![login](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2026-1-e4-proj-infra-t3-silver/blob/main/docs/img/login.png).|
+| ![cadastt](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2026-1-e4-proj-infra-t3-silver/blob/main/docs/img/cadastt.png).|
+| ![config](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2026-1-e4-proj-infra-t3-silver/blob/main/docs/img/config.png).|
 
+Mobile
 | ![Mobile-1](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2026-1-e4-proj-infra-t3-silver/blob/main/docs/img/Mobile-1.png).|
 | ![Mobile-2](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2026-1-e4-proj-infra-t3-silver/blob/main/docs/img/Mobile-2.png).|
 | ![Mobile-3](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2026-1-e4-proj-infra-t3-silver/blob/main/docs/img/Mobile-3.png).|
