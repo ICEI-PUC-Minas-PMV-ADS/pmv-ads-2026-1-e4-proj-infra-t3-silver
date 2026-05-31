@@ -14,7 +14,7 @@ Coletar e documentar todos os requisitos necessários para o desenvolvimento do 
 - **Levantamento de requisitos**: Documentação dos 12 requisitos funcionais.
 - **Análise de viabilidade**: Escolha da arquitetura distribuída (Laravel + WhatsApp).
 ### Responsáveis
-- **Analista de Requisitos**: Nathan Reis, Vinícius Silva
+- **Analista de Requisitos**: Nathan Reis, Vinícius Soares
 - **Gerente de Projeto**: Aécio Santos
 ### Prazo
 - **Data de conclusão**: 2026-03-06
@@ -29,7 +29,7 @@ Desenvolver a lógica de negócio e os serviços de backend do projeto.
 - **Gestão de Banco de Dados**: Modelagem MongoDB para usuários e finanças.
 - **Testes Unitários**: Validação dos cálculos de saldo (RF05).
 ### Responsáveis
-- **Desenvolvedor Backend**: Aécio Santos, Vinícius Silva
+- **Desenvolvedor Backend**: Aécio Santos, Vinícius Soares
 - **Engenheiro de Dados**: Yago Oliveira
 ### Prazo
 - **Data de conclusão**: 2026-04-15
