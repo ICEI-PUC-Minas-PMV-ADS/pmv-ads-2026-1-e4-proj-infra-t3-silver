@@ -4,6 +4,7 @@
 
 Layout padrão das aplicações web e mobile que serão utilizadas em todas as páginas com a definição de identidade visual, aspectos de responsividade e iconografia.
 
+| ![Carlos](https://i.pravatar.cc/150?u=carlos) |
 docs/img/Mobile-1.png
 docs/img/Mobile-2.png
 docs/img/Mobile-3.png
