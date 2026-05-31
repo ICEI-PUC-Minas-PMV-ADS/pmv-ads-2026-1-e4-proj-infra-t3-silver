@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { router } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { Alert, StyleSheet, Text, TextInput, View } from 'react-native';
@@ -7,7 +6,7 @@ import { AppButton } from '../src/components/AppButton';
 import { Screen } from '../src/components/Screen';
 import { useTheme } from '../src/context/ThemeContext';
 import { mockUser } from '../src/mocks/financial-data';
-import { API_BASE_URL, login, saveAuthToken } from '../src/services/api';
+import { API_BASE_URL, login } from '../src/services/api';
 import {
   authenticateWithBiometric,
   getBiometricCredentials,
@@ -44,11 +43,6 @@ export default function LoginScreen() {
       await offerBiometricSetup(email.trim(), password);
       router.replace('/dashboard');
     } catch (requestError) {
-      if (axios.isAxiosError(requestError) && !requestError.response) {
-        await saveAuthToken('mock-token');
-        router.replace('/dashboard');
-        return;
-      }
       setError(getApiErrorMessage(requestError));
     } finally {
       setIsLoading(false);
@@ -82,11 +76,6 @@ export default function LoginScreen() {
       await login(credentials.email, credentials.password);
       router.replace('/dashboard');
     } catch (requestError) {
-      if (axios.isAxiosError(requestError) && !requestError.response) {
-        await saveAuthToken('mock-token');
-        router.replace('/dashboard');
-        return;
-      }
       setError(getApiErrorMessage(requestError));
     } finally {
       setIsLoading(false);

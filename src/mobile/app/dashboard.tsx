@@ -37,7 +37,6 @@ export default function DashboardScreen() {
         <AppButton label="Nova transação" onPress={() => router.push('/transaction-new')} variant="secondary" />
         <AppButton label="Perfil" onPress={() => router.push('/profile')} variant="secondary" />
         <AppButton label="Contas" onPress={() => router.push('/accounts')} variant="secondary" />
-        <AppButton label="Família" onPress={() => router.push('/family')} variant="secondary" />
         <AppButton label="Categorias" onPress={() => router.push('/categories')} variant="secondary" />
         <AppButton label="Orçamentos" onPress={() => router.push('/budgets')} variant="secondary" />
         <AppButton label="Metas" onPress={() => router.push('/goals')} variant="secondary" />

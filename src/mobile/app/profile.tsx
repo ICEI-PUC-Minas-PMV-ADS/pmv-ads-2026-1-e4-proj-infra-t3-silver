@@ -6,7 +6,6 @@ import { AppButton } from '../src/components/AppButton';
 import { InfoCard } from '../src/components/InfoCard';
 import { Screen } from '../src/components/Screen';
 import { ThemeScheme, useTheme } from '../src/context/ThemeContext';
-import { mockUser } from '../src/mocks/financial-data';
 import { API_BASE_URL, clearAuthToken, getMe } from '../src/services/api';
 import { radius, spacing, typography } from '../src/theme/theme';
 import { User } from '../src/types/financial';
@@ -30,7 +29,7 @@ export default function ProfileScreen() {
     try {
       setUser(await getMe());
     } catch (requestError) {
-      setUser(mockUser);
+      setError(getApiErrorMessage(requestError));
     } finally {
       setIsLoading(false);
     }
@@ -81,7 +80,6 @@ export default function ProfileScreen() {
         </View>
       </InfoCard>
 
-      <AppButton label="Gerenciar família" onPress={() => router.push('/family')} variant="secondary" />
       <AppButton label="Atualizar perfil" onPress={loadProfile} variant="secondary" />
       <AppButton label="Sair" onPress={handleLogout} />
       <Text style={[styles.apiUrl, { color: colors.muted }]}>API: {API_BASE_URL}</Text>
