@@ -48,7 +48,9 @@ Este documento apresenta um resumo das atividades realizadas em cada etapa do pr
 - _Preencher_
 
 #### Yago Lopes Miranda
-- _Preencher_
+- Levantamento de requisitos funcionais relacionados a metas e movimentações financeiras
+- Contribuição nas histórias de usuário relacionadas a metas e movimentações financeiras
+- Auxílio na organização das atividades da equipe.
 
 ---
 
@@ -96,8 +98,9 @@ Este documento apresenta um resumo das atividades realizadas em cada etapa do pr
 - _Preencher_
 
 #### Yago Lopes Miranda
-- _Preencher_
-
+- Contribuição no início do desenvolvimento
+- Produção e edição do vídeo da apresentação da etapa
+- Ajustes e revisão na documentação do projeto
 ---
 
 # =====================================================================
@@ -145,7 +148,8 @@ Este documento apresenta um resumo das atividades realizadas em cada etapa do pr
 - _Preencher_
 
 #### Yago Lopes Miranda
-- _Preencher_
+- Implementação do CRUD de categorias financeiras, com criação, edição, exclusão, e listagem
+- Organização das tarefas do grupo
 
 ---
 
@@ -194,7 +198,8 @@ Este documento apresenta um resumo das atividades realizadas em cada etapa do pr
 - _Preencher_
 
 #### Yago Lopes Miranda
-- _Preencher_
+- Implantação e updates no CRUD de categorias financeiras
+- Revisão e ajustes em funcionalidades já existentes
 
 ---
 
