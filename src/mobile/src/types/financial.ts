@@ -54,11 +54,20 @@ export interface Transaction {
 }
 
 export interface Budget {
-  id: number;
-  categoryId: number;
-  limit: number;
-  spent: number;
-  month: string;
+  _id?: string;
+  id?: string | number;
+  familyId?: string;
+  userId?: string;
+  categoryId: string;
+  monthYear: string;
+  limitAmount: number;
+  spentAmount: number;
+}
+
+export interface CreateBudgetPayload {
+  categoryId: string;
+  monthYear: string;
+  limitAmount: number;
 }
 
 export interface Goal {

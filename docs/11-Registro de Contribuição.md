@@ -26,7 +26,9 @@ Este documento apresenta um resumo das atividades realizadas em cada etapa do pr
 ### 👨‍💻 Contribuições Individuais
 
 #### Adrian Sodré da Silva
-- _Preencher_
+- Participação no levantamento dos requisitos funcionais voltados ao controle financeiro familiar.
+- Contribuição na definição das histórias de usuário relacionadas a orçamentos e metas financeiras.
+- Auxílio na elaboração do backlog e na organização das atividades da equipe.
 
 #### Aécio Ribeiro Dantas Neto
 - _Preencher_
@@ -69,7 +71,11 @@ Este documento apresenta um resumo das atividades realizadas em cada etapa do pr
 ### 👨‍💻 Contribuições Individuais
 
 #### Adrian Sodré da Silva
-- _Preencher_
+- Implementação do sistema de autenticação com Laravel Sanctum adaptado para MongoDB.
+- Desenvolvimento do modelo `PersonalAccessToken` compatível com banco de dados NoSQL.
+- Criação do CRUD de categorias com geração automática de categorias padrão para novos usuários.
+- Configuração da integração da API com o MongoDB Atlas.
+- Desenvolvimento dos endpoints de orçamentos (budgets) na API REST.
 
 #### Aécio Ribeiro Dantas Neto
 - _Preencher_
@@ -114,7 +120,11 @@ Este documento apresenta um resumo das atividades realizadas em cada etapa do pr
 ### 👨‍💻 Contribuições Individuais
 
 #### Adrian Sodré da Silva
-- _Preencher_
+- Desenvolvimento da tela de orçamentos (budgets) na aplicação web com Livewire.
+- Implementação do CRUD completo de orçamentos no frontend web, incluindo criação, listagem, edição e exclusão.
+- Integração da tela de orçamentos com a API REST do backend.
+- Criação de componente com barra de progresso visual para acompanhamento dos limites de gastos por categoria.
+- Ajustes na navegação lateral para inclusão do acesso à tela de orçamentos.
 
 #### Aécio Ribeiro Dantas Neto
 - _Preencher_
@@ -158,7 +168,12 @@ Este documento apresenta um resumo das atividades realizadas em cada etapa do pr
 ### 👨‍💻 Contribuições Individuais
 
 #### Adrian Sodré da Silva
-- _Preencher_
+- Desenvolvimento do CRUD completo de orçamentos na aplicação mobile (React Native / Expo).
+- Implementação da tela de orçamentos com listagem por cartão, barra de progresso colorida por percentual e ações de edição e exclusão.
+- Criação do modal de cadastro e edição com seleção de categoria, mês de referência e valor limite.
+- Correção do fluxo de autenticação no mobile: resolução do problema de token Sanctum inválido com MongoDB, onde o `PersonalAccessToken` não capturava o `ObjectId` gerado na inserção.
+- Ajuste no ciclo de vida do modelo para geração correta do identificador antes da persistência no banco.
+- Correção de incompatibilidade no comportamento do `Alert.alert` no ambiente web para a ação de exclusão.
 
 #### Aécio Ribeiro Dantas Neto
 - _Preencher_

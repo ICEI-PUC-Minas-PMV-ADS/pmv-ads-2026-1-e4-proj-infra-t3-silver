@@ -27,8 +27,8 @@ export const mockTransactions: Transaction[] = [
     amount: 6200,
     type: 'income',
     date: '2026-05-05',
-    accountId: 1,
-    categoryId: 4,
+    accountId: '1',
+    categoryId: '4',
   },
   {
     id: 2,
@@ -36,8 +36,8 @@ export const mockTransactions: Transaction[] = [
     amount: 1800,
     type: 'expense',
     date: '2026-05-07',
-    accountId: 1,
-    categoryId: 1,
+    accountId: '1',
+    categoryId: '1',
   },
   {
     id: 3,
@@ -45,8 +45,8 @@ export const mockTransactions: Transaction[] = [
     amount: 486.72,
     type: 'expense',
     date: '2026-05-10',
-    accountId: 1,
-    categoryId: 2,
+    accountId: '1',
+    categoryId: '2',
   },
   {
     id: 4,
@@ -54,8 +54,8 @@ export const mockTransactions: Transaction[] = [
     amount: 210,
     type: 'expense',
     date: '2026-05-12',
-    accountId: 3,
-    categoryId: 3,
+    accountId: '3',
+    categoryId: '3',
   },
   {
     id: 5,
@@ -63,30 +63,32 @@ export const mockTransactions: Transaction[] = [
     amount: 96,
     type: 'expense',
     date: '2026-05-17',
-    accountId: 3,
-    categoryId: 5,
+    accountId: '3',
+    categoryId: '5',
   },
 ];
 
 export const mockBudgets: Budget[] = [
-  { id: 1, categoryId: 1, limit: 2200, spent: 1800, month: '2026-05' },
-  { id: 2, categoryId: 2, limit: 1200, spent: 486.72, month: '2026-05' },
-  { id: 3, categoryId: 5, limit: 450, spent: 96, month: '2026-05' },
+  { id: '1', categoryId: '1', limitAmount: 2200, spentAmount: 1800, monthYear: '2026-05' },
+  { id: '2', categoryId: '2', limitAmount: 1200, spentAmount: 486.72, monthYear: '2026-05' },
+  { id: '3', categoryId: '5', limitAmount: 450, spentAmount: 96, monthYear: '2026-05' },
 ];
 
 export const mockGoals: Goal[] = [
   {
     id: 1,
-    name: 'Reserva de emergência',
-    targetAmount: 15000,
-    currentAmount: 8200,
+    title: 'Reserva de emergência',
+    target_amount: 15000,
+    current_amount: 8200,
     deadline: '2026-12-31',
+    status: 'ativa',
   },
   {
     id: 2,
-    name: 'Viagem em família',
-    targetAmount: 6000,
-    currentAmount: 1800,
+    title: 'Viagem em família',
+    target_amount: 6000,
+    current_amount: 1800,
     deadline: '2026-10-15',
+    status: 'ativa',
   },
 ];

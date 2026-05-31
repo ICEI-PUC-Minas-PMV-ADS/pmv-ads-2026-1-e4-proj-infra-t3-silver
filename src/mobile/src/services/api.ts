@@ -1,5 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
+import { router } from 'expo-router';
 
 import {
   Account,
@@ -7,6 +8,7 @@ import {
   Budget,
   Category,
   CreateAccountPayload,
+  CreateBudgetPayload,
   CreateTransactionPayload,
   Family,
   FamilyMember,
@@ -46,11 +48,16 @@ api.interceptors.request.use(async (config) => {
 
 api.interceptors.response.use(
   (response) => response,
-  (error) => {
+  async (error) => {
     console.log('API ERROR STATUS:', error.response?.status);
     console.log('API ERROR DATA:', error.response?.data);
     console.log('API ERROR URL:', error.config?.url);
     console.log('API BASE URL:', API_BASE_URL);
+
+    if (error.response?.status === 401 && error.config?.url !== '/login') {
+      await AsyncStorage.removeItem(TOKEN_KEY);
+      router.replace('/login');
+    }
 
     return Promise.reject(error);
   }
@@ -173,6 +180,20 @@ export async function getCategories(): Promise<Category[]> {
 export async function getBudgets(): Promise<Budget[]> {
   const response = await api.get<Budget[]>('/budgets');
   return response.data;
+}
+
+export async function createBudget(payload: CreateBudgetPayload): Promise<Budget> {
+  const response = await api.post<Budget>('/budgets', payload);
+  return response.data;
+}
+
+export async function updateBudget(id: string, payload: { limitAmount: number }): Promise<Budget> {
+  const response = await api.put<Budget>(`/budgets/${id}`, payload);
+  return response.data;
+}
+
+export async function deleteBudget(id: string): Promise<void> {
+  await api.delete(`/budgets/${id}`);
 }
 
 export async function getGoals(): Promise<Goal[]> {
