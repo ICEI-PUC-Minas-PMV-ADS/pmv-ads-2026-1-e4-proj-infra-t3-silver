@@ -4,6 +4,12 @@
 
 Layout padrão das aplicações web e mobile que serão utilizadas em todas as páginas com a definição de identidade visual, aspectos de responsividade e iconografia.
 
+docs/img/Mobile-1.png
+docs/img/Mobile-2.png
+docs/img/Mobile-3.png
+docs/img/Mobile-4.png
+docs/img/Mobile-5.png
+
 > **Links Úteis**:
 >
 > - [CSS Website Layout (W3Schools)](https://www.w3schools.com/css/css_website_layout.asp)
