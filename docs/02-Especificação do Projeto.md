@@ -37,7 +37,7 @@ As tabelas a seguir apresentam os requisitos funcionais e não funcionais que de
 | **RF01** | Permitir o registro de transações (receitas/despesas) via API e WhatsApp. | Alta | Aécio |
 | **RF02** | Fornecer um Dashboard Web principal para visualização de saldo e extrato. | Alta | Adrian |
 | **RF03** | Permitir a sincronização em tempo real entre Web e Mobile. | Alta | Nathan |
-| **RF04** | Permitir a criação, edição e exclusão de categorias financeiras. | Média | Yago |
+| **RF04** | Permitir a criação, edição e exclusão de categorias financeiras. | Média | Victor |
 | **RF05** | Realizar o cálculo e exibição de saldo consolidado de múltiplas contas. | Alta | Vinícius |
 | **RF06** | Permitir o cadastro de metas financeiras com acompanhamento de progresso. | Média | Yago |
 | **RF07** | Gerenciar autenticação (Login/Registro) e perfil de usuário. | Alta | Aécio |

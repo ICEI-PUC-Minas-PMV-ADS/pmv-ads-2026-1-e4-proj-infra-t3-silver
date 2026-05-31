@@ -6,7 +6,7 @@ import { AppButton } from '../src/components/AppButton';
 import { ReceiptPicker } from '../src/components/ReceiptPicker';
 import { Screen } from '../src/components/Screen';
 import { useTheme } from '../src/context/ThemeContext';
-import { mockCategories } from '../src/mocks/financial-data';
+import { useCategories } from '../src/hooks/useCategories';
 import { createTransaction, getAccounts } from '../src/services/api';
 import { radius, spacing, typography } from '../src/theme/theme';
 import { Account, TransactionType } from '../src/types/financial';
@@ -15,6 +15,7 @@ import { formatCurrency } from '../src/utils/formatters';
 
 export default function TransactionNewScreen() {
   const { colors } = useTheme();
+  const { categories } = useCategories();
   const [accounts, setAccounts] = useState<Account[]>([]);
   const [selectedAccount, setSelectedAccount] = useState<Account | null>(null);
   const [description, setDescription] = useState('');
@@ -28,8 +29,8 @@ export default function TransactionNewScreen() {
   const today = new Date().toISOString().split('T')[0];
   const defaultCategory =
     type === 'income'
-      ? mockCategories.find((c) => c.kind === 'income' || c.kind === 'both')!
-      : mockCategories.find((c) => c.kind === 'expense' || c.kind === 'both')!;
+      ? categories.find((c) => c.kind === 'income' || c.kind === 'both')!
+      : categories.find((c) => c.kind === 'expense' || c.kind === 'both')!;
 
   useEffect(() => {
     getAccounts()

@@ -6,6 +6,7 @@ import { AppButton } from '../src/components/AppButton';
 import { InfoCard } from '../src/components/InfoCard';
 import { Screen } from '../src/components/Screen';
 import { ThemeScheme, useTheme } from '../src/context/ThemeContext';
+import { mockUser } from '../src/mocks/financial-data';
 import { API_BASE_URL, clearAuthToken, getMe } from '../src/services/api';
 import { radius, spacing, typography } from '../src/theme/theme';
 import { User } from '../src/types/financial';
@@ -29,7 +30,7 @@ export default function ProfileScreen() {
     try {
       setUser(await getMe());
     } catch (requestError) {
-      setError(getApiErrorMessage(requestError));
+      setUser(mockUser);
     } finally {
       setIsLoading(false);
     }
