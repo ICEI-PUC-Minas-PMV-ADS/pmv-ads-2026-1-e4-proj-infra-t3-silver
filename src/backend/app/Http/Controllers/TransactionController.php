@@ -6,6 +6,7 @@ use App\Models\Transaction;
 use App\Models\Account;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Carbon\Carbon;
 
 class TransactionController extends Controller
@@ -46,10 +47,17 @@ class TransactionController extends Controller
             'description' => 'required|string|max:500',
             'date' => 'nullable|date',
             'source' => 'nullable|string|in:web,mobile,whatsapp',
+            'attachment' => 'nullable|image|max:5120',
         ]);
 
         // Ensure account belongs to user's family
         $account = Account::where('familyId', $user->familyId)->findOrFail($validated['accountId']);
+
+        $attachmentUrl = null;
+        if ($request->hasFile('attachment')) {
+            $path = $request->file('attachment')->store('attachments', 'public');
+            $attachmentUrl = Storage::disk('public')->url($path);
+        }
 
         $transaction = Transaction::create([
             'familyId' => $user->familyId,
@@ -61,9 +69,21 @@ class TransactionController extends Controller
             'description' => $validated['description'],
             'date' => $validated['date'] ?? now(),
             'source' => $validated['source'] ?? 'web',
+            'attachmentUrl' => $attachmentUrl,
         ]);
 
         return response()->json($transaction, 201);
+    }
+
+    /**
+     * Show a specific transaction.
+     */
+    public function show($id)
+    {
+        $user = Auth::user();
+        $transaction = Transaction::where('familyId', $user->familyId)->findOrFail($id);
+
+        return response()->json($transaction);
     }
 
     /**

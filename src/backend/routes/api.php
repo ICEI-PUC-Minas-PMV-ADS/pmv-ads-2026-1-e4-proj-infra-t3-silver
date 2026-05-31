@@ -25,16 +25,20 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/accounts', [AccountController::class, 'index']);
     Route::post('/accounts', [AccountController::class, 'store']);
     Route::get('/accounts/{id}', [AccountController::class, 'show']);
+    Route::put('/accounts/{id}', [AccountController::class, 'update']);
+    Route::delete('/accounts/{id}', [AccountController::class, 'destroy']);
 
     // Transações (Transactions)
     Route::get('/transactions', [TransactionController::class, 'index']);
     Route::post('/transactions', [TransactionController::class, 'store']);
+    Route::get('/transactions/{id}', [TransactionController::class, 'show']);
     Route::delete('/transactions/{id}', [TransactionController::class, 'destroy']);
 
     // Família (Family)
     Route::get('/family', [FamilyController::class, 'index']);
     Route::put('/family', [FamilyController::class, 'update']);
     Route::post('/family/join', [FamilyController::class, 'join']);
+    Route::post('/family/leave', [FamilyController::class, 'leave']);
     Route::get('/family/members', [FamilyController::class, 'members']);
 
     // Categorias (Categories)

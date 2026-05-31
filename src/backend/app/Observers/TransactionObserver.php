@@ -6,6 +6,7 @@ use App\Models\Transaction;
 use App\Models\Account;
 use App\Models\Budget;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Storage;
 
 class TransactionObserver
 {
@@ -43,6 +44,12 @@ class TransactionObserver
     public function deleted(Transaction $transaction): void
     {
         $this->revertBalance($transaction->accountId, $transaction->type, $transaction->amount, $transaction->categoryId, $transaction->date);
+
+        if ($transaction->attachmentUrl) {
+            $urlPath = parse_url($transaction->attachmentUrl, PHP_URL_PATH);
+            $relativePath = preg_replace('#^/storage/#', '', $urlPath);
+            Storage::disk('public')->delete($relativePath);
+        }
     }
 
     protected function updateRelatedBalances(Transaction $transaction, $amount): void
