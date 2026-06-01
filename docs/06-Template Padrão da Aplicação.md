@@ -6,7 +6,7 @@ Layout padrão das aplicações web e mobile que serão utilizadas em todas as p
 
 |Web|
 
-
+||
 | ![Carlos](https://i.pravatar.cc/150?u=carlos) |
 
 
