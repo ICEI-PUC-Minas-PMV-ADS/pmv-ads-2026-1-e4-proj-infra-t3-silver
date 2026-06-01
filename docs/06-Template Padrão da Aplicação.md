@@ -11,7 +11,6 @@ Layout padrão das aplicações web e mobile que serão utilizadas em todas as p
 |![login](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2026-1-e4-proj-infra-t3-silver/blob/main/docs/img/login.png?raw=true)|
 |![landing](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2026-1-e4-proj-infra-t3-silver/blob/main/docs/img/landing.png?raw=true)|
 |![config](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2026-1-e4-proj-infra-t3-silver/blob/main/docs/img/config.png?raw=true)|
-|![componentes](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2026-1-e4-proj-infra-t3-silver/blob/main/docs/img/componentes.png?raw=true)|
 |![categor](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2026-1-e4-proj-infra-t3-silver/blob/main/docs/img/categor.png?raw=true)|
 |![cadastt](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2026-1-e4-proj-infra-t3-silver/blob/main/docs/img/cadastt.png?raw=true)|
 
