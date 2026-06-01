@@ -34,7 +34,8 @@ Este documento apresenta um resumo das atividades realizadas em cada etapa do pr
 - _Preencher_
 
 #### Nathan David Reis
-- _Preencher_
+- Participação no levantamento de requisitos funcionais e não funcionais.
+- Modelagem dos dados e elaboração do diagrama ER.
 
 #### Victor da Silva Folgado
 - Aprimoramento da introdução do projeto, tornando a contextualização mais clara e objetiva.
@@ -88,7 +89,11 @@ Este documento apresenta um resumo das atividades realizadas em cada etapa do pr
 - _Preencher_
 
 #### Nathan David Reis
-- _Preencher_
+- Implementação do módulo de famílias na API, permitindo que múltiplos usuários compartilhem acesso aos dados financeiros.
+- Criação das coleções necessárias no MongoDB para suporte ao módulo de famílias.
+- Ajustes nas colunas do banco de dados para adequação ao módulo.
+- Adaptação do diagrama ER para contemplar o módulo de famílias.
+- Elaboração de trechos da documentação referentes ao banco de dados.
 
 #### Victor da Silva Folgado
 - Desenvolvimento e documentação dos wireframes da aplicação.
@@ -141,7 +146,7 @@ Este documento apresenta um resumo das atividades realizadas em cada etapa do pr
 - _Preencher_
 
 #### Nathan David Reis
-- _Preencher_
+- Inclusão do módulo de famílias nas telas da aplicação web, seguindo as definições da documentação e em cumprimento aos requisitos funcionais.
 
 #### Victor da Silva Folgado
 - Implementação das funcionalidades de receitas e despesas no sistema.
@@ -193,7 +198,10 @@ Este documento apresenta um resumo das atividades realizadas em cada etapa do pr
 - _Preencher_
 
 #### Nathan David Reis
-- _Preencher_
+- Validação e pequeno ajuste no login por biometria implementado pelo Aécio.
+- Implementação do módulo de famílias na aplicação mobile.
+- Implementação da opção de tema claro e escuro no aplicativo.
+- Implementação da funcionalidade de anexar foto ao registrar uma transação, com suporte à captura pela câmera ou seleção da galeria.
 
 #### Victor da Silva Folgado
 - Criação dos wireframes da aplicação Mobile.
