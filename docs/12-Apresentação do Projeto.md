@@ -11,7 +11,7 @@ Conjunto de slides em um arquivo PowerPoint ou PDF com a apresentação do proje
 
 **SILVER** — Aplicação distribuída para gestão financeira pessoal.
 
-![Logo](./img/logo.jpeg)
+<img src="./img/logo.jpeg" width="200">
 
 ## Identidade Visual (Marca, Design)
 
@@ -33,4 +33,4 @@ O grupo deve distribuir de forma coerente o conteúdo a ser apresentado, dentro 
 
 ---
 
-> **Arquivo de Avaliações Individuais:** As avaliações individuais de cada membro (frameworks, participação, análise crítica e melhorias) estão no arquivo 'caminho do arquivo'.
+> #Arquivo de Avaliações Individuais: As avaliações individuais de cada membro (frameworks, participação, análise crítica e melhorias) estão no arquivo 'caminho do arquivo'.
