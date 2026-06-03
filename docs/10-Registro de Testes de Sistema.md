@@ -503,34 +503,12 @@ npx jest
 ## 6. 📸 Espaço para Evidências
 
 ### Web
-
-- **Login:** *[Print da tela de login web]*
-- **Dashboard:** *[Print do dashboard web]*
-- **Transações (lista + formulário):** *[Print da tela de transações web]*
-- **Contas:** *[Print da tela de contas web]*
-- **Categorias:** *[Print da tela de categorias web]*
-- **Orçamentos:** *[Print da tela de orçamentos web]*
-- **Metas:** *[Print da tela de metas web]*
-- **Famílias:** *[Print da tela de famílias web]*
-- **Comprovantes:** *[Print do upload de comprovante web]*
-
-### Mobile
-
-- **Login / Registro:** *[Print da tela de login mobile]*
-- **Dashboard:** *[Print do dashboard mobile]*
-- **Lista de transações:** *[Print da lista mobile]*
-- **Nova transação:** *[Print do formulário mobile]*
-- **Detalhes:** *[Print dos detalhes mobile]*
-- **Contas:** *[Print da tela de contas mobile]*
-- **Categorias:** *[Print da tela de categorias mobile]*
-- **Orçamentos:** *[Print da tela de orçamentos mobile]*
-- **Metas:** *[Print da tela de metas mobile]*
-- **Famílias:** *[Print da tela de famílias mobile]*
-- **Comprovantes (câmera):** *[Print da captura mobile]*
-- **Tema escuro:** *[Print do tema escuro mobile]*
-
----
-
+<img width="521" height="552" alt="silvertestes" src="https://github.com/user-attachments/assets/ce6c61cc-73d0-4820-be5b-7f207b0c62c3" />
+<img width="388" height="172" alt="mobiletest" src="https://github.com/user-attachments/assets/028e597e-c352-4f9a-beee-529cefa1eeb9" />
+<img width="510" height="593" alt="teste4" src="https://github.com/user-attachments/assets/e196abed-8278-40ab-a093-02cbe00fb487" />
+<img width="426" height="601" alt="teste3" src="https://github.com/user-attachments/assets/1526bd9f-3b54-447f-a3fa-36fd50097f24" />
+<img width="462" height="602" alt="teste2" src="https://github.com/user-attachments/assets/2b4b43bf-9786-4a46-900a-4cd62ef23cb1" />
+ 
 ## 7. 👥 Distribuição por Responsável
 
 | Pessoa | Web | Mobile | Requisitos | Status |
@@ -561,4 +539,6 @@ npx jest
 
 ---
 
-> *Documento gerado em Junho/2026 — 73 cenários testados manualmente via API · 90 no total (incluindo 17 testes PHPUnit) · ✅ 89 aprovados · ❌ 1 falha (texto de mensagem)*
+> *Documento gerado em Junho/2026 — Total: 82 cenários de teste — todos passando.
+- 69 no backend (Laravel/Pest) — requisições reais na API
+- 13 no mobile (Jest) — formatação, erros, tema*
