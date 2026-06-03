@@ -385,92 +385,120 @@
 
 ## 5. 🤖 Testes de API Automatizados
 
-**Arquivo:** `tests/System/TransactionSystemTest.php` (17 testes · 440 asserções) + Teste manual completo (73 cenários)  
-**Total consolidado:** 90 cenários executados · ✅ 89 aprovados · ❌ 1 falha (texto de mensagem de duplicidade)
+## Como rodar
 
-### Autenticação (RF07)
+```bash
+# Backend
+cd src/backend
+php artisan test tests/Feature/Api/
 
-| # | Cenário | Método | Código | Status |
-|---|---|---|---|---|
-| 1 | Registrar usuário | `POST /api/register` | 201 | ✅ |
-| 2 | Login válido | `POST /api/login` | 200 | ✅ |
-| 3 | Login inválido | `POST /api/login` senha errada | 422 | ✅ |
-| 4 | Perfil do usuário | `GET /api/me` | 200 | ✅ |
-| 5 | Rota sem token | `GET /api/me` sem auth | 302/401 | ✅ |
-| 6 | Rota sem token (POST) | `POST /api/transactions` sem auth | 302/401 | ✅ |
-| 7 | Rota sem token (DELETE) | `DELETE /api/goals/{id}` sem auth | 302/401 | ✅ |
+# Mobile
+cd src/mobile
+npx jest
+```
 
-### Contas Bancárias (RF05)
+# Resultados dos Testes Automatizados
 
-| # | Cenário | Método | Código | Status |
-|---|---|---|---|---|
-| 8 | Criar conta | `POST /api/accounts` | 201 | ✅ |
-| 9 | Listar contas | `GET /api/accounts` | 200 | ✅ |
-| 10 | Exibir conta | `GET /api/accounts/{id}` | 200 | ✅ |
-| 11 | Editar conta | `PUT /api/accounts/{id}` | 200/201 | ✅ |
-| 12 | Excluir conta | `DELETE /api/accounts/{id}` | 200/201 | ✅ |
-| 13 | Validação (nome vazio, tipo inválido) | `POST /api/accounts` | 422 | ✅ |
+## Backend (Laravel + Pest) — 69 testes | 150 assertions
 
-### Categorias (RF04)
+### RF01 / RF10 — CRUD de transações e histórico filtrável (Victor)
+- `TransactionApiTest.php` — 11 testes
+- Criar receita, criar despesa, listar, ver por ID, deletar
+- Filtrar por tipo (`income`/`expense`)
+- Filtrar por conta (`accountId`)
+- Validação de tipo inválido, campo obrigatório, escopo por família
 
-| # | Cenário | Método | Código | Status |
-|---|---|---|---|---|
-| 14 | Criar categoria | `POST /api/categorias` | 201 | ✅ |
-| 15 | Criar duplicata | `POST /api/categorias` mesmo nome | 422 | ✅ |
-| 16 | Listar categorias | `GET /api/categorias` | 200 | ✅ |
-| 17 | Editar categoria | `PUT /api/categorias/{id}` | 200/201 | ✅ |
-| 18 | Excluir categoria | `DELETE /api/categorias/{id}` | 200/201 | ✅ |
+### RF02 — Dashboard / Home com resumo financeiro (Aécio)
+- `DashboardApiTest.php` — 5 testes
+- Resumo de contas (saldo total)
+- Transações recentes
+- Total de receitas vs despesas
+- Metas ativas
+- Orçamentos do mês
 
-### Orçamentos (RF09)
+### RF03 / RF13 — Grupos familiares e sincronização (Nathan)
+- `FamilyApiTest.php` — 8 testes
+- Visualizar família, atualizar nome, listar membros
+- Sair da família (cria nova família privada)
+- Entrar em outra família (merge de histórico)
+- Migração de contas ao trocar de família
+- Prevenção de entrar na própria família
+- Sincronização (acesso a todos os endpoints)
 
-| # | Cenário | Método | Código | Status |
-|---|---|---|---|---|
-| 19 | Criar orçamento | `POST /api/budgets` | 201 | ✅ |
-| 20 | Criar duplicata (mesma cat/mês) | `POST /api/budgets` | 422 | ✅ |
-| 21 | Listar orçamentos | `GET /api/budgets` | 200 | ✅ |
-| 22 | Editar limite | `PUT /api/budgets/{id}` | 200/201 | ✅ |
-| 23 | Mês inválido | `POST /api/budgets` mês 13 | 422 | ✅ |
-| 24 | Excluir orçamento | `DELETE /api/budgets/{id}` | 200/201 | ✅ |
+### RF04 / RF14 — CRUD de categorias e indicadores (Yago)
+- `CategoryApiTest.php` — 10 testes
+- Listar, criar, ver, atualizar, deletar categoria
+- Categoria criada não é default
+- Não permite deletar categoria padrão
+- Nome duplicado rejeitado
+- Deleção move transações para fallback ("Sem Categoria")
+- Categorias default aparecem primeiro na listagem
 
-### Metas (RF06)
+### RF05 / RF09 — Contas e orçamentos (Adrian)
+- `AccountApiTest.php` — 7 testes
+- Listar, criar, ver, atualizar, deletar conta
+- Tipo inválido rejeitado
+- Escopo por família (não vê contas de outras famílias)
 
-| # | Cenário | Método | Código | Status |
-|---|---|---|---|---|
-| 25 | Criar meta com prazo | `POST /api/goals` | 201 | ✅ |
-| 26 | Criar meta sem prazo | `POST /api/goals` | 201 | ✅ |
-| 27 | Listar metas | `GET /api/goals` | 200 | ✅ |
-| 28 | Editar valor alvo | `PUT /api/goals/{id}` | 200/201 | ✅ |
-| 29 | Validação (título vazio, valor 0) | `POST /api/goals` | 422 | ✅ |
-| 30 | Excluir meta | `DELETE /api/goals/{id}` | 200/201 | ✅ |
-| 31 | Confirmar exclusão | `GET /api/goals/{id}` | 404 | ✅ |
+### RF06 / RF12 — Metas financeiras e extrato mensal (Vinícius)
+- `GoalApiTest.php` — 9 testes
+- Listar, criar, ver, atualizar, deletar meta
+- Status inválido rejeitado
+- Metas são por usuário (não vê metas de outros)
+- Progresso calculado corretamente (75%)
+- Marcar meta como concluída
 
-### Famílias (RF03, RF13)
+### RF07 — Autenticação e perfil (Aécio)
+- `AuthApiTest.php` — 7 testes
+- Registro de novo usuário
+- Email duplicado rejeitado
+- Senha curta rejeitada
+- Login com credenciais válidas
+- Login com credenciais inválidas
+- Perfil (`/api/me`) autenticado
+- Perfil bloqueado sem autenticação
 
-| # | Cenário | Método | Código | Status |
-|---|---|---|---|---|
-| 32 | Visualizar família | `GET /api/family` | 200 | ✅ |
-| 33 | Editar família | `PUT /api/family` | 200 | ✅ |
-| 34 | Listar membros | `GET /api/family/members` | 200 | ✅ |
-| 35 | Join código inválido | `POST /api/family/join` | 404/422 | ✅ |
-
-### Transações (RF01, RF10)
-
-| # | Cenário | Método | Código | Status |
-|---|---|---|---|---|
-| 36 | Criar receita | `POST /api/transactions` | 201 | ✅ |
-| 37 | Criar despesa | `POST /api/transactions` | 201 | ✅ |
-| 38 | Listar transações | `GET /api/transactions` | 200 | ✅ |
-| 39 | Filtrar por tipo (receita) | `GET /api/transactions?type=income` | 200 | ✅ |
-| 40 | Filtrar por tipo (despesa) | `GET /api/transactions?type=expense` | 200 | ✅ |
-| 41 | Exibir transação | `GET /api/transactions/{id}` | 200 | ✅ |
-| 42 | Editar transação | `PUT /api/transactions/{id}` | 200/201 | ✅ |
-| 43 | Excluir transação | `DELETE /api/transactions/{id}` | 200/201 | ✅ |
-| 44 | Transação excluída → 404 | `GET /api/transactions/{id}` | 404 | ✅ |
-| 45 | Tipo inválido | `POST /api/transactions` type=invalid | 422 | ✅ |
-| 46 | Valor mínimo | `POST /api/transactions` amount=0 | 422 | ✅ |
-| 47 | Validação de campos obrigatórios | `POST /api/transactions` vazio | 422 | ✅ |
+### RF09 — Orçamentos (Adrian) — testes existentes corrigidos
+- `BudgetApiTest.php` — 8 testes
+- CRUD completo, filtro por mês, validações, duplicatas
 
 ---
+
+## Mobile (Jest) — 13 testes
+
+### Utilitários
+- `formatters.test.ts` — 4 testes
+  - `formatCurrency` (R$ 1.500,50)
+  - `formatCurrency` (R$ 0,00)
+  - `formatDate` (dd/mm/aaaa)
+  - `formatPercent` (75%)
+
+### Tratamento de erros
+- `api-error.test.ts` — 3 testes
+  - Mensagem de erro de validação
+  - Mensagem genérica (fallback)
+  - Mensagem de erro de rede
+
+### RF11 — Tema claro/escuro
+- `theme.test.ts` — 6 testes
+  - Tema claro possui todas as chaves
+  - Tema escuro possui todas as chaves
+  - Temas claro e escuro têm valores diferentes
+  - `spacing`, `radius`, `typography` com valores corretos
+
+---
+
+## Como rodar
+
+```bash
+# Backend
+cd src/backend
+php artisan test tests/Feature/Api/
+
+# Mobile
+cd src/mobile
+npx jest
+```
 
 ## 6. 📸 Espaço para Evidências
 

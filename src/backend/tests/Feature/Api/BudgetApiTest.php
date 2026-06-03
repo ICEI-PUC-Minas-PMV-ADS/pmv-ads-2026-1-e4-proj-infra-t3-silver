@@ -69,7 +69,7 @@ test('usuario pode criar um orcamento mensal', function () {
             'spentAmount' => 0.0,
         ]);
 
-    $this->assertDatabaseHas('budgets', ['monthYear' => '2026-04']);
+    expect(Budget::where('monthYear', '2026-04')->exists())->toBeTrue();
 });
 
 test('usuario pode buscar um orcamento pelo id', function () {
@@ -112,7 +112,7 @@ test('usuario pode deletar um orcamento', function () {
     $response->assertOk()
         ->assertJsonFragment(['message' => 'Orçamento removido com sucesso.']);
 
-    $this->assertDatabaseMissing('budgets', ['_id' => $budget->id]);
+    expect(Budget::find($budget->id))->toBeNull();
 });
 
 test('usuario nao pode acessar orcamento de outra familia', function () {
