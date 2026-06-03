@@ -33,4 +33,4 @@ O grupo deve distribuir de forma coerente o conteúdo a ser apresentado, dentro 
 
 ---
 
-> #Arquivo de Avaliações Individuais: As avaliações individuais de cada membro (frameworks, participação, análise crítica e melhorias) estão no arquivo 'caminho do arquivo'.
+> # Arquivo de Avaliações Individuais: As avaliações individuais de cada membro (frameworks, participação, análise crítica e melhorias) estão no arquivo 'caminho do arquivo'.
