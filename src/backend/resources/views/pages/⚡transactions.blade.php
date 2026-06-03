@@ -218,7 +218,7 @@
                                   </td>
                                   <td class="px-4 py-2">
                                       <button
-                                          wire:click="destroy({{ $t->id }})"
+                                          wire:click="destroy('{{ $t->id }}')"
                                           class="text-sm text-red-600 hover:underline"
                                           onclick="return confirm('{{ __('Excluir esta transação?')
   }}')">
