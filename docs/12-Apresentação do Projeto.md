@@ -28,6 +28,10 @@ O grupo deve ter o cuidado em utilizar figuras, imagens, e cores dentro do conte
 
 # 👉 **[CLIQUE AQUI PARA ACESSAR A APRESENTAÇÃO](https://canva.link/silverapresgrupo3)**
 
----
+# 🎞️ APRESENTAÇÃO DO PITCH
+
+Clique na imagem abaixo para assistir ao vídeo:
+
+[![Pitch de Vendas - Silver](https://img.youtube.com/vi/wll2heqi7W0/maxresdefault.jpg)](https://youtu.be/wll2heqi7W0)
 
 > # Arquivo de Avaliações Individuais: As avaliações individuais de cada membro (frameworks, participação, análise crítica e melhorias) estão no arquivo 'caminho do arquivo'.
