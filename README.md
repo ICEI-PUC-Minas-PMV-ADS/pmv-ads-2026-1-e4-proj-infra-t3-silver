@@ -49,6 +49,7 @@ Plataforma distribuída para controle financeiro pessoal e familiar, composta po
 | [Guia do Código](src/README.md) | Instalação e execução local |
 | [Documentação](docs/) | Artefatos acadêmicos do projeto |
 | [Arquitetura](docs/05-Arquitetura%20da%20Solução.md) | Diagramas e decisões técnicas |
+| [Vídeo de Apresentação](docs/12-Apresentação%20do%20Projeto.md) | Pitch e demonstração do projeto |
 
 ## Equipe
 
