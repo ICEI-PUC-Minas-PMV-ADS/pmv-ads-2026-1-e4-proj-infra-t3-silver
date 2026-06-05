@@ -29,6 +29,7 @@ O grupo deve ter o cuidado em utilizar figuras, imagens, e cores dentro do conte
 # 👉 **[CLIQUE AQUI PARA ACESSAR A APRESENTAÇÃO](https://canva.link/silverapresgrupo3)**
 
 # 🎞️ APRESENTAÇÃO DO PITCH
+CLIQUE NA IMAGEM ABAIXO PARA VER O VÍDEO:
 
 <div align="center">
   
