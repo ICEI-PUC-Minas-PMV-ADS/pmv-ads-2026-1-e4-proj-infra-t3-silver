@@ -30,8 +30,12 @@ O grupo deve ter o cuidado em utilizar figuras, imagens, e cores dentro do conte
 
 # 🎞️ APRESENTAÇÃO DO PITCH
 
-Clique na imagem abaixo para assistir ao vídeo:
+<div align="center">
+  
+[![Pitch de Vendas - Silver](img/yagothumb.jpeg)](https://youtu.be/wll2heqi7W0)
 
-[![Pitch de Vendas - Silver](https://img.youtube.com/vi/wll2heqi7W0/maxresdefault.jpg)](https://youtu.be/wll2heqi7W0)
+*🎬 Pitch Silver · Gestão Financeira* · 2:45 min
+
+</div>
 
 > # Arquivo de Avaliações Individuais: As avaliações individuais de cada membro (frameworks, participação, análise crítica e melhorias) estão no arquivo 'caminho do arquivo'.
