@@ -254,7 +254,12 @@ Este documento apresenta um resumo das atividades realizadas em cada etapa do pr
 - _Preencher_
 
 #### Victor da Silva Folgado
-- _Preencher_
+- Revisão e consolidação da documentação do projeto, incluindo referências, requisitos e registros de teste.
+- Elaboração dos slides da apresentação final e disponibilização do link de acesso.
+- Edição do vídeo de apresentação da etapa final.
+- Correção de bug na exclusão de transações na tela do sistema.
+- Registro dos testes de sistema e inclusão dos prints de evidência.
+- Apoio na organização e finalização dos artefatos de entrega.
 
 #### Vinícius Soares Pires e Luz
 - _Preencher_
