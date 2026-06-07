@@ -265,7 +265,9 @@ Este documento apresenta um resumo das atividades realizadas em cada etapa do pr
 - _Preencher_
 
 #### Yago Lopes Miranda
-- _Preencher_
+- Vídeo da apresentação final, sendo o Pitch de vendas do projeto Silver
+- Apoio na revisão geral do documento e do projeto
+- Apoio na organização e finalização da entrega do projeto
 
 ---
 
