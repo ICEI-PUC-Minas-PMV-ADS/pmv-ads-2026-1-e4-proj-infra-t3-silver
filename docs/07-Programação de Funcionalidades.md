@@ -23,6 +23,8 @@ DB_DATABASE=silver_db
 2. `php artisan key:generate`
 3. `php artisan serve`
 
+> A API em producao esta disponivel em: [https://silver-backed-deploy-main-fgsfuz.free.laravel.cloud](https://silver-backed-deploy-main-fgsfuz.free.laravel.cloud)
+
 ---
 
 ## Autenticação

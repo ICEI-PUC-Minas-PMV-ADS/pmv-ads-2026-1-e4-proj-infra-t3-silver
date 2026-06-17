@@ -31,7 +31,9 @@ Este documento apresenta um resumo das atividades realizadas em cada etapa do pr
 - Auxílio na elaboração do backlog e na organização das atividades da equipe.
 
 #### Aécio Ribeiro Dantas Neto
-- _Preencher_
+- Elaboração da documentação de contexto e especificação do projeto Silver.
+- Definição da visão, arquitetura e escopo da aplicação.
+- Criação do guia de execução e status da arquitetura.
 
 #### Nathan David Reis
 - Participação no levantamento de requisitos funcionais e não funcionais.
@@ -86,7 +88,13 @@ Este documento apresenta um resumo das atividades realizadas em cada etapa do pr
 - Desenvolvimento dos endpoints de orçamentos (budgets) na API REST.
 
 #### Aécio Ribeiro Dantas Neto
-- _Preencher_
+- Setup inicial do backend Laravel 12 com MongoDB e Sanctum.
+- Implementação da autenticação com Sanctum adaptado para MongoDB.
+- Criação do CRUD de categorias com seed automático.
+- Configuração de MongoDB local via Docker.
+- Correções de compatibilidade do PersonalAccessToken com MongoDB.
+- Aplicação da identidade visual Silver e tradução pt-BR nas views Blade.
+- Documentação técnica do backend, rotas e guia de instalação.
 
 #### Nathan David Reis
 - Implementação do módulo de famílias na API, permitindo que múltiplos usuários compartilhem acesso aos dados financeiros.
@@ -143,7 +151,11 @@ Este documento apresenta um resumo das atividades realizadas em cada etapa do pr
 - Ajustes na navegação lateral para inclusão do acesso à tela de orçamentos.
 
 #### Aécio Ribeiro Dantas Neto
-- _Preencher_
+- Implementação do CRUD completo de Contas (Accounts) no frontend web.
+- Criação do Dashboard dinâmico com integração à API.
+- Melhoria da UX nos modais de Transações com selects de Conta e Categoria.
+- Sincronização dos saldos das Contas ao registrar transações.
+- Correções de layout e renderização nas telas de Metas e Transações.
 
 #### Nathan David Reis
 - Inclusão do módulo de famílias nas telas da aplicação web, seguindo as definições da documentação e em cumprimento aos requisitos funcionais.
@@ -195,7 +207,9 @@ Este documento apresenta um resumo das atividades realizadas em cada etapa do pr
 - Correção de incompatibilidade no comportamento do `Alert.alert` no ambiente web para a ação de exclusão.
 
 #### Aécio Ribeiro Dantas Neto
-- _Preencher_
+- Criação da base mobile com React Native e Expo.
+- Integração da autenticação inicial no aplicativo mobile.
+- Melhorias no diagnóstico da API no mobile.
 
 #### Nathan David Reis
 - Validação e pequeno ajuste no login por biometria implementado pelo Aécio.
@@ -254,12 +268,11 @@ Este documento apresenta um resumo das atividades realizadas em cada etapa do pr
 - _Preencher_
 
 #### Victor da Silva Folgado
-- Revisão e consolidação da documentação do projeto, incluindo referências, requisitos e registros de teste.
-- Elaboração dos slides da apresentação final e disponibilização do link de acesso.
-- Edição do vídeo de apresentação da etapa final.
-- Correção de bug na exclusão de transações na tela do sistema.
-- Registro dos testes de sistema e inclusão dos prints de evidência.
-- Apoio na organização e finalização dos artefatos de entrega.
+- Revisão e consolidação da documentação do projeto.
+- Elaboração dos slides da apresentação final.
+- Edição do vídeo de apresentação da etapa.
+- Correção de bug na exclusão de transações.
+- Registro dos testes de sistema com prints de evidência.
 
 #### Vinícius Soares Pires e Luz
 - _Preencher_
@@ -281,11 +294,11 @@ Este documento apresenta um resumo das atividades realizadas em cada etapa do pr
 
 ### Print 1
 
-![Kanban 1](img/kanbanimgs/contrikanban2.png)
+<img src="img/kanbanimgs/contrikanban2.png" alt="Kanban 1" style="max-width: 100%; height: auto;">
 
 ### Print 2
 
-![Kanban 2](img/kanbanimgs/kanbancontribui1.png)
+<img src="img/kanbanimgs/kanbancontribui1.png" alt="Kanban 2" style="max-width: 100%; height: auto;">
 
 ---
 
@@ -295,7 +308,7 @@ Este documento apresenta um resumo das atividades realizadas em cada etapa do pr
 
 ### Contribuições da Equipe
 
-![Contribuições](./assets/contribuicoes.png)
+<img src="./assets/contribuicoes.png" alt="Contribuições" style="max-width: 100%; height: auto;">
 
 ---
 

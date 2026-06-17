@@ -70,12 +70,14 @@ Interface frontend voltada para análise e planejamento financeiro detalhado. Re
 - Oferecer visualizações filtráveis do histórico de transações
 - Possibilitar a exportação de relatórios em PDF e CSV
 
-### 3. WhatsApp Bridge (Node.js / Webhook)
-Microsserviço intermediário que conecta o WhatsApp à API principal. Responsável por:
+### 3. WhatsApp Bridge (Node.js / Webhook) — Planejado
+Microsserviço intermediário planejado para conectar o WhatsApp à API principal. Responsável por:
 - Receber mensagens enviadas pelo usuário no WhatsApp via webhook
 - Interpretar o conteúdo da mensagem (valor, descrição, categoria) utilizando **Processamento de Linguagem Natural (NLP)** via API de Inteligência Artificial (ex: Google Gemini ou OpenAI)
 - Encaminhar as informações estruturadas para a API Laravel criar o registro de transação
 - Retornar confirmação ou resumo financeiro ao usuário via WhatsApp em tempo real
+
+> **Status:** Componente planejado para versões futuras. Atualmente, o registro de transações é feito exclusivamente via API REST (Web e Mobile).
 
 ---
 
@@ -411,10 +413,10 @@ O fluxo de uma interação típica ocorre da seguinte forma: o usuário envia um
 
 A estratégia de hospedagem do Silver foi definida para operar inteiramente em planos gratuitos (free tiers) durante o ciclo acadêmico, sem gerar custos para a equipe:
 
-- **Backend (API Laravel):** hospedado no **Render** ou **Microsoft Azure** (plano gratuito), com deploy contínuo ativado via webhook integrado ao repositório GitHub. A cada novo commit na branch `main`, um novo deploy é iniciado automaticamente.
+- **Backend (API Laravel):** hospedado no **Laravel Cloud** (plano gratuito), com deploy contínuo ativado via webhook integrado ao repositório GitHub. A cada novo commit na branch `main`, um novo deploy é iniciado automaticamente. A API está disponível em [https://silver-backed-deploy-main-fgsfuz.free.laravel.cloud](https://silver-backed-deploy-main-fgsfuz.free.laravel.cloud).
 - **Dashboard Web (React):** hospedado no **Netlify** ou **GitHub Pages**, com build automático a cada push. O acesso público se dá via HTTPS com domínio fornecido pela plataforma.
 - **Banco de Dados (MongoDB):** utilizado o **MongoDB Atlas M0** (cluster gratuito), com acesso restrito por autenticação e whitelist de IPs, garantindo segurança sem custo adicional.
-- **WhatsApp Bridge (Node.js):** hospedado como serviço separado no **Render** (free tier), exposto via URL pública para receber os webhooks enviados pela API do WhatsApp.
+- **WhatsApp Bridge (Node.js):** componente planejado para versões futuras — a ser hospedado como serviço separado para receber os webhooks enviados pela API do WhatsApp.
 
 ---
 

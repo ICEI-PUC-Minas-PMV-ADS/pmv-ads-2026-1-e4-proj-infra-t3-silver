@@ -36,7 +36,7 @@ Desenvolver uma plataforma distribuída composta por uma API robusta em Laravel,
 
 ## Justificativa
 
-Diferente de soluções legadas que focam em uma única plataforma, o **Silver** justifica-se pela sua natureza distribuída. A escolha do **Laravel** no backend permite uma gestão de dados segura e eficiente, enquanto a interface Web entrega o poder analítico necessário para o planejamento doméstico. A grande inovação reside na integração com o **WhatsApp**, transformando uma ferramenta de comunicação cotidiana em um terminal financeiro potente, eliminando o esquecimento e a preguiça no registro de gastos. O projeto foca na experiência do usuário e na produtividade, democratizando o acesso a ferramentas de gestão financeira profissional.
+Diferente de soluções legadas que focam em uma única plataforma, o **Silver** justifica-se pela sua natureza distribuída. A escolha do **Laravel** no backend permite uma gestão de dados segura e eficiente, enquanto a interface Web entrega o poder analítico necessário para o planejamento doméstico. A grande inovação reside na integração com o **WhatsApp**, transformando uma ferramenta de comunicação cotidiana em um terminal financeiro prático e acessível. O projeto foca na experiência do usuário e na produtividade, democratizando o acesso a ferramentas de gestão financeira profissional.
 
 ## Público-Alvo
 

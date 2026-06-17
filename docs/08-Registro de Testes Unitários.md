@@ -1,6 +1,6 @@
 # Registro de Testes Unitários
 
-Este documento registra os testes implementados no backend do Silver para o recurso de **Orçamentos Mensais (Budgets)**, desenvolvido na Etapa 2, Tarefa 2.
+Este documento registra os testes unitarios implementados no backend do Silver para validar o comportamento isolado dos modelos da aplicacao, sem dependencia de banco de dados ou API.
 
 ---
 

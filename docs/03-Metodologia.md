@@ -11,7 +11,7 @@ Os artefatos do projeto são desenvolvidos a partir de diversas plataformas e a 
 | Ambiente | Plataforma | Link de Acesso |
 | :--- | :--- | :--- |
 | Repositório de Código | GitHub | [GitHub - Silver](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2026-1-e4-proj-infra-t3-silver) |
-| Backend (API Laravel) | Render | [API Silver (Hospedagem)](https://silver-api.onrender.com) |
+| Backend (API Laravel) | Laravel Cloud | [API Silver (Hospedagem)](https://silver-backed-deploy-main-fgsfuz.free.laravel.cloud) |
 | Banco de Dados NoSQL | MongoDB Atlas | [Cluster MongoDB M0](https://cloud.mongodb.com) |
 | Gestão de Projeto | GitHub Projects | [Quadro Kanban Silver](https://github.com/orgs/ICEI-PUC-Minas-PMV-ADS/projects/11) |
 | Documentação / Wiki | GitHub Docs | [Docs Silver](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2026-1-e4-proj-infra-t3-silver/tree/main/docs) |
@@ -78,7 +78,7 @@ As ferramentas empregadas no projeto são:
 - **Backend Framework (Laravel):** Utilizado para a Web API devido à sua robustez e facilidade de integração com MongoDB.
 - **Banco de Dados (MongoDB Atlas):** Selecionado pela flexibilidade do esquema NoSQL para registros financeiros dinâmicos.
 - **Comunicação (Slack/WhatsApp):** Para alinhamento rápido e assíncrono entre os membros.
-- **Hospedagem (Render/Azure):** Pelas cotas gratuitas ideais para o ciclo acadêmico.
+- **Hospedagem (Laravel Cloud):** Pela cota gratuita ideal para o ciclo acadêmico.
 - **Ferramentas de Design (Figma):** Para prototipação de alta fidelidade das interfaces Web e Mobile.
  
 > **Possíveis Ferramentas que auxiliarão no gerenciamento**: 

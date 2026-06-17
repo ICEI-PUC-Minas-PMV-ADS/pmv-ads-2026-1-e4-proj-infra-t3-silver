@@ -38,6 +38,8 @@ A identidade visual do Silver utiliza uma paleta de cores que transmite confianc
 
 # 👉 **[CLIQUE AQUI PARA ACESSAR A APRESENTAÇÃO](https://canva.link/silverapresgrupo3)**
 
+> Mais detalhes sobre os slides e vídeos por etapa no arquivo [`presentation/README.md`](../presentation/README.md).
+
 # 🎞️ APRESENTAÇÃO DO PITCH
 CLIQUE NA IMAGEM ABAIXO PARA VER O VÍDEO:
 
@@ -49,4 +51,4 @@ CLIQUE NA IMAGEM ABAIXO PARA VER O VÍDEO:
 
 </div>
 
-> *As avaliacoes individuais de cada membro constam no documento de Registro de Contribuicao.*
+> *As contribuicoes individuais de cada membro constam no documento de [Registro de Contribuicao](11-Registro%20de%20Contribui%C3%A7%C3%A3o.md).*

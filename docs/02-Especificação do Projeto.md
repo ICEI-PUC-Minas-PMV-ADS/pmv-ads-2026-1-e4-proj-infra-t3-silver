@@ -77,11 +77,11 @@ A matriz de rastreabilidade de requisitos é utilizada para garantir que cada re
 | **RF05** | João - Saldo Consolidado | Módulo de Cálculo Financeiro |
 | **RF06** | Carlos - Metas de Economia | UC04 - Gerenciar Metas |
 | **RF07** | Geral - Autenticação | UC05 - Autenticar Usuário |
-| **RF08** | Adrian - Exportar Relatórios | UC06 - Gerar Relatórios |
-| **RF09** | Nathan - Alertas WhatsApp | Módulo de Notificações |
-| **RF10** | Victor - Anexar Comprovantes | UC07 - Upload de Documentos |
-| **RF11** | Vinícius - Orçamentos Mensais | UC08 - Gerenciar Orçamentos |
-| **RF12** | Yago - Histórico Filtrável | UC09 - Consultar Histórico |
+| **RF08** | Nathan - Anexar Comprovantes | UC07 - Upload de Documentos |
+| **RF09** | Adrian - Orçamentos Mensais | UC08 - Gerenciar Orçamentos |
+| **RF10** | Victor - Histórico Filtrável | UC09 - Consultar Histórico |
+| **RF11** | Nathan - Tema claro/escuro | Módulo de Tema |
+| **RF12** | Vinícius - Extrato Mensal | UC04 - Gerenciar Metas |
 
 ## Restrições
 
@@ -105,7 +105,7 @@ O **Silver** utiliza uma arquitetura distribuída composta pelos seguintes compo
 
 O diagrama de casos de uso ilustra a fronteira do sistema e o detalhamento das principais interações dos usuários com os serviços distribuídos oferecidos pelo Silver.
 
-![Diagrama de Caso de Uso](img/silvercas.png)
+<img src="img/silvercas.png" alt="Diagrama de Caso de Uso" style="max-width: 100%; height: auto;">
 
 ## Descrição dos Casos de Uso
 
@@ -206,7 +206,7 @@ O projeto Silver foi concebido para operar majoritariamente sobre infraestrutura
 
 | Item | Descrição | Valor Estimado (Mensal) |
 | :--- | :--- | :--- |
-| **Hospedagem Backend** | Render / Azure (Planos Gratuitos) | R$ 0,00 |
+| **Hospedagem Backend** | Laravel Cloud (Plano Gratuito) | R$ 0,00 |
 | **Hospedagem Frontend** | Netlify / GitHub Pages | R$ 0,00 |
 | **Banco de Dados** | MongoDB Atlas (M0 Free Tier) | R$ 0,00 |
 | **API WhatsApp** | Evolução API / Cotas Gratuitas | R$ 0,00 |
@@ -217,11 +217,7 @@ O projeto Silver foi concebido para operar majoritariamente sobre infraestrutura
 
 ## Gerenciamento de Equipe
 
-Para o gerenciamento da equipe, será utilizado a metodologia ágil, que ganhou destaque a partir da publicação do Manifesto Ágil, em 2001, que estabeleceu quatro valores fundamentais: indivíduos e interações acima de processos e ferramentas; software em funcionamento acima de documentação abrangente; colaboração com o cliente acima de negociação de contratos; e resposta a mudanças acima de seguir um plano rígido (Beck et al., 2001). Esses princípios orientam a forma como equipes são organizadas, como as tarefas são distribuídas e como as decisões são tomadas ao longo do desenvolvimento de um projeto.
-A metodologia ágil tem sido amplamente utilizada no gerenciamento de equipes e projetos, especialmente em ambientes que exigem rapidez, adaptação a mudanças e maior colaboração entre os membros da equipe. Diferentemente das abordagens tradicionais de gerenciamento, que seguem um planejamento rígido e sequencial, as metodologias ágeis priorizam a flexibilidade, a comunicação contínua e a entrega incremental de resultados.
-Entre os frameworks ágeis mais utilizados está o Scrum, que organiza o trabalho em ciclos curtos chamados de sprints, normalmente com duração entre duas e quatro semanas. Durante cada sprint, a equipe se compromete a entregar um conjunto de funcionalidades ou resultados previamente definidos. O processo inclui reuniões periódicas, como a daily meeting, que tem como objetivo alinhar o progresso das atividades, identificar impedimentos e promover maior transparência no andamento do projeto (Schwaber & Sutherland, 2020).
-Outro framework bastante utilizado é o Kanban, que tem como foco a visualização do fluxo de trabalho e a melhoria contínua do processo. Nesse modelo, as tarefas são organizadas em um quadro visual dividido em etapas, permitindo que toda a equipe acompanhe o andamento das atividades e identifique possíveis gargalos no processo produtivo (Anderson, 2010).
-O gerenciamento ágil de tarefas e a coordenação da equipe serão realizados por meio do **GitHub Projects**. O quadro da equipe conterá o fluxo de cada requisito da funcionalidade, passando pelas fases de *Todo*, *In Progress*, *Review* e *Done*, vinculando PRs (Pull Requests) diretamente às entregas de cada um dos 6 desenvolvedores responsáveis.
+A equipe utiliza a metodologia ágil **Scrum** para organizar o trabalho. O processo é dividido em sprints mensais com reuniões de planejamento, revisão e daily meetings para alinhamento contínuo. O quadro Kanban do **GitHub Projects** é utilizado para acompanhar o progresso das tarefas, organizadas nas colunas *Backlog*, *To Do*, *In Progress*, *Review* e *Done*, vinculando Pull Requests diretamente às entregas de cada desenvolvedor.
 
 ## Impacto Social e Sustentabilidade
 

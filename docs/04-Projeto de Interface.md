@@ -1,31 +1,30 @@
-
 # Projeto de Interface
 
-<span style="color:red">Pré-requisitos: <a href="2-Especificação do Projeto.md"> Documentação de Especificação</a></span>
+<span style="color:red">Pré-requisitos: <a href="02-Especificação do Projeto.md"> Documentação de Especificação</a></span>
 
-Visão geral da interação do usuário pelas telas do sistema e protótipo interativo das telas com as funcionalidades que fazem parte do sistema (wireframes), tanto da versão web como para a versão mobile.
+Visão geral da interação do usuário com as telas do sistema, incluindo o protótipo interativo com as funcionalidades que compõem o Silver, tanto na versão Web quanto na versão Mobile.
 
 ## Fluxo de Navegação
 
-O fluxo de interacao do usuario com o Silver foi planejado para minimizar a friccao no registro financeiro. O usuario chega na landing page, cria sua conta ou faz login, e acessa o dashboard com visao consolidada de saldo, receitas e despesas do mes. A partir do dashboard, pode navegar para contas, transacoes, orcamentos, metas e configuracoes.
+O fluxo de interação do usuário com o Silver foi planejado para minimizar a fricção no registro financeiro. O usuário chega na landing page, cria sua conta ou faz login, e acessa o dashboard com a visão consolidada de saldo, receitas e despesas do mês. A partir do dashboard, pode navegar para contas, transações, orçamentos, metas e configurações.
 
-![Diagrama de Fluxo](img/diagramafluxo2.jpg)
+<img src="img/diagramafluxo2.jpg" alt="Diagrama de Fluxo" style="max-width: 100%; height: auto;">
 
 ## Wireframes Web
 
-As telas web foram prototipadas no Figma com foco em usabilidade e visualizacao clara dos dados financeiros. Abaixo os principais wireframes:
+As telas Web foram prototipadas no Figma com foco em usabilidade e visualização clara dos dados financeiros. Abaixo os principais wireframes:
 
-![Home](img/home.png)
-![Login](img/login.png)
-![Configuracoes](img/config.png)
-![Landing Page](img/landing.png)
-![Categorias](img/categor.png)
-![Home 1](img/home1.png)
-![Cadastro](img/cadastt.png)
+<img src="img/home.png" alt="Home" style="max-width: 100%; height: auto;">
+<img src="img/login.png" alt="Login" style="max-width: 100%; height: auto;">
+<img src="img/config.png" alt="Configuracoes" style="max-width: 100%; height: auto;">
+<img src="img/landing.png" alt="Landing Page" style="max-width: 100%; height: auto;">
+<img src="img/categor.png" alt="Categorias" style="max-width: 100%; height: auto;">
+<img src="img/home1.png" alt="Home 1" style="max-width: 100%; height: auto;">
+<img src="img/cadastt.png" alt="Cadastro" style="max-width: 100%; height: auto;">
 
 ## Wireframes Mobile
 
-A versao mobile segue a mesma identidade visual da web, adaptada para telas menores com navegacao por abas e gestos. Os prototipos mobile estao disponiveis no Figma.
+A versão Mobile segue a mesma identidade visual da Web, adaptada para telas menores com navegação por abas e gestos. Os protótipos mobile estão disponíveis no Figma.
 
 > **FIGMA SILVER**:
 > - [Veja nosso Wireframe no Figma completo](https://www.figma.com/design/npC61aU8dnzFzvTuCfxXfw/silver-wireframe?node-id=0-1&t=5IGyKrytdM2cGXC2-1)

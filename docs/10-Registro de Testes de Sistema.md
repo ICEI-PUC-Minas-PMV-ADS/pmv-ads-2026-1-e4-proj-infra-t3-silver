@@ -8,7 +8,7 @@
 | **Periodo** | Junho/2026 |
 | **Stack** | Laravel 12 / MongoDB / Livewire Flux / React Native Expo |
 | **Testes Automatizados (API)** | 69 cenarios · aprovados |
-| **Endpoint Base** | `http://127.0.0.1:8000/api` |
+| **Endpoint Base** | `https://silver-backed-deploy-main-fgsfuz.free.laravel.cloud/api` |
 
 ---
 
@@ -277,7 +277,7 @@
 ### Como rodar
 
 ```bash
-# Backend
+# Backend (necessita MongoDB configurado — executar no CI/CD ou servidor de deploy)
 cd src/backend
 php artisan test tests/Feature/Api/
 
