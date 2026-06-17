@@ -235,4 +235,4 @@ Métricas de Sucesso
 - 85% de precisão no reconhecimento de linguagem natural
 - 75% dos usuários reportam melhora no controle financeiro
 - 60% conseguem manter orçamento mensal consistente
-- Tempo médio de resposta 
+- Tempo medio de resposta inferior a 2 segundos para requisicoes da API

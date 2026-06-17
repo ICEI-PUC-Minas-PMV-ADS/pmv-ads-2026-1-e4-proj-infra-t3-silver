@@ -9,7 +9,7 @@ export default function HistoryScreen() {
   const orderedTransactions = [...mockTransactions].sort((a, b) => b.date.localeCompare(a.date));
 
   return (
-    <Screen title="Histórico" subtitle="Histórico mockado por data. Pode evoluir para filtros e sincronização incremental.">
+    <Screen title="Histórico" subtitle="Historico de transacoes organizado por data.">
       {orderedTransactions.map((transaction) => (
         <ListItem
           key={transaction.id}

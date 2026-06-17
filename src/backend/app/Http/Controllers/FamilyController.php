@@ -20,13 +20,13 @@ class FamilyController extends Controller
     {
         $user = Auth::user();
         if (!$user->familyId) {
-            return response()->json(['message' => 'User not associated with any family.'], 404);
+            return response()->json(['message' => 'Usuario nao associado a nenhuma familia.'], 404);
         }
 
         $family = Family::with('users:_id,name,email')->find($user->familyId);
 
         if (!$family) {
-            return response()->json(['message' => 'Family not found.'], 404);
+            return response()->json(['message' => 'Familia nao encontrada.'], 404);
         }
 
         return response()->json($family);
@@ -64,7 +64,7 @@ class FamilyController extends Controller
         $oldFamilyId = $user->familyId;
 
         if ($oldFamilyId === $newFamily->_id) {
-            return response()->json(['message' => 'You are already in this family.'], 400);
+            return response()->json(['message' => 'Voce ja esta nesta familia.'], 400);
         }
 
         // Merge de Histórico: Update familyId for all records belonging to the user's old family
@@ -87,7 +87,7 @@ class FamilyController extends Controller
         }
 
         return response()->json([
-            'message' => 'Joined family successfully and merged history.',
+            'message' => 'Voce entrou na familia e o historico foi mesclado.',
             'family' => Family::with('users:_id,name,email')->find($newFamily->_id),
         ]);
     }

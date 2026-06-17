@@ -732,7 +732,7 @@
                     <h2 style="margin: 0 0 8px; font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;">Silver conecta rotina, clareza e decisao.</h2>
                     <p>
                         A pagina inicial agora apresenta o produto como plataforma de controle financeiro domestico distribuida, e nao mais
-                        como placeholder de sprint.
+                        como prototipo inicial.
                     </p>
                 </div>
 

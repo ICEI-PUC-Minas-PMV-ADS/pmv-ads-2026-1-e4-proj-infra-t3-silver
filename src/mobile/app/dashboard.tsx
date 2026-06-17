@@ -25,7 +25,7 @@ export default function DashboardScreen() {
   }, []);
 
   return (
-    <Screen title={`Olá, ${user.name}`} subtitle="Resumo financeiro mockado para a primeira entrega mobile.">
+    <Screen title={`Olá, ${user.name}`} subtitle="Resumo financeiro para o controle das suas financas.">
       <View style={styles.grid}>
         <InfoCard title="Saldo consolidado" value={formatCurrency(totalBalance)} tone={totalBalance >= 0 ? 'success' : 'danger'} />
         <InfoCard title="Entradas do mês" value={formatCurrency(monthlyIncome)} tone="success" />

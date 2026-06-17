@@ -2,7 +2,18 @@
 
 <span style="color:red">Pré-requisitos: <a href="2-Especificação do Projeto.md"> Especificação do Projeto</a></span>, <a href="3-Projeto de Interface.md"> Projeto de Interface</a>, <a href="4-Metodologia.md"> Metodologia</a>
 
-Layout padrão das aplicações web e mobile que serão utilizadas em todas as páginas com a definição de identidade visual, aspectos de responsividade e iconografia.
+Layout padrao das aplicacoes web e mobile que serao utilizadas em todas as paginas com a definicao de identidade visual, aspectos de responsividade e iconografia.
+
+## Identidade Visual
+
+- **Paleta de Cores**: Fundo neutro (#F4EFE7), verde institucional (#1B7F73), dourado de destaque (#F0B548)
+- **Tipografia**: Space Grotesk (titulos), Manrope (corpo de texto)
+- **Iconografia**: Conjunto de icones do Flux UI, consistentes entre web e mobile
+- **Responsividade**: Layout adaptativo com breakpoints em 840px e 1080px
+
+## Layout Web (Laravel + Flux UI)
+
+O dashboard web segue o padrao de sidebar a esquerda com navegacao principal (Painel, Contas, Orcamentos, Transacoes, Metas, Configuracoes) e header superior com busca e menu do usuario.
 
 |Web|
 
@@ -14,6 +25,10 @@ Layout padrão das aplicações web e mobile que serão utilizadas em todas as p
 |![categor](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2026-1-e4-proj-infra-t3-silver/blob/main/docs/img/categor.png?raw=true)|
 |![cadastt](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2026-1-e4-proj-infra-t3-silver/blob/main/docs/img/cadastt.png?raw=true)|
 
+## Layout Mobile (React Native / Expo)
+
+A versao mobile utiliza navegacao por abas inferiores com as secoes: Dashboard, Transacoes, Contas, Metas e Perfil. O tema segue o sistema operacional do dispositivo (claro/escuro) com consistencia de cores e espacamento.
+
 |Mobile|
 
 |![Mobile-1](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2026-1-e4-proj-infra-t3-silver/blob/main/docs/img/Mobile-1.png?raw=true)|
@@ -21,10 +36,3 @@ Layout padrão das aplicações web e mobile que serão utilizadas em todas as p
 |![Mobile-3](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2026-1-e4-proj-infra-t3-silver/blob/main/docs/img/Mobile-3.png?raw=true)|
 |![Mobile-4](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2026-1-e4-proj-infra-t3-silver/blob/main/docs/img/Mobile-4.png?raw=true)|
 |![Mobile-5](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2026-1-e4-proj-infra-t3-silver/blob/main/docs/img/Mobile-5.png?raw=true)|
-
-> **Links Úteis**:
->
-> - [CSS Website Layout (W3Schools)](https://www.w3schools.com/css/css_website_layout.asp)
-> - [Website Page Layouts](http://www.cellbiol.com/bioinformatics_web_development/chapter-3-your-first-web-page-learning-html-and-css/website-page-layouts/)
-> - [Perfect Liquid Layout](https://matthewjamestaylor.com/perfect-liquid-layouts)
-> - [How and Why Icons Improve Your Web Design](https://usabilla.com/blog/how-and-why-icons-improve-you-web-design/)

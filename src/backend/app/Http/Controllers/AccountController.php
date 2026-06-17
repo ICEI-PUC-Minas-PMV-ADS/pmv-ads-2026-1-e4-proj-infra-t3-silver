@@ -81,6 +81,6 @@ class AccountController extends Controller
         $account = Account::where('familyId', $user->familyId)->findOrFail($id);
         $account->delete();
 
-        return response()->json(['message' => 'Account deleted successfully']);
+        return response()->json(['message' => 'Conta excluida com sucesso']);
     }
 }

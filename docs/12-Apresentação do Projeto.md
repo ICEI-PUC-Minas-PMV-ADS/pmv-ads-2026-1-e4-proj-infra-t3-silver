@@ -15,12 +15,22 @@ Conjunto de slides em um arquivo PowerPoint ou PDF com a apresentação do proje
 
 ## Identidade Visual (Marca, Design)
 
-O grupo deve ter o cuidado em utilizar figuras, imagens, e cores dentro do contexto da solução proposta, de forma a manter a temática do problema.
+A identidade visual do Silver utiliza uma paleta de cores que transmite confianca e solidez financeira:
+- **Verde institucional** (#1B7F73): remete a crescimento, estabilidade e saude financeira
+- **Fundo neutro** (#F4EFE7): tons terrosos claros que transmitem aconchego e acessibilidade
+- **Detalhe em dourado** (#F0B548): destaca acoes importantes e CTAs
+- **Tipografia**: Space Grotesk (titulos) e Manrope (corpo), combinando modernidade e legibilidade
 
-> **Links Úteis**:
-> - [10 dicas de design para slides](https://rockcontent.com/blog/design-para-slides/)
-> - [7 dicas de design para criar apresentações de PowerPoint incríveis e eficientes](https://www.shutterstock.com/pt/blog/7-dicas-de-design-para-criar-apresentacoes-de-powerpoint-incriveis-e-eficientes)
-> - [Especialista do TED dá 10 dicas para criar slides eficazes e bonitos](https://soap.com.br/blog/especialista-do-ted-da-10-dicas-para-criar-slides-eficazes-e-bonitos)
+## Equipe do Projeto
+
+| Membro | Funcao |
+|--------|--------|
+| Adrian Sodre da Silva | Desenvolvimento Backend e Testes |
+| Aecio Ribeiro Dantas Neto | Scrum Master, Documentacao |
+| Nathan David Reis | Product Owner, Modelagem de Dados |
+| Victor da Silva Folgado | Design de Interface, Documentacao |
+| Vinicius Soares Pires e Luz | Desenvolvimento Mobile |
+| Yago Lopes Miranda | Desenvolvimento Full Stack |
 
 ## Conjunto de Slides (Estrutura)
 
@@ -39,4 +49,4 @@ CLIQUE NA IMAGEM ABAIXO PARA VER O VÍDEO:
 
 </div>
 
-> # Arquivo de Avaliações Individuais: As avaliações individuais de cada membro (frameworks, participação, análise crítica e melhorias) estão no arquivo 'caminho do arquivo'.
+> *As avaliacoes individuais de cada membro constam no documento de Registro de Contribuicao.*

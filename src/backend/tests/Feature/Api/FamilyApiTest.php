@@ -56,7 +56,7 @@ test('RF03 - usuario pode entrar em outra familia', function () {
     ]);
 
     $response->assertOk()
-        ->assertJsonFragment(['message' => 'Joined family successfully and merged history.']);
+        ->assertJsonFragment(['message' => 'Voce entrou na familia e o historico foi mesclado.']);
 
     $this->user->refresh();
     expect($this->user->familyId)->toBe($outraFamilia->id);

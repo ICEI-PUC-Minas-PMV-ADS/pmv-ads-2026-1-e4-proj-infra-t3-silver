@@ -8,7 +8,7 @@ export default function GoalsScreen() {
   const { colors } = useTheme();
 
   return (
-    <Screen title="Metas" subtitle="Acompanhamento mockado das metas familiares. Integração futura: GET /api/goals.">
+    <Screen title="Metas" subtitle="Acompanhamento das metas financeiras da familia.">
       {mockGoals.map((goal) => {
         const progress = goal.currentAmount / goal.targetAmount;
 

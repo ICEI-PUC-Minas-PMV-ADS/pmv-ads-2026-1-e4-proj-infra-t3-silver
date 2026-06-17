@@ -2,7 +2,7 @@
 
 <span style="color:red">Pré-requisitos: <a href="2-Especificação do Projeto.md"> Documentação de Especificação</a></span>
 
-Descreva aqui a metodologia de trabalho do grupo para atacar o problema. Definições sobre os ambientes de trabalho utilizados pela equipe para desenvolver o projeto. Abrange a relação de ambientes utilizados, a estrutura para gestão do código fonte, além da definição do processo e ferramenta através dos quais a equipe se organiza (Gestão de Times).
+A equipe adota metodologias ageis, com base no Scrum, para organizar o desenvolvimento do projeto. Abaixo estao definidos os ambientes de trabalho, a estrutura de gestao do codigo fonte e o processo de organizacao da equipe.
 
 ## Relação de Ambientes de Trabalho
 
@@ -13,9 +13,9 @@ Os artefatos do projeto são desenvolvidos a partir de diversas plataformas e a 
 | Repositório de Código | GitHub | [GitHub - Silver](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2026-1-e4-proj-infra-t3-silver) |
 | Backend (API Laravel) | Render | [API Silver (Hospedagem)](https://silver-api.onrender.com) |
 | Banco de Dados NoSQL | MongoDB Atlas | [Cluster MongoDB M0](https://cloud.mongodb.com) |
-| Gestão de Projeto | GitHub Projects | [Quadro Kanban Silver](https://github.com/orgs/ICEI-PUC-Minas-PMV-ADS/projects/...) |
+| Gestão de Projeto | GitHub Projects | [Quadro Kanban Silver](https://github.com/orgs/ICEI-PUC-Minas-PMV-ADS/projects/11) |
 | Documentação / Wiki | GitHub Docs | [Docs Silver](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2026-1-e4-proj-infra-t3-silver/tree/main/docs) |
-| Protótipo de Interface | Figma | [Figma Silver UI/UX](https://www.figma.com/...) |
+| Protótipo de Interface | Figma | [Figma Silver UI/UX](https://www.figma.com/design/npC61aU8dnzFzvTuCfxXfw/silver-wireframe) |
 
 ## Controle de Versão
 

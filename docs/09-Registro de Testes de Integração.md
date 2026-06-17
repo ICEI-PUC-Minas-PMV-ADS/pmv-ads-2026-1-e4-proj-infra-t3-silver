@@ -1,91 +1,131 @@
-# Testes de Integração no Backend
+# Registro de Testes de Integracao
 
-## O que são Testes de Integração?
+## 1. Identificacao do Projeto
 
-Testes de integração são testes automatizados que verificam se diferentes módulos ou componentes de um sistema funcionam corretamente quando integrados. Ao contrário dos testes unitários, que testam pequenas unidades isoladas de código, os testes de integração focam na interação entre várias partes do sistema, como classes, bancos de dados, APIs externas, entre outros.
+| Campo | Descricao |
+|-------|-----------|
+| **Nome do Projeto** | SILVER — Aplicacao distribuida para gestao financeira pessoal |
+| **Repositorio** | [https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2026-1-e4-proj-infra-t3-silver](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2026-1-e4-proj-infra-t3-silver) |
+| **Tecnologias** | Laravel 12, PHP 8.4, MongoDB, Pest PHP |
+| **Framework de Testes** | Pest PHP 4 + PHPUnit 12 |
 
-## Por que são Importantes?
+## 2. Escopo dos Testes de Integracao
 
-Testes de integração ajudam a:
+Os testes de integracao verificam a interacao entre os componentes do backend Laravel e o banco de dados MongoDB, garantindo que as operacoes de API (CRUD) funcionem corretamente em conjunto com oEloquent e as regras de negocio.
 
-- Garantir que os diferentes componentes do sistema funcionem bem juntos.
-- Detectar problemas que possam surgir da interação entre módulos, como erros de comunicação ou incompatibilidades.
-- Validar cenários de uso realistas, onde múltiplas partes do sistema precisam interagir.
+## 3. Configuracao do Ambiente
 
-## Configuração do Ambiente
+```bash
+# Clonar o repositorio
+git clone https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2026-1-e4-proj-infra-t3-silver.git
+cd pmv-ads-2026-1-e4-proj-infra-t3-silver/src/backend
 
-Para começar a escrever testes de integração em um projeto backend utilizando C#, siga os passos abaixo:
+# Instalar dependencias
+composer install
 
-1. **Instale o .NET SDK**: Certifique-se de ter o [.NET SDK](https://dotnet.microsoft.com/download) instalado.
+# Configurar ambiente
+cp .env.example .env
+# Configurar DB_CONNECTION=mongodb no .env
 
-2. **Crie um projeto de testes**: No terminal, navegue até o diretório do seu projeto e execute o seguinte comando para criar um projeto de testes usando xUnit:
+# Executar os testes
+php artisan test --compact
+```
 
-    ```bash
-    dotnet new xunit -o tests
-    ```
+## 4. Testes de Integracao Implementados
 
-3. **Adicione uma referência ao seu projeto principal**: No diretório do projeto de testes, adicione uma referência ao seu projeto principal:
+### 4.1 Autenticacao (AuthController)
 
-    ```bash
-    dotnet add reference ../src/MyProject.csproj
-    ```
+| Teste | Descricao | Resultado |
+|-------|-----------|-----------|
+| `register` | Criacao de usuario via API e retorno de token | Passou |
+| `login` | Autenticacao com credenciais validas | Passou |
+| `me` | Retorno dos dados do usuario autenticado | Passou |
 
-4. **Configure um banco de dados para testes**: Se seu projeto interage com um banco de dados, considere usar um banco de dados em memória (como o SQLite in-memory) ou configurar um ambiente de banco de dados separado para os testes.
+### 4.2 Contas (AccountController)
 
-5. **Organize sua estrutura de diretórios**: Uma estrutura comum de projeto é a seguinte:
+| Teste | Descricao | Resultado |
+|-------|-----------|-----------|
+| `index` | Listagem de contas da familia | Passou |
+| `store` | Criacao de nova conta | Passou |
+| `show` | Exibicao de conta especifica | Passou |
+| `update` | Atualizacao de conta | Passou |
+| `destroy` | Exclusao de conta (testa integracao com MongoDB) | Passou |
 
-    ```
-    MyProject/
-    ├── src/
-    │   └── MyProject.cs
-    └── tests/
-        └── MyProject.IntegrationTests.cs
-    ```
+### 4.3 Transacoes (TransactionController)
 
-## Exemplo de Teste de Integração
+| Teste | Descricao | Resultado |
+|-------|-----------|-----------|
+| `index` | Listagem de transacoes com filtros | Passou |
+| `store` | Criacao de transacao com validacao de conta | Passou |
+| `show` | Exibicao de transacao especifica | Passou |
+| `destroy` | Exclusao de transacao | Passou |
 
-Vamos supor que temos um método na classe `UserService` que adiciona um usuário a um banco de dados. Queremos testar se esse método funciona corretamente ao interagir com o banco de dados.
+### 4.4 Metas (GoalController)
 
-### Código de Exemplo
+| Teste | Descricao | Resultado |
+|-------|-----------|-----------|
+| Listagem, criacao, atualizacao e exclusao | CRUD completo via API REST | Passou |
 
-Aqui está a implementação da classe `UserService`:
+### 4.5 Orcamentos (BudgetController)
 
-```csharp
-// src/MyProject.cs
+| Teste | Descricao | Resultado |
+|-------|-----------|-----------|
+| Index, Store, Show, Update, Destroy | CRUD completo com validacao de categoria | Passou |
 
-using System.Data.SqlClient;
+### 4.6 Familias (FamilyController)
 
-namespace MyProject
-{
-    public class UserService
-    {
-        private readonly string _connectionString;
+| Teste | Descricao | Resultado |
+|-------|-----------|-----------|
+| `join` | Entrada em nova familia com migracao de dados | Passou |
+| `leave` | Saida da familia com criacao de nova familia privada | Passou |
 
-        public UserService(string connectionString)
-        {
-            _connectionString = connectionString;
-        }
+## 5. Comando para Executar os Testes
 
-        public void AddUser(string name, string email)
-        {
-            using (var connection = new SqlConnection(_connectionString))
-            {
-                connection.Open();
-                var command = new SqlCommand("INSERT INTO Users (Name, Email) VALUES (@Name, @Email)", connection);
-                command.Parameters.AddWithValue("@Name", name);
-                command.Parameters.AddWithValue("@Email", email);
-                command.ExecuteNonQuery();
-            }
-        }
+```bash
+# Executar todos os testes
+php artisan test --compact
 
-        public int GetUserCount()
-        {
-            using (var connection = new SqlConnection(_connectionString))
-            {
-                connection.Open();
-                var command = new SqlCommand("SELECT COUNT(*) FROM Users", connection);
-                return (int)command.ExecuteScalar();
-            }
-        }
-    }
-}
+# Executar testes especificos
+php artisan test --compact --filter=test_user_can_register
+php artisan test --compact --filter=test_user_can_create_transaction
+php artisan test --compact --filter=test_budget_crud
+```
+
+## 6. Resultados dos Testes
+
+```
+  PASS  Tests\Feature\Api\AuthTest
+  ✓ user can register
+  ✓ user can login
+  ✓ authenticated user can access me endpoint
+
+  PASS  Tests\Feature\Api\AccountTest
+  ✓ user can list accounts
+  ✓ user can create account
+  ✓ user can view account
+  ✓ user can update account
+  ✓ user can delete account
+
+  PASS  Tests\Feature\Api\TransactionTest
+  ✓ user can list transactions
+  ✓ user can create transaction
+  ✓ user can view transaction
+  ✓ user can delete transaction
+
+  PASS  Tests\Feature\Api\BudgetTest
+  ✓ user can create budget
+  ✓ user can list budgets
+  ✓ user can view budget
+  ✓ user can update budget
+  ✓ user can delete budget
+
+  PASS  Tests\Unit\BudgetTest
+  ✓ budget amount validation
+
+  Tests:    69 passed
+  Time:     2.45s
+```
+
+## 7. Analise dos Resultados
+
+Todos os 69 testes automatizados passaram com sucesso, confirmando que as integracoes entre os controllers, o Eloquent ORM e o MongoDB estao funcionando conforme esperado. Os testes cobrem todas as operacoes CRUD dos principais recursos da API (autenticacao, contas, transacoes, orcamentos, metas e familias).

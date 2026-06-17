@@ -5,32 +5,27 @@
 
 Visão geral da interação do usuário pelas telas do sistema e protótipo interativo das telas com as funcionalidades que fazem parte do sistema (wireframes), tanto da versão web como para a versão mobile.
 
- Apresente as principais interfaces da plataforma. Discuta como ela foi elaborada de forma a atender os requisitos funcionais, não funcionais e histórias de usuário abordadas na <a href="2-Especificação do Projeto.md"> Documentação de Especificação</a>.
+## Fluxo de Navegação
 
-## Diagrama de Fluxo
+O fluxo de interacao do usuario com o Silver foi planejado para minimizar a friccao no registro financeiro. O usuario chega na landing page, cria sua conta ou faz login, e acessa o dashboard com visao consolidada de saldo, receitas e despesas do mes. A partir do dashboard, pode navegar para contas, transacoes, orcamentos, metas e configuracoes.
 
-O diagrama apresenta o estudo do fluxo de interação do usuário com o sistema interativo e muitas vezes sem a necessidade do desenho do design das telas da interface. Isso permite que o design das interações seja bem planejado e gere impacto na qualidade no design do wireframe interativo que será desenvolvido logo em seguida.
+![Diagrama de Fluxo](img/diagramafluxo2.jpg)
 
-O diagrama de fluxo pode ser desenvolvido com “boxes” que possuem internamente a indicação dos principais elementos de interface - tais como menus e acessos - e funcionalidades, tais como editar, pesquisar, filtrar, configurar - e a conexão entre esses boxes a partir do processo de interação. Você pode ver mais explicações e exemplos https://www.lucidchart.com/blog/how-to-make-a-user-flow-diagram.
+## Wireframes Web
 
-![Exemplo de Diagrama de Fluxo](img/diagramafluxo2.jpg)
+As telas web foram prototipadas no Figma com foco em usabilidade e visualizacao clara dos dados financeiros. Abaixo os principais wireframes:
 
-As referências abaixo irão auxiliá-lo na geração do artefato “Diagramas de Fluxo”.
+![Home](img/home.png)
+![Login](img/login.png)
+![Configuracoes](img/config.png)
+![Landing Page](img/landing.png)
+![Categorias](img/categor.png)
+![Home 1](img/home1.png)
+![Cadastro](img/cadastt.png)
 
-> **Links Úteis**:
-> - [Fluxograma online: seis sites para fazer gráfico sem instalar nada | Produtividade | TechTudo](https://www.techtudo.com.br/listas/2019/03/fluxograma-online-seis-sites-para-fazer-grafico-sem-instalar-nada.ghtml)
+## Wireframes Mobile
 
-## Wireframes
+A versao mobile segue a mesma identidade visual da web, adaptada para telas menores com navegacao por abas e gestos. Os prototipos mobile estao disponiveis no Figma.
 
-![Exemplo de Wireframe](img/home.png)
-![Exemplo de Wireframe](img/login.png)
-![Exemplo de Wireframe](img/config.png)
-![Exemplo de Wireframe](img/landing.png)
-![Exemplo de Wireframe](img/categor.png)
-![Exemplo de Wireframe](img/home1.png)
-![Exemplo de Wireframe](img/cadastt.png)
-
-São protótipos usados em design de interface para sugerir a estrutura de um site web e seu relacionamentos entre suas páginas. Um wireframe web é uma ilustração semelhante do layout de elementos fundamentais na interface.
- 
 > **FIGMA SILVER**:
 > - [Veja nosso Wireframe no Figma completo](https://www.figma.com/design/npC61aU8dnzFzvTuCfxXfw/silver-wireframe?node-id=0-1&t=5IGyKrytdM2cGXC2-1)

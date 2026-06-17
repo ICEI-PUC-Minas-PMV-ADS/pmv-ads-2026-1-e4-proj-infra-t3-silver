@@ -73,7 +73,7 @@ export default function FamilyScreen() {
     try {
       await leaveFamily();
       Alert.alert('Pronto', 'Você saiu da família. Uma nova família privada foi criada.', [
-        { text: 'OK', onPress: () => router.replace('/dashboard') },
+        { text: 'Fechar', onPress: () => router.replace('/dashboard') },
       ]);
     } catch (err) {
       Alert.alert('Erro', getApiErrorMessage(err));
@@ -89,7 +89,7 @@ export default function FamilyScreen() {
       await joinFamily(joinId.trim());
       setJoinId('');
       Alert.alert('Sucesso', 'Você entrou na nova família! Os dados foram migrados.', [
-        { text: 'OK', onPress: () => router.replace('/dashboard') },
+        { text: 'Fechar', onPress: () => router.replace('/dashboard') },
       ]);
     } catch (err) {
       setJoinError(getApiErrorMessage(err));
