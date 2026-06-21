@@ -259,7 +259,9 @@ Este documento apresenta um resumo das atividades realizadas em cada etapa do pr
 ### 👨‍💻 Contribuições Individuais
 
 #### Adrian Sodré da Silva
-- _Preencher_
+- Apresentação final do projeto 
+- Registro de testes
+- Ajuste no project
 
 #### Aécio Ribeiro Dantas Neto
 - _Preencher_
