@@ -1,3 +1,4 @@
+[Considerações finais - avaliacoes individuais.docx](https://github.com/user-attachments/files/29176605/Consideracoes.finais.-.avaliacoes.individuais.docx)
 # Apresentação
 
 > **Pré-requisitos:** Todos os demais artefatos
@@ -52,3 +53,4 @@ CLIQUE NA IMAGEM ABAIXO PARA VER O VÍDEO:
 </div>
 
 > *As contribuicoes individuais de cada membro constam no documento de [Registro de Contribuicao](11-Registro%20de%20Contribui%C3%A7%C3%A3o.md).*
+> 
