@@ -1,12 +1,13 @@
-[Considerações finais - avaliacoes individuais.docx](https://github.com/user-attachments/files/29176605/Consideracoes.finais.-.avaliacoes.individuais.docx)
+# 📄 Considerações Finais — Avaliações Individuais
+
+Documento com as considerações finais do projeto e a avaliação individual de cada membro da equipe:
+
+- **[Considerações finais - avaliacoes individuais.pdf](./img/kanbanimgs/Consideracoes.finais.-.avaliacoes.individuais.pdf)** — Versão PDF
+- **[Considerações finais - avaliacoes individuais.docx](https://github.com/user-attachments/files/29176605/Consideracoes.finais.-.avaliacoes.individuais.docx)** — Versão DOCX
+
+---
+
 # Apresentação
-
-> **Pré-requisitos:** Todos os demais artefatos
-
-Conjunto de slides em um arquivo PowerPoint ou PDF com a apresentação do projeto contemplando todos os itens trabalhados nos demais artefatos.
-
-> [!IMPORTANT]
-> **Entrega de Vídeo Obrigatória:** O grupo deve gravar um vídeo com a participação de todos os membros, abordando as atividades elaboradas por cada integrante (aprox. 1 minuto por membro). **Entregas sem vídeo receberão nota igual a 0 (zero).**
 
 ## Título do Projeto
 
@@ -26,31 +27,43 @@ A identidade visual do Silver utiliza uma paleta de cores que transmite confianc
 
 | Membro | Funcao |
 |--------|--------|
-| Adrian Sodre da Silva | Desenvolvimento Backend e Testes |
-| Aecio Ribeiro Dantas Neto | Scrum Master, Documentacao |
+| Adrian Sodre da Silva | Desenvolvimento Backend e Testes,dev |
+| Aecio Ribeiro Dantas Neto | Scrum Master, Documentacao, dev |
 | Nathan David Reis | Product Owner, Modelagem de Dados |
-| Victor da Silva Folgado | Design de Interface, Documentacao |
-| Vinicius Soares Pires e Luz | Desenvolvimento Mobile |
-| Yago Lopes Miranda | Desenvolvimento Full Stack |
+| Victor da Silva Folgado | Design de Interface, Documentacao, dev |
+| Vinicius Soares Pires e Luz | Desenvolvimento Mobile e web|
+| Yago Lopes Miranda | Desenvolvimento Full Stack, dev |
 
-## Conjunto de Slides (Estrutura)
+## Slides da Apresentação
 
-# 🎞️ APRESENTAÇÃO DOS SLIDES
-
-# 👉 **[CLIQUE AQUI PARA ACESSAR A APRESENTAÇÃO](https://canva.link/silverapresgrupo3)**
-
-> Mais detalhes sobre os slides e vídeos por etapa no arquivo [`presentation/README.md`](../presentation/README.md).
-
-# 🎞️ APRESENTAÇÃO DO PITCH
-CLIQUE NA IMAGEM ABAIXO PARA VER O VÍDEO:
+A apresentação completa do projeto Silver está disponível no Canva:
 
 <div align="center">
-  
-[![Pitch de Vendas - Silver](img/yagothumb.jpeg)](https://youtu.be/wll2heqi7W0)
 
-*🎬 Pitch Silver · Gestão Financeira* · 2:45 min
+👉 **[ACESSAR APRESENTAÇÃO NO CANVA](https://canva.link/silverapresgrupo3)**
 
 </div>
 
-> *As contribuicoes individuais de cada membro constam no documento de [Registro de Contribuicao](11-Registro%20de%20Contribui%C3%A7%C3%A3o.md).*
-> 
+## Pitch de Vendas
+
+🎬 **Pitch Silver** · 4:30 min
+
+[![Pitch de Vendas - Silver](img/yagothumb.jpeg)](https://youtu.be/wll2heqi7W0)
+
+## Vídeos por Etapa
+
+| Etapa | Descrição | Link |
+|-------|-----------|------|
+| **Etapa 1** | Primeira entrega | [📹 Assistir](../videos/video-primeira-entrega.mov) |
+| **Etapa 2** | Segunda entrega | [📹 Assistir](../videos/video-segunda-entrega.mp4) |
+| **Etapa 3** | Demonstração | [📹 Assistir](https://www.youtube.com/watch?v=9LaAyllUSNs) |
+| **Etapa 4** | Demonstração | [📹 Assistir](https://www.youtube.com/watch?v=VXqXZXYeBZY) |
+| **Etapa 5** | Apresentação final | [📹 Assistir](https://youtu.be/wll2heqi7W0) |
+
+> Os slides e vídeos completos também estão disponíveis no arquivo [`presentation/README.md`](../presentation/README.md).
+
+---
+
+> [!NOTE]
+> As contribuições individuais de cada membro da equipe, incluindo o detalhamento das atividades realizadas por etapa, estão registradas no documento **[Registro de Contribuição](11-Registro%20de%20Contribui%C3%A7%C3%A3o.md)** — consulte-o para uma visão completa da participação de cada integrante ao longo de todo o projeto.
+
