@@ -275,7 +275,10 @@ Este documento apresenta um resumo das atividades realizadas em cada etapa do pr
 - Registro dos testes de sistema com prints de evidência.
 
 #### Vinícius Soares Pires e Luz
-- _Preencher_
+- Revisão e consolidação da documentação do projeto.
+- Apresentação final do projeto.
+- Registro dos testes de sistema com prints de evidência dos testes do crud de metas.
+- Envio do projeto em todas as etapas.
 
 #### Yago Lopes Miranda
 - Vídeo da apresentação final, sendo o Pitch de vendas do projeto Silver
