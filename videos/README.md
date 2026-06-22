@@ -1,3 +1,10 @@
-# Videos de acompanhamento/apresentação das etapas
+# Vídeos do Projeto Silver
 
-Faça um vídeo para cada etapa para demonstrar a participação de cada membro do grupo. Utilize esta pasta para salvar cada arquivo de vídeo ou a url de hospedagem.
+| Etapa | Descrição | Link |
+|-------|-----------|------|
+| **Etapa 1** | Primeira entrega | [📹 Assistir](./video-primeira-entrega.mov) |
+| **Etapa 2** | Segunda entrega | [📹 Assistir](./video-segunda-entrega.mp4) |
+| **Etapa 3** | Demonstração | [📹 Assistir](https://www.youtube.com/watch?v=9LaAyllUSNs) |
+| **Etapa 4** | Demonstração | [📹 Assistir](https://www.youtube.com/watch?v=VXqXZXYeBZY) |
+| **Etapa 5** | Quinta entrega | [📹 Assistir](./Video-quinta-entrega.mp4) |
+| ⭐ **Apresentação Final** | **Projeto completo** | *🎬 Em breve* |

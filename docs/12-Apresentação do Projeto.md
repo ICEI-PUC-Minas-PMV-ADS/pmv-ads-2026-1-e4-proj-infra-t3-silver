@@ -58,7 +58,7 @@ A apresentação completa do projeto Silver está disponível no Canva:
 | **Etapa 2** | Segunda entrega | [📹 Assistir](../videos/video-segunda-entrega.mp4) |
 | **Etapa 3** | Demonstração | [📹 Assistir](https://www.youtube.com/watch?v=9LaAyllUSNs) |
 | **Etapa 4** | Demonstração | [📹 Assistir](https://www.youtube.com/watch?v=VXqXZXYeBZY) |
-| **Etapa 5** | Vídeo individual de contribuições | *Em breve* |
+| **Etapa 5** | Vídeo individual de contribuições | [📹 Assistir](../videos/Video-quinta-entrega.mp4) |
 | ⭐ **Apresentação Final** | **Projeto completo — API + Web + Mobile** | *🎬 Em breve* |
 
 > Os slides e vídeos completos também estão disponíveis no arquivo [`presentation/README.md`](../presentation/README.md).
