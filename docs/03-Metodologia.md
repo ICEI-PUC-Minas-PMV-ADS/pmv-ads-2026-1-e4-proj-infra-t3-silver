@@ -1,6 +1,6 @@
 # Metodologia
 
-<span style="color:red">Pré-requisitos: <a href="2-Especificação do Projeto.md"> Documentação de Especificação</a></span>
+<span style="color:red">Pré-requisitos: <a href="02-Especificação do Projeto.md"> Documentação de Especificação</a></span>
 
 A equipe adota metodologias ageis, com base no Scrum, para organizar o desenvolvimento do projeto. Abaixo estao definidos os ambientes de trabalho, a estrutura de gestao do codigo fonte e o processo de organizacao da equipe.
 

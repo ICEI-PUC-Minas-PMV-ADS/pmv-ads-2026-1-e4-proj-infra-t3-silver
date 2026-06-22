@@ -19,4 +19,4 @@ A apresentacao completa do projeto Silver esta disponivel no Canva:
 - **Etapa 3**: [Video de demonstracao](https://www.youtube.com/watch?v=9LaAyllUSNs)
 - **Etapa 4**: [Video de demonstracao](https://www.youtube.com/watch?v=VXqXZXYeBZY)
 - **Etapa 5**: *[Espaco reservado para o video individual de contribuicoes — cada membro apresentando suas atividades]*
-- **Apresentacao Final**: *[Espaco reservado para o video da apresentacao final do projeto completo]*
+- ⭐ **Apresentacao Final**: *[Espaco reservado para o video da **apresentacao final do projeto completo** — a ser gravado por todos os membros]*
