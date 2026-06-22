@@ -62,8 +62,6 @@ Este documento apresenta um resumo das atividades realizadas em cada etapa do pr
 
 ---
 
-# =====================================================================
-
 # 📌 Etapa 2 - Desenvolvimento do Back-end e Web API
 
 ### Resumo
@@ -122,10 +120,6 @@ Este documento apresenta um resumo das atividades realizadas em cada etapa do pr
 - Contribuição no início do desenvolvimento
 - Produção e edição do vídeo da apresentação da etapa
 - Ajustes e revisão na documentação do projeto
----
-
-# =====================================================================
-
 # 📌 Etapa 3 - Desenvolvimento do Front-end Web
 
 ### Resumo
@@ -177,10 +171,6 @@ Este documento apresenta um resumo das atividades realizadas em cada etapa do pr
 #### Yago Lopes Miranda
 - Implementação do CRUD de categorias financeiras, com criação, edição, exclusão, e listagem
 - Organização das tarefas do grupo
-
----
-
-# =====================================================================
 
 # 📌 Etapa 4 - Desenvolvimento do Front-end Mobile
 
@@ -237,10 +227,6 @@ Este documento apresenta um resumo das atividades realizadas em cada etapa do pr
 - Implantação e updates no CRUD de categorias financeiras
 - Revisão e ajustes em funcionalidades já existentes
 
----
-
-# =====================================================================
-
 # 📌 Etapa 5 - Diagnóstico, Entrega da Solução e Apresentação
 
 ### Resumo
@@ -287,15 +273,11 @@ Este documento apresenta um resumo das atividades realizadas em cada etapa do pr
 - Apoio na revisão geral do documento e do projeto
 - Apoio na organização e finalização da entrega do projeto
 
----
-
-# =====================================================================
-
 # 📊 Kanban e Contribuições da Equipe
 
 ## Quadro Kanban
 
-> Inserir aqui os prints do quadro Kanban do GitHub Projects.
+Acompanhamento visual do progresso do projeto por meio do GitHub Projects.
 
 ### Print 1
 
@@ -309,15 +291,10 @@ Este documento apresenta um resumo das atividades realizadas em cada etapa do pr
 
 ## Histórico de Contribuições
 
-> Inserir aqui os prints das contribuições dos integrantes no GitHub.
+Confira abaixo as contribuições dos integrantes ao longo do projeto e acesse o repositório para ver o histórico completo de commits:
 
-### Contribuições da Equipe
+🔗 [**Ver histórico de commits no GitHub**](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2026-1-e4-proj-infra-t3-silver/commits/main)
 
-<img src="./assets/contribuicoes.png" alt="Contribuições" style="max-width: 100%; height: auto;">
-
----
-
-# =====================================================================
 
 # ✅ Projeto Finalizado
 
