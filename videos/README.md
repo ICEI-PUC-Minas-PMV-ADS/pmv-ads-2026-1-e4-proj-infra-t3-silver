@@ -7,4 +7,4 @@
 | **Etapa 3** | Demonstração | [📹 Assistir](https://www.youtube.com/watch?v=9LaAyllUSNs) |
 | **Etapa 4** | Demonstração | [📹 Assistir](https://www.youtube.com/watch?v=VXqXZXYeBZY) |
 | **Etapa 5** | Quinta entrega | [📹 Assistir](./Video-quinta-entrega.mp4) |
-| ⭐ **Apresentação Final** | **Projeto completo** | *🎬 Em breve* |
+| ⭐ **Apresentação Final** | **Projeto completo** | *🎬 Link do YouTube em breve* |
