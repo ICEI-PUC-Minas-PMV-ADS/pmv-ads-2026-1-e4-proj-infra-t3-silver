@@ -226,6 +226,8 @@ Contribuição para os ODS
 - ODS 8: educação financeira integrada usando tecnologia nativa e conversacional
 - ODS 10: democratização via *app* nativo profissional + *WhatsApp* familiar
 
+<img src="./img/ods-quadro.png" alt="ODS - Objetivos de Desenvolvimento Sustentável" style="max-width: 100%; height: auto;">
+
 Métricas de Sucesso
 - 500+ usuários ativos nos primeiros 6 meses
 - 85% de precisão no reconhecimento de linguagem natural
