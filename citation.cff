@@ -1,29 +1,25 @@
-message: Please cite this software using these metadata.
-title:
+message: Plataforma distribuída para controle financeiro pessoal e familiar, composta por uma API REST em Laravel, um Dashboard Web e um aplicativo Mobile, permitindo o gerenciamento integrado das finanças dos usuários.
+title: SILVER
 authors:
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
+  - family-names: Sodre da Silva
+    given-names: Adrian
+  - family-names: Ribeiro Dantas Neto
+    given-names: Aecio
+  - family-names: David Reis
+    given-names: Nathan
+  - family-names: da Silva Folgado
+    given-names: Victor
+  - family-names: Soares Pires e Luz
+    given-names: Vinicius
+  - family-names: Lopes Miranda
+    given-names: Yago
   - name-suffix: Professor
     affiliation: PUC Minas
-    family-names: 
-    given-names: 
-  - name-suffix: Professor
-    affiliation: PUC Minas
-    family-names: 
-    given-names: 
+    family-names: Jerônimo de Almeida
+    given-names: Carolina Stephanie
 keywords:
-  - 
-  - 
-repository-code: 
+  - controle financeiro
+  - finanças pessoais
+repository-code: https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2026-1-e4-proj-infra-t3-silver
 version: 1.0.0
-date-released: 2023-10-31
+date-released: 2026-07-01
